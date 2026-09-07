@@ -653,7 +653,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sent Requests"
+            "value" : "Sent a request"
           }
         }
       }
@@ -4756,7 +4756,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Big Gambler"
+            "value" : "Gambler"
           }
         }
       }

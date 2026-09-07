@@ -208,7 +208,7 @@ struct GameWidget: Widget {
         }
         .configurationDisplayName(String(localized:"game.widgetTitle"))
         .description(String(localized:"game.widgetDescription"))
-        .supportedFamilies([.systemMedium, .systemLarge])
+        .supportedFamilies([.systemMedium, .systemLarge, .systemExtraLarge])
     }
 }
 

@@ -30,7 +30,7 @@ struct PlayView: View {
     @State private var showDebugSheetView: Bool = false
     @State private var showGameOverSheet: Bool = false
     @State private var showOfflineAlert: Bool = false
-    @State private var selectedTab: Int = 0
+    @State private var selectedTab: Int = 1
     @State private var showPlayers: Bool = true
     @State private var showFriends: Bool = true
     @State private var revanche: Bool = false
@@ -411,7 +411,7 @@ struct PlayView: View {
                                     }
                                 }label:{
                                     Image(systemName:"person.badge.plus")
-                                    Text(String(localized: "play.sendFriends"))
+                                    Text(String(localized: "play.sendFriend"))
                                 }.disabled(p1.id == userId)
                             }
                         }
@@ -509,7 +509,7 @@ struct PlayView: View {
                                     }
                                 }label:{
                                     Image(systemName:"person.badge.plus")
-                                    Text(String(localized: "play.sendFriends"))
+                                    Text(String(localized: "play.sendFriend"))
                                 }.disabled(p2.id == userId)
                             }
                         }

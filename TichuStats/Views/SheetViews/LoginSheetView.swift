@@ -70,8 +70,12 @@ struct LoginSheetView: View{
                 } else {
                     if network.isOnline && socket.connected {
                         if alreadyExistsId == nil{
-                            NavigationLink {
-                                //HERE
+                            Button {
+                                Task{
+                                    if let id = await network.addProfile(email: userEmail, name: chosenName){
+                                        _ = await network.login(userId: id)
+                                    }
+                                }
                             } label: {
                                 Image(systemName: "arrow.right.circle.fill")
                                     .font(.system(size: 24))

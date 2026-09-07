@@ -207,6 +207,7 @@ class NetworkService: ObservableObject {
             self.defaultAllowPingus = true
             self.sortByProfiles = .nameDown
             self.sortByStats = .valueDown
+            self.favDic = [:]
 
             let defaults = UserDefaults(suiteName: "group.com.drakynem.tichu")
             defaults?.removeObject(forKey: "userName")

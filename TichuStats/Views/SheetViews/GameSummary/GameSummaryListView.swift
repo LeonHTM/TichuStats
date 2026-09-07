@@ -318,7 +318,7 @@ struct GameSummaryListView: View {
                                         editingRoundIndex = index
                                         showAddRoundSheet = true
                                     } label: {
-                                        Label(String(localized:"general.delete"), systemImage: "pencil")
+                                        Label(String(localized:"general.edit"), systemImage: "pencil")
                                     }
                                     .tint(.accentColor)
                                 }
