@@ -2393,6 +2393,29 @@
         }
       }
     },
+    "login.differentEmail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Andere Email verwenden"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angeri Email bruchä"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User different Email"
+          }
+        }
+      }
+    },
     "login.getStarted" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2412,6 +2435,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Get Started"
+          }
+        }
+      }
+    },
+    "login.mail.enterValid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte gültige Email eingeben"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte gültigi Email igä"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter valid email"
+          }
+        }
+      }
+    },
+    "login.mail.incorrect" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falsche Email"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fauschi Email"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incorrect Email"
           }
         }
       }
@@ -2458,6 +2527,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Login with Passkey"
+          }
+        }
+      }
+    },
+    "login.resendEmail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email erneut senden"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email nomau schickä"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resend Email"
           }
         }
       }
@@ -3039,6 +3131,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "That took too long. Please try again."
+          }
+        }
+      }
+    },
+    "passKeyError.failed.signIn" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passkey Anmeldung fehlgeschlagen"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passkey amäudig fählgschlagä"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passkey Sign in Failed"
           }
         }
       }

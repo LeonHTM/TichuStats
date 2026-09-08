@@ -17,6 +17,8 @@
 	</array>
 	<key>DEV_API_URL</key>
 	<string>$(DEV_API_URL)</string>
+	<key>FRONT_URL</key>
+	<string>$(FRONT_URL)</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>INSendMessageIntent</string>

@@ -10,7 +10,11 @@ import SwiftUI
 struct LoginSheetView: View{
 
     @Binding var showLoginSheet:Bool
+    @Binding var showCodeView: Bool
     @Binding var signIn: Bool
+    @Binding var firstAppear: Bool
+    @Binding var userEmail: String
+    
     var chosenName: String = ""
 
     // MARK: - Storage
@@ -20,7 +24,7 @@ struct LoginSheetView: View{
 
 
     // MARK: - State
-    @State private var userEmail: String = ""
+    
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var isEmailFocused: Bool
     @State private var isChecking:Bool = false
@@ -29,15 +33,32 @@ struct LoginSheetView: View{
     @State private var isPasskeyLoading: Bool = false
     @State private var passkeyErrorMessage: String?
     @State private var showPasskeyError: Bool = false
+    @State private var mailNotExists: Bool = false
+    @State private var mailLegit: Bool = true
+      
+
+    private func isValidEmail(_ email: String) -> Bool {
+            let pattern = #"^[^\s@]+@[^\s@]+\.[^\s@]+$"#
+            return email.range(of: pattern, options: .regularExpression) != nil
+        }
+    
 
     // MARK: - Email Field
     private var emailField: some View {
         HStack {
-            Image(systemName: "envelope.fill")
-                .foregroundColor(.secondary)
-                .padding(.leading)
+            if !mailLegit || mailNotExists{
+                Image("envelope.exclamation").foregroundStyle(Color.red)
+                    .foregroundColor(.secondary)
+                    .padding(.leading)
+                    .offset(y:2)
+            }else{
+                Image(systemName: "envelope.fill")
+                    .foregroundColor(.secondary)
+                    .padding(.leading)
+            }
 
             TextField("\("me@tichuplayer.com")", text: $userEmail)
+                /*.foregroundStyle(!mailLegit || mailNotExists ? Color.red : .primary)*/
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled(true)
                 .keyboardType(.emailAddress)
@@ -45,6 +66,11 @@ struct LoginSheetView: View{
                 .focused($isEmailFocused)
                 .alert(isPresented:$showOfflineAlert){
                     OfflineView.offlineAlert()
+                }
+                .onAppear{
+                    if !firstAppear{
+                        isEmailFocused = true
+                    }
                 }
                 .onChange(of: userEmail) {
 
@@ -69,33 +95,38 @@ struct LoginSheetView: View{
                     ProgressView()
                 } else {
                     if network.isOnline && socket.connected {
-                        if alreadyExistsId == nil{
-                            Button {
-                                Task{
-                                    if let id = await network.addProfile(email: userEmail, name: chosenName){
-                                        _ = await network.login(userId: id)
+                        
+                        Button{
+                            withAnimation(.easeInOut){
+                                mailLegit = isValidEmail(userEmail)
+                            }
+                            if mailLegit{
+                                //If users does not sign up meaning he signs in
+                                if signIn{
+                                    //then the mail has to exist
+                                    if alreadyExistsId == nil{
+                                        withAnimation(.easeInOut){
+                                            mailNotExists = true
+                                        }
+                                    }else{
+                                        Task{
+                                            showCodeView = true
+                                            _ = await network.sendMail(mail: userEmail)
+                                        }
+                                    }
+                                }else{
+                                    Task{
+                                        showCodeView = true
+                                        _ = await network.sendMail(mail: userEmail)
                                     }
                                 }
-                            } label: {
-                                Image(systemName: "arrow.right.circle.fill")
-                                    .font(.system(size: 24))
-                                    .foregroundStyle(Color.accentColor)
                             }
-                            .simultaneousGesture(TapGesture().onEnded {
-                                isEmailFocused = false
-                            })
-                            .disabled(userEmail.isEmpty)
-                        }else{
-                            Button{
-                                Task{
-                                    await network.login(userId: alreadyExistsId!)
-                                }
+                            
 
-                            }label:{
-                                Image(systemName: "arrow.right.circle.fill")
-                                    .font(.system(size: 24))
-                                    .foregroundStyle(Color.accentColor)
-                            }
+                        }label:{
+                            Image(systemName: "arrow.right.circle.fill")
+                                .font(.system(size: 24))
+                                .foregroundStyle(Color.accentColor)
                         }
                     } else {
                         Button {
@@ -187,7 +218,8 @@ struct LoginSheetView: View{
                 
                 VStack {
                     Text("")
-                    emailField
+                    passKeySignInButton()
+                   
                     
                     HStack {
                         Spacer()
@@ -195,26 +227,94 @@ struct LoginSheetView: View{
                             .foregroundStyle(.secondary)
                         Spacer()
                     }
+                    emailField
+                    HStack{
+                        
+                        
+                        if !mailLegit{
+                            
+                            Text(String(localized:"login.mail.enterValid")).foregroundStyle(Color.red)
+                            
+                            
+                        }else if mailNotExists{
+
+                            Text(String(localized:"login.mail.incorrect")).foregroundStyle(Color.red)
+                                
+                            
+                            
+                        }else{
+                            Text(" ")
+                        }
+                        Spacer()
+                    }.padding(.leading,17)
                     
-                    passKeySignInButton()
+                    
                 }
+                
                 .padding(.horizontal)
                 .padding(.bottom, 30)
             }
-            .navigationTitle(signIn ? String(localized:"login.signIn") : String(localized:"login.signUp"))
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel", systemImage: "xmark") {
-                        showLoginSheet = false
-                    }
-                }
-            }
-            .alert("Passkey Sign In Failed", isPresented: $showPasskeyError, presenting: passkeyErrorMessage) { _ in
+            
+            .alert(String(localized:"passKeyError.failed.signIn"), isPresented: $showPasskeyError, presenting: passkeyErrorMessage) { _ in
                 Button("OK", role: .cancel) {}
             } message: { message in
                 Text(message)
             }
         }
+    }
+}
+
+
+struct CodeView: View {
+    @Binding var userEmail: String
+    @Binding var showCodeView: Bool
+    @Binding var showLoginSheet: Bool
+    @Binding var firstAppear: Bool
+    @Binding var userName: String
+    @State private var isLoading: Bool = false
+    @State private var code: String = ""
+    @State private var valid: Bool = false
+    @ObservedObject private var network = NetworkService.shared
+
+    var body: some View {
+        VStack {
+            VStack {
+                VerficationField(
+                    type: .six,
+                    style: .roundedBorder,
+                    value: $code
+                ) { result in
+                    guard result.count == 6 else { return .typing }
+
+                    isLoading = true
+                    let success = await network.verifyLoginCode(mail: userEmail, code: result, name: userName)
+                    isLoading = false
+
+                    return success ? .valid : .invalid
+                }
+            }
+            GlassEffectContainer{
+                VStack{
+                    Button{
+                        Task{
+                            _ = await network.sendMail(mail: userEmail)
+                        }
+                    }label: {
+                        Text(String(localized:"login.resendEmail")).frame(maxWidth: .infinity).padding(.horizontal)
+                    }.buttonStyle(GlassButtonStyle())
+                    Button{
+                        showCodeView = false
+                    }label:{
+                        Text(String(localized:"login.differentEmail")).padding(.horizontal).frame(maxWidth: .infinity)
+                    }.buttonStyle(GlassButtonStyle())
+                }.padding(.top,40).padding(.horizontal,85)
+                    .onAppear {
+                        firstAppear = false
+                    }
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+        
     }
 }

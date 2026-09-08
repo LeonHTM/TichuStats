@@ -116,6 +116,23 @@ class NetworkService: ObservableObject {
         return request
     }
     
+    // MARK: completeAuth centralizes the "I have a valid token+id" setup, called by every
+    // auth path (login, addProfile, verifyLoginCode, passkeys) so they stay consistent.
+    private func completeAuth(token: String, userId: Int) async {
+        await MainActor.run {
+            self.authToken = token
+            self.userId = userId
+            self.isLoading = true
+        }
+
+        await registerDevice(profileId: userId, deviceToken: pendingDeviceToken)
+        await NetworkService.shared.fetch()
+
+        await MainActor.run {
+            self.isLoading = false
+        }
+    }
+    
     // MARK: resetClientData used in Config to forcefully reconnect to other Server
     func resetClientData() {
         self.profiles = []
@@ -160,22 +177,91 @@ class NetworkService: ObservableObject {
             let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
             if let token = json?["token"] as? String,
                let userId = json?["id"] as? Int {
-                await MainActor.run {
-                    self.authToken = token
-                    self.userId = userId
-                }
-                Task {
-                    isLoading = true
-                    await registerDevice(profileId: userId, deviceToken: pendingDeviceToken)
-                    await NetworkService.shared.fetch()
-                    isLoading = false
-                }
+                await completeAuth(token: token, userId: userId)
                 return true
             }
         } catch {
             print("login error: \(error)")
         }
         return false
+    }
+    
+    
+    // MARK: sendMail used in LoginView to request a login code be sent to the given email
+    func sendMail(mail: String) async -> Bool {
+        guard let encoded = mail.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+              let url = URL(string: "\(apiURL)/login/request-code/\(encoded)") else { return false }
+
+        let request = appAuthorizedRequest(url: url, method: "POST")
+
+        do {
+            let (_, response) = try await URLSession.shared.data(for: request)
+            print("Sent mail: \(mail)")
+            return (response as? HTTPURLResponse)?.statusCode == 200
+        } catch {
+            print("sendMail error: \(error)")
+            return false
+        }
+    }
+
+    // MARK: verifyLoginCode used in LoginView after the user enters the code they received by email
+    // MARK: verifyLoginCode used in LoginView after the user enters the code they received by email
+    func verifyLoginCode(mail: String, code: String, name: String) async -> Bool {
+        guard
+            let encodedMail = mail.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+            let encodedCode = code.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+            let url = URL(string: "\(apiURL)/login/verify-code/\(encodedMail)/\(encodedCode)")
+        else {
+            return false
+        }
+
+        let request = appAuthorizedRequest(url: url, method: "POST")
+
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                return false
+            }
+
+            guard httpResponse.statusCode == 200 else {
+                print("verifyLoginCode status:", httpResponse.statusCode)
+                return false
+            }
+
+            guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                  let exists = json["exists"] as? Bool else {
+                print("Invalid response:", String(data: data, encoding: .utf8) ?? "")
+                return false
+            }
+
+            if exists {
+                guard
+                    let token = json["token"] as? String,
+                    let userId = json["id"] as? Int
+                else {
+                    print("Existing user response missing token/id")
+                    return false
+                }
+
+                await completeAuth(token: token, userId: userId)
+                return true
+
+            } else {
+                print("User does not exist, creating profile")
+
+                let newId = await self.addProfile(
+                    email: mail,
+                    name: name
+                )
+
+                return newId != nil
+            }
+
+        } catch {
+            print("verifyLoginCode error:", error)
+            return false
+        }
     }
 
     
@@ -255,8 +341,9 @@ class NetworkService: ObservableObject {
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
             let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-            if let token = json?["token"] as? String {
-                await MainActor.run { self.authToken = token }
+            if let token = json?["token"] as? String,
+               let id = json?["id"] as? Int {
+                await completeAuth(token: token, userId: id)
             }
             return json?["id"] as? Int
         } catch {
@@ -309,7 +396,8 @@ class NetworkService: ObservableObject {
             let request = appAuthorizedRequest(url: url)
             let (data, _) = try await URLSession.shared.data(for: request)
             let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-            return json?["id"] as? Int
+            let id = json?["id"] as? Int
+            return id 
         } catch {
             print("checkEmail error: \(error)")
             return nil

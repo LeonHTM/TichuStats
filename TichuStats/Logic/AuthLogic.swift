@@ -24,8 +24,8 @@ final class PasskeyManager: NSObject {
     static let shared = PasskeyManager()
 
     // RP_ID from Server
-    private let relyingPartyIdentifier = getURL(auth:true)
-    private var baseURL: URL = URL(string: getURL()) ?? URL(string: "https://0.0.0.0")!
+    private let relyingPartyIdentifier = getURL(auth:true,front:true)
+    private var baseURL: URL = URL(string:getURL(front:true)) ?? URL(string: "https://0.0.0.0")!
     private var continuation: CheckedContinuation<ASAuthorization, Error>?
     private var authController: ASAuthorizationController?
 

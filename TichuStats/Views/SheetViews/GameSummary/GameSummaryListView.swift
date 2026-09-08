@@ -392,7 +392,7 @@ struct GameSummaryListView: View {
                 }
             }
         }
-        .alert("Delete this Game?", isPresented: $showDeleteGameAlert) {
+        .alert(String(localized:"gameSummary.alert.delete.title"), isPresented: $showDeleteGameAlert) {
             Button(String(localized:"gamesummary.delete.alert.cancel"), role: .cancel) {
                 showDeleteGameAlert = false
                 showList = false
