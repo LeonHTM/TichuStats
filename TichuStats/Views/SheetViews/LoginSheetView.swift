@@ -7,24 +7,20 @@
 
 import SwiftUI
 
-struct LoginSheetView: View{
 
+
+struct LoginSheetView: View{
     @Binding var showLoginSheet:Bool
     @Binding var showCodeView: Bool
     @Binding var signIn: Bool
     @Binding var firstAppear: Bool
     @Binding var userEmail: String
-    
     var chosenName: String = ""
 
-    // MARK: - Storage
+    
+    // MARK: - State
     @StateObject private var socket = SocketService.shared
     @ObservedObject private var network = NetworkService.shared
-
-
-
-    // MARK: - State
-    
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var isEmailFocused: Bool
     @State private var isChecking:Bool = false
@@ -36,7 +32,7 @@ struct LoginSheetView: View{
     @State private var mailNotExists: Bool = false
     @State private var mailLegit: Bool = true
       
-
+    //MARK: Check if mail is valid: somthing@something.somthing
     private func isValidEmail(_ email: String) -> Bool {
             let pattern = #"^[^\s@]+@[^\s@]+\.[^\s@]+$"#
             return email.range(of: pattern, options: .regularExpression) != nil

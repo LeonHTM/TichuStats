@@ -375,18 +375,20 @@ struct NavigationButton<Destination: View>: View {
     let title: String
     let icon: String?
     let primary: Bool
+    @Binding var animation: Bool
     let destination: () -> Destination
-
 
     init(
         title: String,
         icon: String? = nil,
         primary: Bool = false,
+        animation: Binding<Bool> = .constant(true),   // ← default binding, not Bool
         @ViewBuilder destination: @escaping () -> Destination
     ) {
         self.title = title
         self.icon = icon
         self.primary = primary
+        self._animation = animation   // ← use _animation to assign the Binding
         self.destination = destination
     }
 
@@ -397,11 +399,13 @@ struct NavigationButton<Destination: View>: View {
             HStack {
                 Spacer()
 
-                if let icon {
-                    Image(systemName: icon)
+                HStack {
+                    if let icon {
+                        Image(systemName: icon)
+                    }
+                    Text(title)
                 }
-
-                Text(title)
+                .blurOpacityEffect(animation)
 
                 Spacer()
             }
@@ -411,7 +415,6 @@ struct NavigationButton<Destination: View>: View {
             .clipShape(RoundedRectangle(cornerRadius: 24))
             .foregroundStyle(primary ? Color.white : colorScheme == .dark ? Color.black : Color.white)
             .glassEffect(primary ? .regular.tint(.accent).interactive() : .regular.tint(colorScheme == .dark ? Color.white : Color.primary).interactive())
-            
         }
     }
 }
@@ -551,3 +554,5 @@ enum TextFieldStyle: String, CaseIterable{
     case roundedBorder = "Rounded Border"
     case underlined = "Underlined"
 }
+
+

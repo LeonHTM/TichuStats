@@ -26,7 +26,7 @@ class NetworkService: ObservableObject {
     @AppStorage("statsList") private var statsList: [Int] = []
     @AppStorage("favDic") var favDic: [Int:Int] = [:]
     
-    //Settings
+    //MARK: Settings
     @AppStorage("defaultTarget") var defaultTarget: Int = 1000
     @AppStorage("defaultAllowPingus") var defaultAllowPingus: Bool = true
     @AppStorage("dragMode") var dragMode: Bool = false

@@ -229,7 +229,7 @@ struct ProfileView: View {
             
             //MARK: Contact
             Button {
-                let subject = "TichuStats Support"
+                let subject = String(localized:"profile.tichuStatsSupport")
                 let osVersion = ProcessInfo.processInfo.operatingSystemVersion
                 let iosVersion = "\(osVersion.majorVersion).\(osVersion.minorVersion)"
                 let iosBuild = ProcessInfo.processInfo.operatingSystemVersionString
@@ -280,18 +280,18 @@ struct ProfileView: View {
                         // backed out of Face ID sheet — no-op
                     } catch PasskeyError.server(let code) {
                         addPasskeyErrorMessage = code == "challenge_expired"
-                            ? "That took too long — please try again."
-                            : "Couldn't add a passkey. Please try again."
+                        ? String(localized:"passKeyError.expired")
+                        : String(localized:"passKeyError.notAdd")
                         showAddPasskeyError = true
                     } catch {
-                        addPasskeyErrorMessage = "Something went wrong. Please try again."
+                        addPasskeyErrorMessage = String(localized:"passKeyError.expired")
                         showAddPasskeyError = true
                     }
                 }
             }label:{
                 HStack {
                     
-                    Label("Create Passkey", systemImage:"person.badge.key.fill")
+                    Label(String(localized:"profile.section.support.passKey"), systemImage:"person.badge.key.fill")
                             .labelStyle(ColorfulIconLabelStyle(color: .black, fontSize: 13))
                     Spacer()
                     if isAddingPasskey {
@@ -302,7 +302,7 @@ struct ProfileView: View {
             }
             .disabled(!network.isOnline || isAddingPasskey)
             .foregroundStyle(Color.primary)
-            .alert("Couldn't Add Passkey", isPresented: $showAddPasskeyError, presenting: addPasskeyErrorMessage) { _ in
+            .alert(String(localized:"passKeyError.general"), isPresented: $showAddPasskeyError, presenting: addPasskeyErrorMessage) { _ in
                 Button("OK", role: .cancel) {}
             } message: { message in
                 Text(message)
