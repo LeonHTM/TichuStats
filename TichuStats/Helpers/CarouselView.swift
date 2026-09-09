@@ -1,5 +1,5 @@
 //
-//  CarrouselView.swift
+//  CarouselView.swift
 //  TichuStats
 //
 //  Created by Leon on 08.09.2026.
@@ -13,6 +13,11 @@ struct Card: Identifiable, Hashable {
     var id: String = UUID().uuidString
     let image: String
 }
+
+
+var cardmahjong: [Card] = [
+    .init(image: "card.mahjong")
+]
 
 //MARK: - List of Cards
 var cards: [Card] = [
@@ -77,10 +82,9 @@ var cards: [Card] = [
     .init(image: "card.red.queen"),
 
     // Special
-    .init(image: "card.dog"),
     .init(image: "card.dragon"),
-    .init(image: "card.mahjong"),
     .init(image: "card.phoenix"),
+    .init(image: "card.dog")
 ]
 
 //MARK: - Example how to use the Stuff

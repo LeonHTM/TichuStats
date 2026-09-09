@@ -25,6 +25,7 @@ struct WelcomeView: View {
     @State private var activeCard: Card? = cards.first
     @State private var initialAnimation: Bool = false
     @State private var titleProgress: CGFloat = 0
+    @State private var finalCards: [Card] = [    .init(image: "card.dog")]
     
     
     //MARK: Ambient Background: A
@@ -33,7 +34,7 @@ struct WelcomeView: View {
         GeometryReader {
             let size = $0.size
             ZStack {
-                ForEach(cards) { card in
+                ForEach(finalCards) { card in
                     Image(card.image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -63,7 +64,7 @@ struct WelcomeView: View {
                 VStack{
                     VStack(spacing: 40) {
                         InfiniteScrollView {
-                            ForEach(cards) { card in
+                            ForEach(finalCards) { card in
                                 CarouselCardView(card)
                             }
                         }
@@ -77,8 +78,8 @@ struct WelcomeView: View {
                         } action: { oldValue, newValue in
                             currentScrollOffset = newValue
                             
-                            let activeIndex = Int((currentScrollOffset/200).rounded()) % cards.count
-                            activeCard = cards[activeIndex]
+                            let activeIndex = Int((currentScrollOffset/200).rounded()) % finalCards.count
+                            activeCard = finalCards[activeIndex]
                         }
                         .visualEffect { [initialAnimation] content, proxy in
                             content
@@ -169,9 +170,12 @@ struct WelcomeView: View {
         }.onDisappear {
             timer.upstream.connect().cancel()
         }
-        .onAppear{
+        .onAppear {
+            finalCards = []
             cards.shuffle()
-            timer = Timer.publish(every: 0.01, on: .current, in: .default).autoconnect()
+            finalCards = cardmahjong + cards
+            timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+            
         }
     }
 }
