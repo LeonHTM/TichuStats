@@ -162,6 +162,7 @@ struct HistoryView: View {
                     ),
                     currentGameId: game.id,
                     revanche: .constant(false),
+                    tie:false,
                     profiles: network.profiles,
                     network: network,
                     selectedTab: $sheetSelectedTab,

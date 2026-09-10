@@ -376,6 +376,19 @@ final class SocketService: ObservableObject {
                 }
             }
         }
+        
+        socket.on("game_target_updated"){data,ack in
+            guard let dict = data[0] as? [String: Any],
+                  let gameId = dict["game_id"] as? Int, let _ = dict["target"] as? Int else {
+                print("game_target: failed to parse \(data)")
+                return }
+            Task{
+                await NetworkService.shared.fetchGame(gameId: gameId)
+            }
+            
+            
+            
+        }
 
         //MARK: Round updated
         socket.on("round_updated") { data, ack in

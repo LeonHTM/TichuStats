@@ -1105,6 +1105,48 @@ class NetworkService: ObservableObject {
             print("fetchGame error: \(error)")
         }
     }
+    
+    //MARK: updateGameTarget used in EditRoundsSheet to change target of game
+    func updateGameTarget(gameId: Int, target: Int) async{
+        guard let url = URL(string: "\(apiURL)/game/edit_target")
+                else { return }
+       
+
+        var request = authorizedRequest(url: url, method: "POST")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONSerialization.data(withJSONObject: [
+            "game_id": gameId,
+            "target":target
+        ])
+        
+        do{
+            let (data,response) = try await URLSession.shared.data(for: request)
+            guard let httpResponse = response as? HTTPURLResponse,
+                         (200...299).contains(httpResponse.statusCode) else {
+                       print("updateGameTarget failed: \(String(data: data, encoding: .utf8) ?? "")")
+                //fetch the updated game
+                let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+                
+                guard let responseGameId = json?["game_id"] as? Int,let target = json?["target"] as? Int
+                else {
+                    print("changeTarget answer not in correct format")
+                    return
+                }
+                await MainActor.run {
+                    if let index = self.games.firstIndex(where: { $0.id == responseGameId }) {
+                        withAnimation(.easeInOut) {
+                            self.games[index].target = target
+                        }
+                    }
+                }
+                       return
+                   }
+            
+            
+        }catch{
+            print("updateGameTarget error: \(error)")
+        }
+    }
 
     //MARK: addRound used in AddRoundsSheetView, GameSummaryListView, AddRoundSheetViewLocal, EditRoundsSheetView and PlayView
     func addRound(
@@ -1227,7 +1269,10 @@ class NetworkService: ObservableObject {
                     if let index = rounds.firstIndex(where: { $0.id == roundId }) {
                         var updatedRounds = rounds
                         updatedRounds[index] = updated
-                        self.roundsByGame[gameId] = updatedRounds
+                        withAnimation(.easeInOut){
+                            self.roundsByGame[gameId] = updatedRounds
+                        }
+                        
                         break
                     }
                 }
@@ -1261,11 +1306,16 @@ class NetworkService: ObservableObject {
     }
 
     //MARK: finishGame used in SocketService and PlayView
-    func finishGame(gameId: Int) async {
-        guard let url = URL(string: "\(apiURL)/finish_game/\(gameId)") else { return }
+    func finishGame(gameId: Int, tie: Bool = false) async {
+        guard let url = URL(string: "\(apiURL)/finish_game") else { return }
 
-        let request = authorizedRequest(url: url, method: "POST")
-
+        var request = authorizedRequest(url: url, method: "POST")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONSerialization.data(withJSONObject: [
+            "game_id": gameId,
+            "tie":tie
+        ])
+        print("FINSIH GAME MIT game_id: \(gameId) und tie: \(tie)")
         do {
             let (_, response) = try await URLSession.shared.data(for: request)
             guard (response as? HTTPURLResponse)?.statusCode == 200 else { return }
@@ -1283,7 +1333,9 @@ class NetworkService: ObservableObject {
         do {
             _ = try await URLSession.shared.data(for: request)
             await MainActor.run {
-                self.roundsByGame[gameId]?.removeAll { $0.id == roundId }
+                withAnimation(.easeInOut){
+                    self.roundsByGame[gameId]?.removeAll { $0.id == roundId }
+                }
             }
         } catch {
             print("deleteRound error: \(error)")
@@ -1324,10 +1376,16 @@ class NetworkService: ObservableObject {
     }
     
     //MARK: reCalculate used in GameSumamryListView, AddRoundSheetView, EditRoundsSheetView and DebugSheetView
-    func reCalculate(gameId: Int) async {
-        guard let url = URL(string: "\(apiURL)/recalculate_game/\(gameId)") else { return }
+    func reCalculate(gameId: Int, tie: Bool = false) async {
+        guard let url = URL(string: "\(apiURL)/recalculate_game") else { return }
 
-        let request = authorizedRequest(url: url, method: "POST")
+        var request = authorizedRequest(url: url, method: "POST")
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONSerialization.data(withJSONObject: [
+            "game_id": gameId,
+            "tie":tie
+        ])
 
         do {
             let (data, _) = try await URLSession.shared.data(for: request)

@@ -16,6 +16,7 @@ struct GameSummarySheetView: View {
     @Binding var showGameOverViewSheetView: Bool
     var currentGameId: Int?
     @Binding var revanche: Bool
+    var tie:Bool
 
     // MARK: - Dependencies
     let profiles: [Profile]
@@ -38,9 +39,11 @@ struct GameSummarySheetView: View {
     }
 
     private var winnerName: String {
-        guard let winnerId = currentGame?.winner else { return String(localized: "general.unknown") }
+        guard let winnerId = currentGame?.winner else {if tie {return String(localized:"general.tie")} else {return String(localized: "general.unknown") }}
+        
         if winnerId == 1 { return String(format:String(localized: "general.team"),String(1)) }
         if winnerId == 2 { return String(format:String(localized: "general.team"),String(2)) }
+        if winnerId == 3 {return String(localized:"general.tie")}
         return String(localized: "general.unknown")
     }
 
@@ -71,7 +74,9 @@ struct GameSummarySheetView: View {
             }.onChange(of: currentGame){
                 showGameOverViewSheetView = false
             }
-            .navigationTitle(String(format: String(localized: "gamesummary.title.won"), String(winnerName)))
+            .navigationTitle(tie || currentGame?.winner == 3 ?
+                             String(winnerName):
+            String(format: String(localized: "gamesummary.title.won"), String(winnerName)))
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -99,6 +104,7 @@ struct GameSummarySheetView: View {
                 EmptyView()
             }
         }
+        //Share game Stuff
         .onAppear {
             let renderer = ImageRenderer(content: GameSummaryShareView(
                 currentGameId: currentGameId,
@@ -179,7 +185,7 @@ struct GameSummaryBottomToolbar: ToolbarContent {
             if let renderedImage {
                 ShareLink(
                     item: renderedImage,
-                    message: Text(String(localized: "gamesummary.share.message")),
+                    message: Text(String(localized: "history.share.check")),
                     preview: SharePreview(String(localized: "gamesummary.share.preview.title"), image: renderedImage)
                 )
                 .labelStyle(.iconOnly)

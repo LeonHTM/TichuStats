@@ -210,11 +210,11 @@ struct AddRoundSheetView: View {
         if let p3 = player3 { updateAnnouncement(playerId: p3.id, state: hasAnnouncedPlayer3) }
         if let p4 = player4 { updateAnnouncement(playerId: p4.id, state: hasAnnouncedPlayer4) }
         applyDoubleWin()
-
+        
         let nextOrder = (rounds.map { $0.roundOrder }.max() ?? 0) + 1
-
         Task {
             if editMode, let round = editingRound {
+                
                 await network.editRound(roundId: round.id, updates: [
                     "first_profile_id":  firstProfileId  as Any,
                     "second_profile_id": secondProfileId as Any,
@@ -232,7 +232,9 @@ struct AddRoundSheetView: View {
                     "announced_big_tichu": announcedBigTichu,
                     "announced_pingu":     announcedPingu
                 ])
+                
             } else {
+                
                 _ = await network.addRound(
                     gameId:           currentGame.id,
                     roundOrder:       nextOrder,
@@ -254,6 +256,7 @@ struct AddRoundSheetView: View {
                     announcedBigTichu: announcedBigTichu,
                     announcedPingu:   announcedPingu
                 )
+                
             }
             await network.reCalculate(gameId: currentGame.id)
             let updatedRounds = network.roundsByGame[currentGame.id] ?? []
@@ -266,6 +269,7 @@ struct AddRoundSheetView: View {
                 }
             }
         }
+      
     }
     
     

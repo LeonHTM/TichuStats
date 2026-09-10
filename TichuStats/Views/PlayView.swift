@@ -46,6 +46,7 @@ struct PlayView: View {
 
     @State private var target: Int = 1000
     @State private var allowPingusState: Bool = true
+    @AppStorage("tie") private var tie: Bool = false
 
     @FocusState private var targetFieldFocused: Bool
 
@@ -73,6 +74,7 @@ struct PlayView: View {
     private var gameDone: Bool {
         
         guard let game = currentGame else { return false }
+        if tie{ return true }
         if game.currentPointsTeam1 >= game.target && game.currentPointsTeam1 > game.currentPointsTeam2 { return true }
         if game.currentPointsTeam2 >= game.target && game.currentPointsTeam2 > game.currentPointsTeam1 { return true }
         return false
@@ -114,6 +116,7 @@ struct PlayView: View {
 
     private func resetGame() {
         withAnimation(.easeInOut) {
+            tie = false
             network.currentGameId = nil
             player2Id = nil
             player3Id = nil
@@ -224,20 +227,26 @@ struct PlayView: View {
                     }
                 }
                 .onChange(of: gameDone) {
-                    if gameDone { showGameOverSheet = true
+                    if gameDone {
+                        showGameOverSheet = true
                     }else if gameDone == false{
                         showGameOverSheet = false
                     }
                 }
                 .sheet(isPresented: $showGameOverSheet, onDismiss: {
+                    print("sheet wird geschlossen")
+                    print("gamedone: \(gameDone)")
+                    print("tie_ \(tie)")
+                    
                     guard gameDone else { return }
+                    showEditRoundsSheet = false
                     
                     let gameId = currentGame?.id ?? 0
                     let game = currentGame
                     
                     Task {
                         // finish first, wait for it, then create revanche
-                        await network.finishGame(gameId: gameId)
+                        await network.finishGame(gameId: gameId,tie:tie)
                         
                         if revanche, let game = game {
                             let p1 = game.team1Player1Id
@@ -269,6 +278,7 @@ struct PlayView: View {
                                 guest4Name = g4
                                 revanche = false
                             }
+                            tie = false
                         } else if !revanche {
                             await MainActor.run { resetGame() }
                         }
@@ -278,6 +288,7 @@ struct PlayView: View {
                         showGameOverViewSheetView: $showGameOverSheet,
                         currentGameId: network.currentGameId,
                         revanche: $revanche,
+                        tie: tie,
                         profiles: network.profiles,
                         network: network,
                         selectedTab:$selectedTab,
@@ -997,9 +1008,10 @@ struct PlayView: View {
                     .sheet(isPresented: $showEditRoundsSheet) {
                         if let game = currentGame {
                             EditRoundsSheetView(
-                                network: network,
                                 showEditRoundsSheet: $showEditRoundsSheet,
+                                network: network,
                                 currentGameId: game.id,
+                                tie:$tie
                             )
                             .presentationDetents(UIDevice.current.userInterfaceIdiom == .pad ? [.large] : [.medium, .large]).navigationTransition(.zoom(sourceID:"69420",in:playSpace))
                         }
