@@ -216,12 +216,19 @@ struct ProfileView: View {
             }
             .foregroundColor(.primary)
             .alert(String(localized: "profile.section.support.privacy.alert.title"), isPresented: $showPrivacyAlert) {
+                Button(role:.confirm){
+                    if let url = URL(string: "https://tichu.dev/privacy") {
+                        UIApplication.shared.open(url)
+                    }
+                }label:{
+                    Text(String(localized: "profile.section.support.privacy.alert.readPrivacy"))
+                }
                 Button(role: .cancel) {
                     withAnimation(.easeInOut(duration: 0.285)) {
                         showPrivacyAlert = false
                     }
                 } label: {
-                    Text(String(localized: "profile.section.support.privacy.alert.dismiss"))
+                    Text(String(localized: "offline.alertDissmiss"))
                 }
             } message: {
                 Text(String(localized: "profile.section.support.privacy.alert.message"))

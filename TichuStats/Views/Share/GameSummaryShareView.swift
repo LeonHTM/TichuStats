@@ -42,16 +42,38 @@ struct GameSummaryShareView: View {
     }
 
     func gameWinner() -> String {
-        if currentGame?.currentPointsTeam1 ?? 0 >= currentGame?.target ?? 0 ||
-            currentGame?.currentPointsTeam2 ?? 0 >= currentGame?.target ?? 0 {
-            if currentGame?.currentPointsTeam1 ?? 0 > currentGame?.currentPointsTeam2 ?? 0 {
-                return String(format:String(localized: "general.team"), String(1))
-            } else if currentGame?.currentPointsTeam2 ?? 0 > currentGame?.currentPointsTeam1 ?? 0 {
-                return String(format:String(localized: "general.team"), String(2))
+        if let currentGame{
+            if currentGame.winner == 1{
+                return String(format:String(localized:"general.team"),"1")
+            }else if currentGame.winner == 2{
+                return String(format:String(localized:"general.team"),"2")
+            }else if currentGame.winner == 3{
+                return String(localized:"general.tie")
+            }else{
+                return String(localized:"general.unknown")
             }
+        }else{
+            return String(localized:"general.unknown")
         }
-        return String(localized: "general.unknown")
     }
+    
+    
+    func profileName(profile: Profile) -> String{
+        if let currentGame{
+            if profile.id == -2 {
+                return currentGame.guest2Name ?? String(localized:"general.unknown")
+            }else if profile.id == -3{
+                return currentGame.guest3Name ?? String(localized:"general.unknown")
+            }else if profile.id == -4{
+                return currentGame.guest4Name ?? String(localized:"general.unknown")
+            }else{
+                return profile.name ?? String(localized:"general.unknown")
+            }
+        }else{
+            return String(localized:"general.unknown")
+        }
+    }
+    
 
     // Returns finishing place (1–4) of a profile in a round, based on firstProfileId etc.
     private func place(of profile: Profile, in round: Round) -> String {
@@ -157,7 +179,7 @@ struct GameSummaryShareView: View {
 
     var body: some View {
         VStack(spacing: 24) {
-
+            //Was I high when i wrote this? what kinda dark wizard magic shit is this
             Text(String(localized: "gamesummaryshare.title"))
                 .font(.largeTitle)
                 .fontWeight(.bold)
@@ -165,17 +187,20 @@ struct GameSummaryShareView: View {
             HStack {
                 VStack {
                     Text(String(format:String(localized: "general.team.double"), String(1))).fontWeight(.bold)
-                    Text(team1Profiles.count > 0 ? team1Profiles[0].name ?? String(localized: "general.unknown") : String(localized: "general.unknown"))
+                    Text(team1Profiles.count > 0 ? profileName(profile: team1Profiles[0]) : String(localized: "general.unknown"))
                         .font(.title).fontWeight(.bold)
-                    Text(team1Profiles.count > 1 ? team1Profiles[1].name ?? String(localized: "general.unknown") : String(localized: "general.unknown"))
+                    Text(team1Profiles.count > 0 ? profileName(profile: team1Profiles[1]) : String(localized: "general.unknown"))
+                        .font(.title).fontWeight(.bold)
                         .font(.title).fontWeight(.bold)
                 }.foregroundStyle(accentCo)
                 Spacer()
                 VStack {
                     Text(String(format:String(localized: "general.team.double"), String(2))).fontWeight(.bold)
-                    Text(team2Profiles.count > 0 ? team2Profiles[0].name ?? String(localized: "general.unknown") : String(localized: "general.unknown"))
+                    Text(team1Profiles.count > 0 ? profileName(profile: team2Profiles[0]) : String(localized: "general.unknown"))
                         .font(.title).fontWeight(.bold)
-                    Text(team2Profiles.count > 1 ? team2Profiles[1].name ?? String(localized: "general.unknown") : String(localized: "general.unknown"))
+                        .font(.title).fontWeight(.bold)
+                    Text(team1Profiles.count > 0 ? profileName(profile: team2Profiles[1]) : String(localized: "general.unknown"))
+                        .font(.title).fontWeight(.bold)
                         .font(.title).fontWeight(.bold)
                 }
             }.padding(.horizontal, 30)

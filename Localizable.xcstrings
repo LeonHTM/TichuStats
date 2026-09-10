@@ -474,13 +474,13 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Willst du wirklich das Tichu-Spiel jetzt beenden? Das Spiel wird in einem Unentschieden enden und ausserdem nicht gewertet."
           }
         },
         "de-CH" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Wosch ds Tichu Schpiu wük beändä? Ds Schpiu wird drum im unentschidä ändä und nid gwärtet."
           }
         },
@@ -528,6 +528,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ziu verändärä"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Read Privacy Policy"
           }
         }
       }
@@ -4074,6 +4080,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "We store only your Tichu Rounds and your Login data."
+          }
+        }
+      }
+    },
+    "profile.section.support.privacy.alert.readPrivacy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenschutzerklärung lesen"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datäschutzerklärig läsä"
           }
         }
       }

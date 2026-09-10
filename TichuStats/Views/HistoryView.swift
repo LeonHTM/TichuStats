@@ -343,6 +343,7 @@ struct HistoryView: View {
             switchedGameIdFav = selectedGameId
             selectedGameId = switchedGameId
             scrolledGameId = switchedGameId
+            
         }
     }
 
@@ -353,7 +354,7 @@ struct HistoryView: View {
             } label: {
                 if showOnlyFavorites == false { Image(systemName: "checkmark") } else { Image(systemName: "list.bullet") }
                 Text(String(localized: "history.sortBy.allRounds"))
-            }
+            }.disabled(network.games.sorted { $0.date > $1.date }.filter { $0.winner != nil }.filter { $0.favorite }.count == 0)
             Button {
                 switchToFav()
             } label: {
