@@ -17,6 +17,7 @@ struct StatsView: View {
     @AppStorage("isLoading") private var isLoading = false
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("defaultAllowPingus") private var defaultAllowPingus: Bool = true
+    
     @State private var showDebugSheetView: Bool = false
     
     // MARK: - State
@@ -131,8 +132,8 @@ struct StatsView: View {
     // MARK: - Stats Grid
     private var statsGrid: some View {
         LazyVGrid(
-            columns: [GridItem(.adaptive(minimum: 164), spacing: 15, alignment: .top)],
-            spacing: 15
+            columns: [GridItem(.adaptive(minimum: 170), spacing: 8, alignment: .top)],
+            spacing: 8
         ) {
             StatsContainer(
                 title: String(localized: "statistics.statscontainer.title.rating"),
@@ -162,6 +163,23 @@ struct StatsView: View {
                 stat: .winnerPercentage,
                 timeframe: selectedTimeframe,
                 items: makeItems(from: compareList, stat: .winnerPercentage, sortBy: sortBy, timeframe: selectedTimeframe)
+            )
+            .transition(.opacity.combined(with: .scale))
+            .contextMenu { shareContextMenu }
+            
+            StatsContainer(
+                title: String(localized: "statistics.statscontainer.title.climber"),
+                description: String(localized: "statistics.statscontainer.description.climber"),
+                image: "trophy",
+                counterLeft: 1,
+                counterRight: 500,
+                value: network.profiles.first { $0.id == userId }?.getStat(for: .averagePlacement, timeframe: selectedTimeframe) ?? 0,
+                percentage: false,
+                inTop: 0.1,
+                stat: .averagePlacement,
+                timeframe: selectedTimeframe,
+                items: makeItems(from: compareList, stat: .averagePlacement, sortBy: sortBy, timeframe: selectedTimeframe),
+                digits:2
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }

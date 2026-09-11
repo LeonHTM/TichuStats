@@ -711,6 +711,7 @@ class NetworkService: ObservableObject {
                             }
 
                             save("WinnerPercentage", \.winnerPercentage)
+                            save("averagePlacement", \.averagePlacement)
                             save("TichuMaster",      \.tichuMaster)
                             save("Visionary",        \.visionary)
                             save("Addict",           \.addict)
@@ -1252,6 +1253,8 @@ class NetworkService: ObservableObject {
             print("fetchGameRounds error: \(error)")
         }
     }
+    
+  
     
     //MARK: editRound used in AddRoundsSheetView, EditRoundsSheetView and PlayView
     func editRound(roundId: Int, updates: [String: Any]) async {

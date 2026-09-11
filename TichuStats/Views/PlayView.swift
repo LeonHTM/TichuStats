@@ -994,15 +994,16 @@ struct PlayView: View {
                     Button {
                     showEditRoundsSheet = true
                 } label: {
-                    Image(systemName: "list.bullet.badge.ellipsis")
-                        .font(.system(size: 20))
+                    Image(systemName: "list.bullet.clipboard")
+                        .offset(y:-2)
+                        .font(.system(size: 24))
                         .foregroundColor(.primary)
                         .frame(width: 29, height: 29)
-                        .clipShape(Circle())
                 }.matchedTransitionSource(id: "69420", in: playSpace)
                     .padding(10)
                 //.buttonStyle(.glass)
-                    .glassEffect(.regular.interactive())
+                    .buttonStyle(.plain)
+                    .glassEffect(.regular, in: Circle())
                     .padding(.leading, 20)
                     .padding(.bottom, 10)
                     .sheet(isPresented: $showEditRoundsSheet) {
@@ -1020,7 +1021,7 @@ struct PlayView: View {
                     Button {
                     showOfflineAlert = true
                 } label: {
-                    Image(systemName: "list.bullet.badge.ellipsis")
+                    Image(systemName: "list.bullet.clipboard")
                         .font(.system(size: 20))
                         .foregroundColor(.primary)
                         .frame(width: 29, height: 29)

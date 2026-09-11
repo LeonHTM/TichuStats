@@ -12,12 +12,14 @@ struct MainView: View {
     @AppStorage("selectedTab") private var selectedTab = 0
     @AppStorage("userId") private var userId = -69420
     @Environment(\.scenePhase) private var scenePhase
+    @AppStorage("isFirstLogin-1") private var isFirstLogin: Bool = true
     
     @State private var isLoading: Bool = false
     @State private var fetchTrigger: Int = 0
     @State private var selectedGameId: Int? = nil
     @State private var scrolledGameId: Int? = nil
     @State private var sheetGame: Game? = nil
+    @State private var showLogoutAlert: Bool = false
     @StateObject private var socket = SocketService.shared
     @ObservedObject private var network = NetworkService.shared
     let notificationCenter = UNUserNotificationCenter.current()
@@ -100,6 +102,22 @@ struct MainView: View {
                     }
                 }
             }
+        }
+        .onAppear{
+            if isFirstLogin{
+                isFirstLogin = false
+                Task{
+                    await network.logout(profileId: userId)
+                    showLogoutAlert = true
+                }
+            }
+                
+        }
+        .alert(String(localized:"login.logoutAlert.title"), isPresented: $showLogoutAlert) {
+            
+            Button(String(localized: "general.alert.ok"), role: .cancel) { }
+        } message: {
+            Text(String(localized:"login.logoutAlert.description"))
         }
         .alert(String(localized: "general.alert.serverUnreachable"), isPresented: $network.fetchFailed) {
             Button(String(localized: "general.alert.retry")) {

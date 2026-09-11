@@ -201,7 +201,7 @@ struct GameSummaryListView: View {
                                     .padding(.top)
                                     .padding(.horizontal)
                                     
-                                    playerRows(players: sortedTeam1, round: currentRound, teamProfileIds: (currentGame!.team1Player1Id, currentGame!.team1Player2Id))
+                                    playerRows(players: sortedTeam1, round: currentRound, teamProfileIds: (currentGame?.team1Player1Id ?? placeholderProfile.id, currentGame?.team1Player2Id ?? placeholderProfile.id))
                                     
                                     HStack {
                                         Text(String(format:String(localized:"general.team"),String(2))).fontWeight(.bold)

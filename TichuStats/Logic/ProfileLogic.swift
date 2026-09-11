@@ -7,11 +7,27 @@
 
 import SwiftUI
 
+
+let placeholderProfile = Profile(
+    id: -12,
+    name: "Unknown",
+    profileImageUrl: "https://example.com/avatar.jpg",
+    imageData: nil,
+    elo: 1000.0,
+    isAdmin: false,
+    allTime: .empty,
+    year: .empty,
+    month: .empty,
+    week: .empty,
+    day: .empty
+)
+
 //MARK: - ProfileStats used in Profiles
 
 struct ProfileStats: Codable {
     //MARK: Vars
     var winnerPercentage: Double
+    var averagePlacement: Double
     var tichuMaster: Double
     var visionary: Double
     var addict: Double
@@ -26,6 +42,7 @@ struct ProfileStats: Codable {
     //MARK: CodingKeys
     enum CodingKeys: String, CodingKey {
         case winnerPercentage = "winner_percentage"
+        case averagePlacement = "average_placement"
         case tichuMaster = "tichu_master"
         case visionary, addict, teamplayer, announcer
         case saboteur, gambler
@@ -39,7 +56,7 @@ struct ProfileStats: Codable {
     //Fallback
     static var empty: ProfileStats {
         ProfileStats(
-            winnerPercentage: 0, tichuMaster: 0, visionary: 0,
+            winnerPercentage: 0,averagePlacement: 0, tichuMaster: 0, visionary: 0,
             addict: 0, teamplayer: 0, announcer: 0, saboteur: 0,
             gambler: 0, bigGambler: 0, pinguGambler: 0, bomber: 0
         )
@@ -85,6 +102,7 @@ struct Profile: Identifiable, Equatable, Codable {
     enum playerStat {
         case elo
         case winnerPercentage
+        case averagePlacement
         case tichuMaster
         case visionary
         case addict
@@ -157,6 +175,7 @@ struct Profile: Identifiable, Equatable, Codable {
         switch stat {
         case .elo:              return elo ?? 0
         case .winnerPercentage: return s.winnerPercentage
+        case .averagePlacement: return s.averagePlacement
         case .tichuMaster:      return s.tichuMaster
         case .visionary:        return s.visionary
         case .addict:           return s.addict

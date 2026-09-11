@@ -349,20 +349,22 @@ struct HistoryView: View {
 
     private var sortMenu: some View {
         Menu {
-            Button {
-                switchToAll()
-            } label: {
-                if showOnlyFavorites == false { Image(systemName: "checkmark") } else { Image(systemName: "list.bullet") }
-                Text(String(localized: "history.sortBy.allRounds"))
-            }.disabled(network.games.sorted { $0.date > $1.date }.filter { $0.winner != nil }.filter { $0.favorite }.count == 0)
-            Button {
-                switchToFav()
-            } label: {
-                if showOnlyFavorites == true { Image(systemName: "checkmark") } else { Image(systemName: "star.fill") }
-                Text(String(localized: "history.sortBy.favorites"))
-            }.disabled(network.games.sorted { $0.date > $1.date }.filter { $0.winner != nil }.filter { $0.favorite }.count == 0)
-
-            Divider()
+            if !(network.games.sorted { $0.date > $1.date }.filter { $0.winner != nil }.filter { $0.favorite }.count == 0){
+                Button {
+                    switchToAll()
+                } label: {
+                    if showOnlyFavorites == false { Image(systemName: "checkmark") } else { Image(systemName: "list.bullet") }
+                    Text(String(localized: "history.sortBy.allRounds"))
+                }.disabled(network.games.sorted { $0.date > $1.date }.filter { $0.winner != nil }.filter { $0.favorite }.count == 0)
+                Button {
+                    switchToFav()
+                } label: {
+                    if showOnlyFavorites == true { Image(systemName: "checkmark") } else { Image(systemName: "star.fill") }
+                    Text(String(localized: "history.sortBy.favorites"))
+                }.disabled(network.games.sorted { $0.date > $1.date }.filter { $0.winner != nil }.filter { $0.favorite }.count == 0)
+                
+                Divider()
+            }
             Button {
                 withAnimation(.easeInOut) {
                     dateUp = false
@@ -384,7 +386,7 @@ struct HistoryView: View {
         } label: {
             Image(systemName: "line.3.horizontal.decrease.circle")
                 .font(.system(size: 22))
-                .foregroundColor(showOnlyFavorites == true ? Color.accent : Color.primary)
+                .foregroundColor(showOnlyFavorites == true || dateUp == true ? Color.accent : Color.primary)
         }
         .labelStyle(.titleAndIcon)
         .menuOrder(.fixed)

@@ -16,11 +16,13 @@ struct TichuWidgetEntry: TimelineEntry {
     let image: String
     let value: Double
     let percentage: Bool
+    let digits: Int
 }
 
 enum playerStat {
     case elo
     case winnerPercentage
+    case averagePlacement
     case tichuMaster
     case visionary
     case addict
@@ -58,7 +60,8 @@ struct Provider: AppIntentTimelineProvider {
             description: String(localized: "statistics.stat.elo.description"),
             image: "chart.line.uptrend.xyaxis",
             value: 1000,
-            percentage: false
+            percentage: false,
+            digits:0
         )
     }
 
@@ -96,6 +99,7 @@ struct Provider: AppIntentTimelineProvider {
         var description: String
         var image: String
         var percentage: Bool
+        var digits: Int = 0
 
         switch configuration.stat {
 
@@ -124,6 +128,26 @@ struct Provider: AppIntentTimelineProvider {
             description = String(localized: "statistics.stat.winnerPercentage.description")
             percentage = true
             image = "trophy"
+            
+        case .averagePlacement:
+            switch configuration.timeframe {
+            case .year:
+                value = TichuStorage.double("useraveragePlacementYear")
+            case .month:
+                value = TichuStorage.double("useraveragePlacementMonth")
+            case .week:
+                value = TichuStorage.double("useraveragePlacementWeek")
+            case .day:
+                value = TichuStorage.double("useraveragePlacementDay")
+            default:
+                value = TichuStorage.double("useraveragePlacement")
+            }
+
+            title = String(localized: "statistics.stat.climber")
+            description = String(localized: "statistics.stat.climber.description")
+            percentage = false
+            image = "figure.climbing"
+            digits = 2
 
         case .tichuMaster:
             switch configuration.timeframe {
@@ -257,6 +281,7 @@ struct Provider: AppIntentTimelineProvider {
             description = String(localized: "statistics.stat.gambler.description")
             percentage = true
             image = "exclamationmark.circle"
+            
 
         case .bigGambler:
             switch configuration.timeframe {
@@ -329,7 +354,8 @@ struct Provider: AppIntentTimelineProvider {
             description: description,
             image: image,
             value: value,
-            percentage: percentage
+            percentage: percentage,
+            digits: digits
         )
     }
 }
@@ -358,7 +384,12 @@ struct StatsWidgetsEntryView: View {
                 from: NSNumber(value: entry.value)
             ) ?? "-"
         } else {
-            return String(Int(entry.value))
+            if entry.digits == 0 {
+                return String(Int(entry.value))
+            }else{
+                return String(format: "%.2f",entry.value)
+            }
+            
         }
     }
 
@@ -403,9 +434,10 @@ struct StatsWidgetsEntryView: View {
                 Spacer()
 
                 HStack {
-
-                    Text(valueText)
-                        .font(.system(size: 40, weight: .heavy))
+                    
+                        Text(valueText)
+                            .font(.system(size: 40, weight: .heavy))
+                    
                 }
 
                 Spacer()
@@ -531,6 +563,7 @@ struct TichuWidgets: Widget {
         description: "Success ratio",
         image: "bomb.fill",
         value: 0.1,
-        percentage: true
+        percentage: true,
+        digits:0
     )
 }

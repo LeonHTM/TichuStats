@@ -39,15 +39,12 @@ struct EditNameSheetView: View {
     // MARK: - Validation
     private var isLengthValid: Bool {
         let count = chosenName.count
-        return count >= 3 && count <= 20
+        return count >= 2 && count <= 20
     }
 
     private var isCharsetValid: Bool {
-        let allowed = CharacterSet(
-            charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"
-        )
-        return !chosenName.isEmpty &&
-            chosenName.unicodeScalars.allSatisfy { allowed.contains($0) }
+        !chosenName.isEmpty &&
+        chosenName.wholeMatch(of: /^[\p{L}\p{N}_]+$/) != nil
     }
     
     private var isNotGuest: Bool {

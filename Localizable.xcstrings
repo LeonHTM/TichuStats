@@ -1629,6 +1629,29 @@
         }
       }
     },
+    "general.alert.ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
     "general.alert.retry" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1832,6 +1855,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "made with"
+          }
+        }
+      }
+    },
+    "general.mailPlaceholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tichu.pro@mail.com"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "luis.tichupro@mail.com"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "me@tichuplayer.com"
           }
         }
       }
@@ -2445,13 +2491,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ich habe schon einen Account"
+            "value" : "Anmelden"
           }
         },
         "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "I ha scho ä Account"
+            "value" : "Amäudä"
           }
         },
         "en" : {
@@ -2468,13 +2514,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Anmelden"
+            "value" : "Registieren"
           }
         },
         "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Amäudä"
+            "value" : "Registiärä"
           }
         },
         "en" : {
@@ -2537,19 +2583,65 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Anmelden"
+            "value" : "Registieren"
           }
         },
         "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Amäudä"
+            "value" : "Registirärä"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Get Started"
+          }
+        }
+      }
+    },
+    "login.logoutAlert.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine neue Funktion wurde hinzugefügt, für welche es nötig is, dass du dich erneut anmeldest."
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Äs nöis feature isch drzueta worde, wo nötig macht, dass du di nomau ilogsch."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A new feature has been added which requires you to login again."
+          }
+        }
+      }
+    },
+    "login.logoutAlert.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du wurdest abgemeldet."
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du bisch abgmäudet wordä."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have been logged out."
           }
         }
       }
@@ -2744,7 +2836,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Anmelden"
+            "value" : "Registieren"
           }
         },
         "de-CH" : {
@@ -2767,13 +2859,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mit Passkey anmelden"
+            "value" : "Mit Passkey registieren"
           }
         },
         "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mit Passkey amäudä"
+            "value" : "Mit Passkey registrärä"
           }
         },
         "en" : {
@@ -4098,6 +4190,12 @@
             "state" : "translated",
             "value" : "Datäschutzerklärig läsä"
           }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Read Privacy Policy"
+          }
         }
       }
     },
@@ -4686,6 +4784,29 @@
         }
       }
     },
+    "statistics.statscontainer.comparison" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vergleich"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verglich"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comparison"
+          }
+        }
+      }
+    },
     "statistics.statscontainer.description.addict" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4774,6 +4895,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bombs per round ratio."
+          }
+        }
+      }
+    },
+    "statistics.statscontainer.description.climber" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durchschnittliche Platzeriung"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durchschnittlächi Platzierig"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Average Placement."
           }
         }
       }
@@ -4962,6 +5106,29 @@
         }
       }
     },
+    "statistics.statscontainer.explanation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Erklärung"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Erklärig"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explanation"
+          }
+        }
+      }
+    },
     "statistics.statscontainer.title.addict" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5050,6 +5217,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bomber"
+          }
+        }
+      }
+    },
+    "statistics.statscontainer.title.climber" : {
+      "comment" : "Climber",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kletterer"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chläterer"
           }
         }
       }
@@ -5916,19 +6101,19 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zwischen 3 und 20 Zeichen"
+            "value" : "Zwischen 2 und 20 Zeichen"
           }
         },
         "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zwüschä 3 und 20 Zeichä"
+            "value" : "Zwüschä 2 und 20 Zeichä"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Between 3 and 20 characters."
+            "value" : "Between 2 and 20 characters."
           }
         }
       }

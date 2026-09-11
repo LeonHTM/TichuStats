@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import WidgetKit
 //MARK: - StatsContainer used in StatsView
 struct StatsContainer: View {
 
+    
+    @Environment(\.colorScheme) var colorScheme
+    
     //MARK: Vars
     var title: String
     var description: String
@@ -20,63 +24,92 @@ struct StatsContainer: View {
     var inTop: Double
     var stat: Profile.playerStat
     var timeframe: Timeframe = .allTime
-    @Environment(\.colorScheme) var colorScheme
     //MARK: Computed Vars
     var items: [Profile]
+    var digits: Int = 0
     
     //MARK: Body
     var body: some View {
-        VStack(){
+        VStack(alignment:.leading){
             HStack{
                 //For certain Image insteady of loading systeImage load custom Image
-                if image == "exclamationmark.2.circle" || image == "bomb" || image == "exclamationmark.3.circle" {
+                /*if image == "exclamationmark.2.circle" || image == "bomb" || image == "exclamationmark.3.circle" {
                     Image(image)
-                    .renderingMode(.template)
-                    .resizable()
+                    .font(.system(size:16))
                     .frame(width: 20, height: 20)
                     .foregroundColor(.accentColor)
                     .redactedShimmer()
                 }else{
                     Image(systemName:image)
-                    .resizable()
-                    .frame(width: 20, height: 20)
+                     .font(.system(size:16))
                     .foregroundColor(.accentColor)
-                    .scaledToFit()
                     .redactedShimmer()
-                }
+                }*/
                 Text(title)
                     .font(.system(size:20))
                     .fontWeight(.bold)
                     .redactedShimmer()
                 Spacer()
+                /*
+                Image(systemName:"chevron.right.circle.fill").foregroundStyle(Color.gray)
+                    .font(.system(size:14))*/
                 
-            }
-            .padding(.leading,10)
-            .padding(.top,10)
-            .padding(.bottom,10)
+            }.padding(.bottom,6)
             
-            HStack{
-                if percentage == false {
-                    Text("\(Int(value))")
-                        .font(.title3)
-                        .fontWeight(.bold)
+            VStack(alignment:.leading){
+                ZStack{
+                    if timeframe == .day{
+                      
+                        Text(String(localized: "statistics.timeframe.day"))
+                    }else if timeframe == .week{
+                        Text(String(localized: "statistics.timeframe.week"))
+                    }else if timeframe == .month{
+                        Text(String(localized: "statistics.timeframe.month"))
+                    }else if timeframe == .year{
+                        Text(String(localized: "statistics.timeframes.year"))
+                    }else{
+                        Text(String(localized: "statistics.timeframes.alltime"))
+                    }
+                }.animation(.easeInOut,value:timeframe).font(.system(size:14)).redactedShimmer()
+                HStack{
+                    if percentage == false {
+                        if digits == 0{
+                            Text("\(Int(value))").redactedShimmer()
+                        }else{
+                            Text(value, format: .number.precision(.fractionLength(digits))).fontWeight(.bold).redactedShimmer()
+                        }
+                      
+                    }else{
+             
+                            Text("\(Int(value*100))%")
+                        
+
+                        
+                            .fontWeight(.bold)
                         .redactedShimmer()
-                }else{
-                    Text("\(Int(value*100))%")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .redactedShimmer()
-                }
-                
+                    }
+                    
+                }.foregroundColor(.accentColor).font(.system(size:29/*,design:.rounded*/)).fontWeight(.bold)
             }
-            Text(description)
+            /*Text(description)
                 .font(.system(size:16))
                 .multilineTextAlignment(.leading)
                 .padding(.top,10)
                 .padding(.horizontal,10)
-                .redactedShimmer()
+                //.redactedShimmer()*/
+            Spacer()
             if !items.isEmpty{
-                Divider().padding(.horizontal, 10)
+                Text(String(localized:"statistics.statscontainer.comparison")).font(.system(size:14)).padding(.bottom,-5).padding(.top,1).redactedShimmer()
+                Divider()
+            }else{
+                Text(String(localized:"statistics.statscontainer.explanation")).font(.system(size:14)).padding(.bottom,-5).padding(.top,1).padding(.bottom,5).redactedShimmer()
+                Text(description)
+                    .font(.system(size:16))
+                    .multilineTextAlignment(.leading)
+                    .foregroundStyle(.secondary)
+                    .fontWeight(.bold)
+                    
+                    .redactedShimmer()
             }
             
             //Automtically Load Dictionary and display it
@@ -89,40 +122,42 @@ struct StatsContainer: View {
                         HStack {
                             if itemValue > value {
                                 HStack{
-                                    Image(systemName: "chevron.up.2")
-                                        .resizable()
-                                        .frame(width: 12, height: 12)
+                                    Image(systemName: "chevron.up.circle.fill")
+                                        .foregroundStyle(.green)
+                                        .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                        .font(.system(size: 14))
                                         .redactedShimmer()
                                     
-                                    Text(item.name ?? "")
+                                    Text(item.name ?? "").font(.system(size:12))
                                         .font(.system(size: 14))
-                                        .padding(.bottom, 3)
+                                      
                                         .redactedShimmer()
                                 }.lineLimit(.max)
                             } else if itemValue.isEqual(to: value) || itemValue == value {
-                                Image(systemName: "equal")
-                                    .offset(x: -1)
+                                Image(systemName: "equal.circle.fill")
+                                    .foregroundStyle(.yellow)
+                                    .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                    .font(.system(size: 14))
                                     .redactedShimmer()
                                 Text(item.name ?? "")
                                     .font(.system(size: 14))
-                                    .padding(.bottom, 3)
-                                    .offset(x: -2)
+                                   
                                     .redactedShimmer()
                             } else {
-                                Image(systemName: "chevron.down.2")
-                                    .resizable()
-                                    .frame(width: 12, height: 12)
+                                Image(systemName: "chevron.down.circle.fill")
+                                    .foregroundStyle(.red)
+                                    .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                    .font(.system(size:14))
                                     .redactedShimmer()
                                 Text(item.name ?? "")
                                     .font(.system(size: 14))
-                                    .padding(.bottom, 3)
                                     .redactedShimmer()
                             }
                             Spacer()
                             Text(percentage ? "\(Int(itemValue*100))%" : "\(Int(itemValue))")
                                 .font(.system(size: 14))
                                 .redactedShimmer()
-                        }
+                        }.padding(.bottom,3).padding(.top,-5)
                         if index != items.count - 1 {
                             Divider()
                         }
@@ -130,18 +165,19 @@ struct StatsContainer: View {
                 }
             }
             .animation(.easeInOut, value: items)
-            .padding(.horizontal, 10)
-            .padding(.bottom, 10)
         }
-        .frame(idealWidth: 164,maxWidth: 164)
-        .frame(minHeight:140,alignment:.topLeading)
+        .padding(10)
+        .frame(maxHeight: .infinity)
+        .frame(minHeight:164,alignment:.topLeading)
+        .containerBackground(.fill.tertiary, for: .widget)
         .background(colorScheme == .dark ? Color(uiColor: .tertiarySystemFill) : .white, in: .rect(cornerRadius: 24))
+        /*.background(colorScheme == .dark ? Color(uiColor: .tertiarySystemFill) : .white, in: .rect(cornerRadius: 24))*/
     }
 }
 
 
 
-//MARK: - Sortby enum 
+//MARK: - Sortby enum
 
     enum sortBy: String, CaseIterable {
         case valueUp
@@ -149,6 +185,7 @@ struct StatsContainer: View {
         case nameUp
         case nameDown
     }
+
 
 
 

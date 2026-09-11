@@ -53,7 +53,7 @@ struct LoginSheetView: View{
                     .padding(.leading)
             }
 
-            TextField("\("me@tichuplayer.com")", text: $userEmail)
+            TextField("\(String(localized:"general.mailPlaceholder"))", text: $userEmail)
                 /*.foregroundStyle(!mailLegit || mailNotExists ? Color.red : .primary)*/
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled(true)
