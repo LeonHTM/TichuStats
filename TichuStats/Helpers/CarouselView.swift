@@ -15,9 +15,7 @@ struct Card: Identifiable, Hashable {
 }
 
 
-var cardmahjong: [Card] = [
-    .init(image: "card.mahjong")
-]
+
 
 //MARK: - List of Cards
 var cards: [Card] = [
@@ -82,6 +80,7 @@ var cards: [Card] = [
     .init(image: "card.red.queen"),
 
     // Special
+    .init(image: "card.mahjong"),
     .init(image: "card.dragon"),
     .init(image: "card.phoenix"),
     .init(image: "card.dog")

@@ -16,6 +16,7 @@ struct WelcomeView: View {
     @Binding var showLoginSheet: Bool
     @Binding var signIn: Bool
     @Binding var chosenName: String
+    @Binding var userEmail: String
     @State private var showOfflineAlert: Bool = false
     
     //MARK: Visuals
@@ -25,7 +26,6 @@ struct WelcomeView: View {
     @State private var activeCard: Card? = cards.first
     @State private var initialAnimation: Bool = false
     @State private var titleProgress: CGFloat = 0
-    @State private var finalCards: [Card] = [    .init(image: "card.dog")]
     
     
     //MARK: Ambient Background: A
@@ -34,7 +34,7 @@ struct WelcomeView: View {
         GeometryReader {
             let size = $0.size
             ZStack {
-                ForEach(finalCards) { card in
+                ForEach(cards) { card in
                     Image(card.image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -64,7 +64,7 @@ struct WelcomeView: View {
                 VStack{
                     VStack(spacing: 40) {
                         InfiniteScrollView {
-                            ForEach(finalCards) { card in
+                            ForEach(cards) { card in
                                 CarouselCardView(card)
                             }
                         }
@@ -78,8 +78,8 @@ struct WelcomeView: View {
                         } action: { oldValue, newValue in
                             currentScrollOffset = newValue
                             
-                            let activeIndex = Int((currentScrollOffset/200).rounded()) % finalCards.count
-                            activeCard = finalCards[activeIndex]
+                            let activeIndex = Int((currentScrollOffset/200).rounded()) % cards.count
+                            activeCard = cards[activeIndex]
                         }
                         .visualEffect { [initialAnimation] content, proxy in
                             content
@@ -124,7 +124,9 @@ struct WelcomeView: View {
                                     showLoginSheet: $showLoginSheet,
                                     signIn: $signIn,
                                     chosenName: $chosenName
-                                )
+                                ).onAppear{
+                                    userEmail = ""
+                                }
                             } else {
                                 OfflineView(
                                     showNavBar: .constant(false)
@@ -167,16 +169,14 @@ struct WelcomeView: View {
                     .padding(.bottom, 30)
                 }
             }
-        }.onDisappear {
+        }.onAppear{
+            cards.shuffle()
+            timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+        }
+        .onDisappear {
             timer.upstream.connect().cancel()
         }
-        .onAppear {
-            finalCards = []
-            cards.shuffle()
-            finalCards = cardmahjong + cards
-            timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
-            
-        }
+       
     }
 }
 
@@ -198,7 +198,8 @@ struct LoginView: View {
             WelcomeView(
                 showLoginSheet: $showLoginSheet,
                 signIn: $signIn,
-                chosenName: $chosenName
+                chosenName: $chosenName,
+                userEmail: $userEmail
             ).onChange(of:network.isOnline){
                 if network.isOnline == false {
                     showLoginSheet = false

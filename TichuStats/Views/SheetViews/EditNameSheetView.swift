@@ -78,7 +78,8 @@ struct EditNameSheetView: View {
                         .autocorrectionDisabled(true)
                         .textInputAutocapitalization(.never)
                         .focused($isTextFocused)
-                        .onAppear{
+                        .task {
+                            try? await Task.sleep(for: .milliseconds(350))
                             isTextFocused = true
                         }
                 }
