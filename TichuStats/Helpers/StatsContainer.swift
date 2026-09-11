@@ -28,6 +28,9 @@ struct StatsContainer: View {
     var items: [Profile]
     var digits: Int = 0
     
+    //MARK: Width tracking (so minHeight can match width)
+    @State private var containerWidth: CGFloat = 0
+    
     //MARK: Body
     var body: some View {
         VStack(alignment:.leading){
@@ -107,7 +110,7 @@ struct StatsContainer: View {
                     .font(.system(size:16))
                     .multilineTextAlignment(.leading)
                     .foregroundStyle(.secondary)
-                    .fontWeight(.bold)
+                    
                     
                     .redactedShimmer()
             }
@@ -168,7 +171,16 @@ struct StatsContainer: View {
         }
         .padding(10)
         .frame(maxHeight: .infinity)
-        .frame(minHeight:164,alignment:.topLeading)
+        .frame(minHeight: max(containerWidth, 164), alignment: .topLeading)
+        .background(
+            GeometryReader { geo in
+                Color.clear
+                    .onAppear { containerWidth = geo.size.width }
+                    .onChange(of: geo.size.width) {
+                        containerWidth = geo.size.width
+                    }
+            }
+        )
         .containerBackground(.fill.tertiary, for: .widget)
         .background(colorScheme == .dark ? Color(uiColor: .tertiarySystemFill) : .white, in: .rect(cornerRadius: 24))
         /*.background(colorScheme == .dark ? Color(uiColor: .tertiarySystemFill) : .white, in: .rect(cornerRadius: 24))*/
@@ -185,7 +197,3 @@ struct StatsContainer: View {
         case nameUp
         case nameDown
     }
-
-
-
-

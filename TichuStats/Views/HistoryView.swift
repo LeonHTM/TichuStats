@@ -139,6 +139,12 @@ struct HistoryView: View {
                         selectedGameId = newId
                         selectedCounter += 1
                     }
+                    .onChange(of: gameHistory.map(\.id)) { _, newIds in
+                        guard let selectedGameId, !newIds.contains(selectedGameId) else { return }
+                        let newSelection = newIds.first
+                        self.selectedGameId = newSelection
+                        self.scrolledGameId = newSelection
+                    }
                     .onAppear { outerSize = outerGeo.size }
                     .onChange(of: outerGeo.size) { _, s in outerSize = s }
                 }

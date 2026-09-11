@@ -520,20 +520,20 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Ziel verändern"
           }
         },
         "de-CH" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Ziu verändärä"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Read Privacy Policy"
+            "value" : "Change Target"
           }
         }
       }
@@ -5111,13 +5111,13 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Erklärung"
           }
         },
         "de-CH" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Erklärig"
           }
         },
@@ -5235,6 +5235,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chläterer"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Climber"
           }
         }
       }

@@ -132,7 +132,7 @@ struct StatsView: View {
     // MARK: - Stats Grid
     private var statsGrid: some View {
         LazyVGrid(
-            columns: [GridItem(.adaptive(minimum: 170), spacing: 8, alignment: .top)],
+            columns: [GridItem(.adaptive(minimum: 164), spacing: 8, alignment: .top)],
             spacing: 8
         ) {
             StatsContainer(
@@ -199,7 +199,7 @@ struct StatsView: View {
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
-
+            
             StatsContainer(
                 title: String(localized: "statistics.statscontainer.title.visionary"),
                 description: String(localized: "statistics.statscontainer.description.visionary"),
