@@ -4835,20 +4835,20 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Prozent von Spielen mit einer Art von Tichu angesagt."
           }
         },
         "de-CH" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Prozänt vo Spilis mit ärä Sort vo Tichu agseit"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Percentage of Games with some Sort of Tichu announced"
+            "value" : "Percentage of Games with some Sort of Tichu announced."
           }
         }
       }

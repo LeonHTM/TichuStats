@@ -323,6 +323,7 @@ final class SocketService: ObservableObject {
                     print("Game Deleted: \(gameId)")
                     NetworkService.shared.games.removeAll { $0.id == gameId }
                     NetworkService.shared.roundsByGame.removeValue(forKey: gameId)
+                    await NetworkService.shared.fetchSelectedProfilesStats()
                 }
             
         }
@@ -339,20 +340,25 @@ final class SocketService: ObservableObject {
                 Task {
                     await NetworkService.shared.fetchGame(gameId: gameId)
                     await NetworkService.shared.fetchGameRounds(gameId: gameId)
+                    
                 }
             
         }
         
         //MARK: GAME finished
         socket.on("game_finished") { data, _ in
-            guard let gameId = (data.first as? [String: Any])?["game_id"] as? Int else { return }
+            //guard let gameId = (data.first as? [String: Any])?["game_id"] as? Int else { return }
             Task {
-                if gameId == NetworkService.shared.currentGameId{
+                /*if gameId == NetworkService.shared.currentGameId{
                     NetworkService.shared.finishGameEditing = false
                     Task{
                         await NetworkService.shared.fetchSelectedProfilesStats()
                     }
                     print("RECIEVED GAME FINISHED CALL ")
+                }*/
+                Task{
+                    //THis should fetch anyway right, stats of other people could have changed
+                    await NetworkService.shared.fetchSelectedProfilesStats()
                 }
             }
         }
