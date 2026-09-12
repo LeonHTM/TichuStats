@@ -221,13 +221,20 @@ func makeItems(
     from compareList: [Int],
     stat: Profile.playerStat,
     sortBy: sortBy,
-    timeframe: Timeframe = .allTime
+    timeframe: Timeframe = .allTime,
+    reverse: Bool = false
 ) -> [Profile] {
     let profiles = NetworkService.shared.profiles.filter { compareList.contains($0.id) }
     switch sortBy {
     case .valueUp:
+       if reverse{
+           return profiles.sorted { $0.getStat(for: stat, timeframe: timeframe) > $1.getStat(for: stat, timeframe: timeframe) }
+        }
         return profiles.sorted { $0.getStat(for: stat, timeframe: timeframe) < $1.getStat(for: stat, timeframe: timeframe) }
     case .valueDown:
+      if reverse{
+          return profiles.sorted { $0.getStat(for: stat, timeframe: timeframe) < $1.getStat(for: stat, timeframe: timeframe) }
+        }
         return profiles.sorted { $0.getStat(for: stat, timeframe: timeframe) > $1.getStat(for: stat, timeframe: timeframe) }
     case .nameUp:
         return profiles.sorted { ($0.name ?? "").lowercased() < ($1.name ?? "").lowercased() }
@@ -240,7 +247,8 @@ func makeItems(
     from compareList: [Int],
     stat: Profile.playerStat,
     sortBy: sortBy,
-    timeframe: Timeframe = .allTime
+    timeframe: Timeframe = .allTime,
+
 ) -> [Friend] {
     let friends = NetworkService.shared.friends.filter { compareList.contains($0.id) }
     switch sortBy {
@@ -248,6 +256,7 @@ func makeItems(
         if stat == .dateAdded {
             return friends.sorted { ($0.friendsSince ?? .distantPast) < ($1.friendsSince ?? .distantPast) }
         }
+        
         return friends.sorted { $0.profile.getStat(for: stat, timeframe: timeframe) < $1.profile.getStat(for: stat, timeframe: timeframe) }
     case .valueDown:
         if stat == .dateAdded {

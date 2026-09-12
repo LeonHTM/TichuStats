@@ -27,6 +27,7 @@ struct StatsContainer: View {
     //MARK: Computed Vars
     var items: [Profile]
     var digits: Int = 0
+    var reverse: Bool = false
     
     //MARK: Width tracking (so minHeight can match width)
     @State private var containerWidth: CGFloat = 0
@@ -125,36 +126,58 @@ struct StatsContainer: View {
                         HStack {
                             if itemValue > value {
                                 HStack{
-                                    Image(systemName: "chevron.up.circle.fill")
-                                        .foregroundStyle(.green)
+                                    if reverse {
+                                        Image(systemName: "chevron.down.circle.fill")
+                                            .foregroundStyle(.red)
+                                            .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                            .font(.system(size:14))
+                                            .redactedShimmer()
+                                    }else{
+                                        Image(systemName: "chevron.up.circle.fill")
+                                            .foregroundStyle(.green)
+                                            .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                            .font(.system(size: 14))
+                                            .redactedShimmer()
+                                    }
+                                    
+                                    Text(item.name ?? "")
+                                        .font(.system(size: 13))
+                                      
+                                        .redactedShimmer()
+                                }.lineLimit(1)
+                            } else if itemValue.isEqual(to: value) || itemValue == value {
+                                HStack{
+                                    Image(systemName: "equal.circle.fill")
+                                        .foregroundStyle(.yellow)
                                         .opacity(colorScheme == .dark ? 0.6 : 0.75)
                                         .font(.system(size: 14))
                                         .redactedShimmer()
+                                    Text(item.name ?? "")
+                                        .font(.system(size: 13))
                                     
-                                    Text(item.name ?? "").font(.system(size:12))
-                                        .font(.system(size: 14))
-                                      
                                         .redactedShimmer()
-                                }.lineLimit(.max)
-                            } else if itemValue.isEqual(to: value) || itemValue == value {
-                                Image(systemName: "equal.circle.fill")
-                                    .foregroundStyle(.yellow)
-                                    .opacity(colorScheme == .dark ? 0.6 : 0.75)
-                                    .font(.system(size: 14))
-                                    .redactedShimmer()
-                                Text(item.name ?? "")
-                                    .font(.system(size: 14))
-                                   
-                                    .redactedShimmer()
+                                }.lineLimit(1)
                             } else {
-                                Image(systemName: "chevron.down.circle.fill")
-                                    .foregroundStyle(.red)
-                                    .opacity(colorScheme == .dark ? 0.6 : 0.75)
-                                    .font(.system(size:14))
-                                    .redactedShimmer()
-                                Text(item.name ?? "")
-                                    .font(.system(size: 14))
-                                    .redactedShimmer()
+                                HStack{
+                                    if reverse{
+                                        Image(systemName: "chevron.up.circle.fill")
+                                            .foregroundStyle(.green)
+                                            .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                            .font(.system(size: 14))
+                                            .redactedShimmer()
+                                    }else{
+                                        Image(systemName: "chevron.down.circle.fill")
+                                            .foregroundStyle(.red)
+                                            .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                            .font(.system(size:14))
+                                            .redactedShimmer()
+                                    }
+                                    Text(item.name ?? "")
+                                        .font(.system(size: 13))
+                                        .redactedShimmer()
+                                }
+                                //.lineLimit(.max)
+                                .lineLimit(1)
                             }
                             Spacer()
                             Text(percentage ? "\(Int(itemValue*100))%" : "\(Int(itemValue))")

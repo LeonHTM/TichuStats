@@ -178,8 +178,9 @@ struct StatsView: View {
                 inTop: 0.1,
                 stat: .averagePlacement,
                 timeframe: selectedTimeframe,
-                items: makeItems(from: compareList, stat: .averagePlacement, sortBy: sortBy, timeframe: selectedTimeframe),
-                digits:2
+                items: makeItems(from: compareList, stat: .averagePlacement, sortBy: sortBy, timeframe: selectedTimeframe,reverse:true),
+                digits:2,
+                reverse: true
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
