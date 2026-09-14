@@ -103,6 +103,10 @@ struct MainView: View {
                 }
             }
         }
+        //Reconnect if not connected when switching tab for better conenctivity
+        .onChange(of:selectedTab){
+            socket.reconnectIfNeeded()
+        }
         .onAppear{
             if isFirstLogin{
                 isFirstLogin = false

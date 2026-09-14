@@ -23,7 +23,7 @@ struct StatsContainer: View {
     var percentage: Bool
     var inTop: Double
     var stat: Profile.playerStat
-    var timeframe: Timeframe = .allTime
+    @Binding var timeframe: Timeframe 
     //MARK: Computed Vars
     var items: [Profile]
     var digits: Int = 0
@@ -34,47 +34,253 @@ struct StatsContainer: View {
     
     //MARK: Body
     var body: some View {
-        VStack(alignment:.leading){
-            HStack{
-                //For certain Image insteady of loading systeImage load custom Image
-                /*if image == "exclamationmark.2.circle" || image == "bomb" || image == "exclamationmark.3.circle" {
-                    Image(image)
-                    .font(.system(size:16))
-                    .frame(width: 20, height: 20)
-                    .foregroundColor(.accentColor)
-                    .redactedShimmer()
-                }else{
-                    Image(systemName:image)
-                     .font(.system(size:16))
-                    .foregroundColor(.accentColor)
-                    .redactedShimmer()
-                }*/
-                Text(title)
-                    .font(.system(size:20))
-                    .fontWeight(.bold)
-                    .redactedShimmer()
-                Spacer()
-                /*
-                Image(systemName:"chevron.right.circle.fill").foregroundStyle(Color.gray)
-                    .font(.system(size:14))*/
-                
-            }.padding(.bottom,6)
-            
+        NavigationLink{
+            StatsDetailView(
+                value: value,
+                percentage: percentage,
+                inTop:inTop,
+                stat: stat,
+                timeframe: $timeframe,
+                items: items,
+                digits: digits,
+                reverse: reverse
+            )
+        }label:{
             VStack(alignment:.leading){
-                ZStack{
-                    if timeframe == .day{
-                      
-                        Text(String(localized: "statistics.timeframe.day"))
-                    }else if timeframe == .week{
-                        Text(String(localized: "statistics.timeframe.week"))
-                    }else if timeframe == .month{
-                        Text(String(localized: "statistics.timeframe.month"))
-                    }else if timeframe == .year{
-                        Text(String(localized: "statistics.timeframes.year"))
-                    }else{
-                        Text(String(localized: "statistics.timeframes.alltime"))
+                HStack{
+                    //For certain Image insteady of loading systeImage load custom Image
+                    /*if image == "exclamationmark.2.circle" || image == "bomb" || image == "exclamationmark.3.circle" {
+                     Image(image)
+                     .font(.system(size:16))
+                     .frame(width: 20, height: 20)
+                     .foregroundColor(.accentColor)
+                     .redactedShimmer()
+                     }else{
+                     Image(systemName:image)
+                     .font(.system(size:16))
+                     .foregroundColor(.accentColor)
+                     .redactedShimmer()
+                     }*/
+                    Text(title)
+                        .font(.system(size:20))
+                        .fontWeight(.bold)
+                        .redactedShimmer()
+                    Spacer()
+                    
+                    Image(systemName:"chevron.right.circle.fill").foregroundStyle(Color.secondary)
+                        .redactedShimmer()
+                        .font(.system(size:16))
+                    
+                }.padding(.bottom,6)
+                
+                VStack(alignment:.leading){
+                    ZStack{
+                        if timeframe == .day{
+                            
+                            Text(String(localized: "statistics.timeframe.day"))
+                        }else if timeframe == .week{
+                            Text(String(localized: "statistics.timeframe.week"))
+                        }else if timeframe == .month{
+                            Text(String(localized: "statistics.timeframe.month"))
+                        }else if timeframe == .year{
+                            Text(String(localized: "statistics.timeframes.year"))
+                        }else{
+                            Text(String(localized: "statistics.timeframes.alltime"))
+                        }
+                    }.animation(.easeInOut,value:timeframe).font(.system(size:14)).redactedShimmer()
+                    HStack{
+                        if percentage == false {
+                            if digits == 0{
+                                Text("\(Int(value))").redactedShimmer()
+                            }else{
+                                Text(value, format: .number.precision(.fractionLength(digits))).fontWeight(.bold).redactedShimmer()
+                            }
+                            
+                        }else{
+                            
+                            Text("\(Int(value*100))%")
+                            
+                            
+                            
+                                .fontWeight(.bold)
+                                .redactedShimmer()
+                        }
+                        
+                    }.foregroundColor(.accentColor).font(.system(size:29/*,design:.rounded*/)).fontWeight(.bold)
+                }
+                /*Text(description)
+                 .font(.system(size:16))
+                 .multilineTextAlignment(.leading)
+                 .padding(.top,10)
+                 .padding(.horizontal,10)
+                 //.redactedShimmer()*/
+                Spacer()
+                if !items.isEmpty{
+                    Text(String(localized:"statistics.statscontainer.comparison")).font(.system(size:14)).padding(.bottom,-5).padding(.top,1).redactedShimmer()
+                    Divider()
+                }else{
+                    Text(String(localized:"statistics.statscontainer.explanation")).font(.system(size:14)).padding(.bottom,-5).padding(.top,1).padding(.bottom,5).redactedShimmer()
+                    Text(description)
+                        .font(.system(size:16))
+                        .multilineTextAlignment(.leading)
+                        .foregroundStyle(.secondary)
+                    
+                    
+                        .redactedShimmer()
+                }
+                
+                //Automtically Load Dictionary and display it
+                VStack(alignment: .leading, spacing: 8) {
+                    
+                    //For loop over all indices, id:value itssself,index is index
+                    ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
+                        let itemValue = item.getStat(for: stat,timeframe:timeframe)
+                        VStack(spacing: 0) {
+                            HStack {
+                                if itemValue > value {
+                                    HStack{
+                                        if reverse {
+                                            Image(systemName: "chevron.down.circle.fill")
+                                                .foregroundStyle(.red)
+                                                .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                                .font(.system(size:14))
+                                                .redactedShimmer()
+                                        }else{
+                                            Image(systemName: "chevron.up.circle.fill")
+                                                .foregroundStyle(.green)
+                                                .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                                .font(.system(size: 14))
+                                                .redactedShimmer()
+                                        }
+                                        
+                                        Text(item.name ?? "")
+                                            .font(.system(size: 13))
+                                        
+                                            .redactedShimmer()
+                                    }.lineLimit(1)
+                                } else if itemValue.isEqual(to: value) || itemValue == value {
+                                    HStack{
+                                        Image(systemName: "equal.circle.fill")
+                                            .foregroundStyle(.yellow)
+                                            .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                            .font(.system(size: 14))
+                                            .redactedShimmer()
+                                        Text(item.name ?? "")
+                                            .font(.system(size: 13))
+                                        
+                                            .redactedShimmer()
+                                    }.lineLimit(1)
+                                } else {
+                                    HStack{
+                                        if reverse{
+                                            Image(systemName: "chevron.up.circle.fill")
+                                                .foregroundStyle(.green)
+                                                .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                                .font(.system(size: 14))
+                                                .redactedShimmer()
+                                        }else{
+                                            Image(systemName: "chevron.down.circle.fill")
+                                                .foregroundStyle(.red)
+                                                .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                                .font(.system(size:14))
+                                                .redactedShimmer()
+                                        }
+                                        Text(item.name ?? "")
+                                            .font(.system(size: 13))
+                                            .redactedShimmer()
+                                    }
+                                    //.lineLimit(.max)
+                                    .lineLimit(1)
+                                }
+                                Spacer()
+                                Text(percentage ? "\(Int(itemValue*100))%" : "\(Int(itemValue))")
+                                    .font(.system(size: 14))
+                                    .redactedShimmer()
+                            }.padding(.bottom,3).padding(.top,-5)
+                            if index != items.count - 1 {
+                                Divider()
+                            }
+                        }
                     }
-                }.animation(.easeInOut,value:timeframe).font(.system(size:14)).redactedShimmer()
+                }
+                .animation(.easeInOut, value: items)
+            }
+            .padding(10)
+            .frame(maxHeight: .infinity)
+            .frame(minHeight: max(containerWidth, 164), alignment: .topLeading)
+            .background(
+                GeometryReader { geo in
+                    Color.clear
+                        .onAppear { containerWidth = geo.size.width }
+                        .onChange(of: geo.size.width) {
+                            containerWidth = geo.size.width
+                        }
+                }
+            )
+            .containerBackground(.fill.tertiary, for: .widget)
+            .background(colorScheme == .dark ? Color(uiColor: .tertiarySystemFill) : .white, in: .rect(cornerRadius: 24))
+            /*.background(colorScheme == .dark ? Color(uiColor: .tertiarySystemFill) : .white, in: .rect(cornerRadius: 24))*/
+            
+        }
+        .foregroundStyle(Color.primary)
+    }
+}
+
+
+struct StatsDetailView: View {
+    @ObservedObject private var network = NetworkService.shared
+    @AppStorage("userId") var userId: Int = -69420
+    
+    
+    
+    
+    var value: Double
+    var percentage: Bool
+    var inTop: Double
+    var stat: Profile.playerStat
+    @Binding var timeframe: Timeframe
+    //MARK: Computed Vars
+    var items: [Profile]
+    var digits: Int = 0
+    var reverse: Bool = false
+    
+    
+    private func statToString(stat: Profile.playerStat) -> String {
+        switch stat {
+        case .elo:              return String(localized: "statistics.statscontainer.title.rating")
+        case .winnerPercentage: return String(localized: "statistics.statscontainer.title.winner")
+        case .averagePlacement: return String(localized: "statistics.statscontainer.title.climber")
+        case .tichuMaster:      return String(localized: "statistics.statscontainer.title.tichumaster")
+        case .visionary:        return String(localized: "statistics.statscontainer.title.visionary")
+        case .addict:            return String(localized: "statistics.statscontainer.title.addict")
+        case .teamplayer:       return String(localized: "statistics.statscontainer.title.teamplayer")
+        case .announcer:        return String(localized: "statistics.statscontainer.title.announcer")
+        case .saboteur:          return String(localized: "statistics.statscontainer.title.saboteur")
+        case .gambler:           return String(localized: "statistics.statscontainer.title.gambler")
+        case .bigGambler:       return String(localized: "statistics.statscontainer.title.bigGambler")
+        case .pinguGambler:     return String(localized: "statistics.statscontainer.title.pinguGambler")
+        case .bomber:            return String(localized: "statistics.statscontainer.title.bomber")
+        default:
+            return String(localized:"general.unknown")
+        }
+    }
+    
+    var body: some View {
+        NavigationStack{
+            VStack(alignment:.leading,spacing:10){
+                Picker(
+                    String(localized: "gamesummary.picker.view"),
+                    selection: $timeframe
+                ) {
+                    Text("All time").tag(Timeframe.allTime)
+                    Text("Year").tag(Timeframe.year)
+                    Text("Month").tag(Timeframe.month)
+                    Text("Week").tag(Timeframe.week)
+                    Text("Day").tag(Timeframe.day)
+                }
+                .pickerStyle(.segmented)
+                
+                Text("\(timeframe)").font(.system(size:16)).foregroundStyle(Color.secondary).padding(.bottom,-15)
                 HStack{
                     if percentage == false {
                         if digits == 0{
@@ -82,134 +288,131 @@ struct StatsContainer: View {
                         }else{
                             Text(value, format: .number.precision(.fractionLength(digits))).fontWeight(.bold).redactedShimmer()
                         }
-                      
-                    }else{
-             
-                            Text("\(Int(value*100))%")
                         
-
+                    }else{
+                        
+                        Text("\(Int(value*100))%")
+                        
+                        
                         
                             .fontWeight(.bold)
-                        .redactedShimmer()
+                            .redactedShimmer()
                     }
                     
                 }.foregroundColor(.accentColor).font(.system(size:29/*,design:.rounded*/)).fontWeight(.bold)
+                Text("The history of your \(timeframe) \(statToString(stat: stat)) Statistic.").font(.system(size:16)).foregroundStyle(Color.secondary).padding(.top,-15)
+                StatsHistoryGraph(
+                    timeframe: timeframe,
+                    percentage:percentage,
+                    inTop:inTop,
+                    digits:digits,
+                    reverse:reverse,
+                    data: network.statsHistory,
+                    stat: stat
+                ).frame(height: 250)
+                Text("Explanation").font(.system(size:16)).foregroundStyle(Color.secondary).padding(.vertical,-15)
+                Text("isjdfjasdlkfjlöska djflkjsljfd löasjdfljasklödjfasdlkfjf sadfasdfasdfasdf")
+                Text("your direction competition").foregroundStyle(Color.secondary).padding(.bottom,-15)
+                Spacer()
+            }.padding(.horizontal)
+                .animation(.easeInOut,value:timeframe)
+                .toolbarTitleDisplayMode( .large)
+                .navigationTitle(statToString(stat: stat))
+        }.task{
+            Task{
+                await network.fetchProfileStatsHistory(profileId: userId)
             }
-            /*Text(description)
-                .font(.system(size:16))
-                .multilineTextAlignment(.leading)
-                .padding(.top,10)
-                .padding(.horizontal,10)
-                //.redactedShimmer()*/
-            Spacer()
-            if !items.isEmpty{
-                Text(String(localized:"statistics.statscontainer.comparison")).font(.system(size:14)).padding(.bottom,-5).padding(.top,1).redactedShimmer()
-                Divider()
-            }else{
-                Text(String(localized:"statistics.statscontainer.explanation")).font(.system(size:14)).padding(.bottom,-5).padding(.top,1).padding(.bottom,5).redactedShimmer()
-                Text(description)
-                    .font(.system(size:16))
-                    .multilineTextAlignment(.leading)
-                    .foregroundStyle(.secondary)
-                    
-                    
-                    .redactedShimmer()
+        }
+    }
+}
+
+
+import Charts
+
+struct StatPoint: Identifiable {
+    let id = UUID()
+    let date: Date
+    let value: Double
+}
+
+struct StatsHistoryGraph: View {
+    let timeframe: Timeframe
+    let percentage: Bool
+    let inTop: Double
+    let digits: Int
+    let reverse: Bool
+    
+    let data: [String: [ProfileStats]]
+    let stat: Profile.playerStat
+
+    private func stringforTimeframe(timeframe: Timeframe) -> String {
+        switch timeframe {
+        case .day:
+            return "day"
+        case .week:
+            return "week"
+        case .month:
+            return "month"
+        case .year:
+            return "year"
+        case .allTime:
+            return "all_time"
+        }
+    }
+
+    private var selectedData: [ProfileStats] {
+        data[stringforTimeframe(timeframe: timeframe)] ?? []
+    }
+
+    private var chartData: [StatPoint] {
+        selectedData.compactMap { entry in
+            guard let timestamp = entry.calculatedAt else {
+                return nil
             }
+
+            return StatPoint(
+                date: Date(timeIntervalSince1970: timestamp),
+                value: percentage ? entry.getStat(for: stat)*100 : entry.getStat(for: stat)
+            )
+        }
+        .sorted { $0.date < $1.date }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading) {
+
+            Chart {
+                ForEach(chartData) { point in
+                    BarMark(
+                        x: .value("Date", point.date),
+                        y: .value("Value", point.value)
             
-            //Automtically Load Dictionary and display it
-            VStack(alignment: .leading, spacing: 8) {
-                
-                //For loop over all indices, id:value itssself,index is index
-                ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
-                    let itemValue = item.getStat(for: stat,timeframe:timeframe)
-                    VStack(spacing: 0) {
-                        HStack {
-                            if itemValue > value {
-                                HStack{
-                                    if reverse {
-                                        Image(systemName: "chevron.down.circle.fill")
-                                            .foregroundStyle(.red)
-                                            .opacity(colorScheme == .dark ? 0.6 : 0.75)
-                                            .font(.system(size:14))
-                                            .redactedShimmer()
-                                    }else{
-                                        Image(systemName: "chevron.up.circle.fill")
-                                            .foregroundStyle(.green)
-                                            .opacity(colorScheme == .dark ? 0.6 : 0.75)
-                                            .font(.system(size: 14))
-                                            .redactedShimmer()
-                                    }
-                                    
-                                    Text(item.name ?? "")
-                                        .font(.system(size: 13))
-                                      
-                                        .redactedShimmer()
-                                }.lineLimit(1)
-                            } else if itemValue.isEqual(to: value) || itemValue == value {
-                                HStack{
-                                    Image(systemName: "equal.circle.fill")
-                                        .foregroundStyle(.yellow)
-                                        .opacity(colorScheme == .dark ? 0.6 : 0.75)
-                                        .font(.system(size: 14))
-                                        .redactedShimmer()
-                                    Text(item.name ?? "")
-                                        .font(.system(size: 13))
-                                    
-                                        .redactedShimmer()
-                                }.lineLimit(1)
-                            } else {
-                                HStack{
-                                    if reverse{
-                                        Image(systemName: "chevron.up.circle.fill")
-                                            .foregroundStyle(.green)
-                                            .opacity(colorScheme == .dark ? 0.6 : 0.75)
-                                            .font(.system(size: 14))
-                                            .redactedShimmer()
-                                    }else{
-                                        Image(systemName: "chevron.down.circle.fill")
-                                            .foregroundStyle(.red)
-                                            .opacity(colorScheme == .dark ? 0.6 : 0.75)
-                                            .font(.system(size:14))
-                                            .redactedShimmer()
-                                    }
-                                    Text(item.name ?? "")
-                                        .font(.system(size: 13))
-                                        .redactedShimmer()
-                                }
-                                //.lineLimit(.max)
-                                .lineLimit(1)
-                            }
-                            Spacer()
-                            Text(percentage ? "\(Int(itemValue*100))%" : "\(Int(itemValue))")
-                                .font(.system(size: 14))
-                                .redactedShimmer()
-                        }.padding(.bottom,3).padding(.top,-5)
-                        if index != items.count - 1 {
-                            Divider()
+                    )
+                    .annotation(position: .top) {
+                        if percentage {
+                            Text("\(point.value, specifier: "%.0f")%")
+                                .font(.caption)
+                        } else {
+                            Text("\(point.value, specifier: "%.\(digits)f")")
+                                .font(.caption)
+                        }
+                    }
+                }
+            }.chartXAxis {
+                AxisMarks(values: .automatic) { value in
+                    AxisGridLine()
+                    AxisTick()
+                    AxisValueLabel {
+                        if let date = value.as(Date.self) {
+                            Text(date, format: .dateTime.day().month(.abbreviated))
                         }
                     }
                 }
             }
-            .animation(.easeInOut, value: items)
+            .frame(height: 250)
         }
-        .padding(10)
-        .frame(maxHeight: .infinity)
-        .frame(minHeight: max(containerWidth, 164), alignment: .topLeading)
-        .background(
-            GeometryReader { geo in
-                Color.clear
-                    .onAppear { containerWidth = geo.size.width }
-                    .onChange(of: geo.size.width) {
-                        containerWidth = geo.size.width
-                    }
-            }
-        )
-        .containerBackground(.fill.tertiary, for: .widget)
-        .background(colorScheme == .dark ? Color(uiColor: .tertiarySystemFill) : .white, in: .rect(cornerRadius: 24))
-        /*.background(colorScheme == .dark ? Color(uiColor: .tertiarySystemFill) : .white, in: .rect(cornerRadius: 24))*/
     }
 }
-
 
 
 //MARK: - Sortby enum

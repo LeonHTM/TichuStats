@@ -22,10 +22,12 @@ let placeholderProfile = Profile(
     day: .empty
 )
 
-//MARK: - ProfileStats used in Profiles
 
+// MARK: - ProfileStats used in Profiles
 struct ProfileStats: Codable {
-    //MARK: Vars
+    // MARK: Vars
+
+    var calculatedAt: Double?
     var winnerPercentage: Double
     var averagePlacement: Double
     var tichuMaster: Double
@@ -38,30 +40,156 @@ struct ProfileStats: Codable {
     var bigGambler: Double
     var pinguGambler: Double
     var bomber: Double
-    
-    //MARK: CodingKeys
+
+    // MARK: CodingKeys
+
     enum CodingKeys: String, CodingKey {
+        case calculatedAt = "calculated_at"
         case winnerPercentage = "winner_percentage"
         case averagePlacement = "average_placement"
         case tichuMaster = "tichu_master"
-        case visionary, addict, teamplayer, announcer
-        case saboteur, gambler
+        case visionary
+        case addict
+        case teamplayer
+        case announcer
+        case saboteur
+        case gambler
         case bigGambler = "big_gambler"
         case pinguGambler = "pingu_gambler"
         case bomber
     }
+
+    // MARK: Init
+
+    init(
+        calculatedAt: Double?,
+        winnerPercentage: Double,
+        averagePlacement: Double,
+        tichuMaster: Double,
+        visionary: Double,
+        addict: Double,
+        teamplayer: Double,
+        announcer: Double,
+        saboteur: Double,
+        gambler: Double,
+        bigGambler: Double,
+        pinguGambler: Double,
+        bomber: Double
+    ) {
+        self.calculatedAt = calculatedAt
+        self.winnerPercentage = winnerPercentage
+        self.averagePlacement = averagePlacement
+        self.tichuMaster = tichuMaster
+        self.visionary = visionary
+        self.addict = addict
+        self.teamplayer = teamplayer
+        self.announcer = announcer
+        self.saboteur = saboteur
+        self.gambler = gambler
+        self.bigGambler = bigGambler
+        self.pinguGambler = pinguGambler
+        self.bomber = bomber
+    }
+
+    // MARK: Codable
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        let calculatedAtString = try container.decode(String.self, forKey: .calculatedAt)
+
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+
+        guard let date = formatter.date(from: calculatedAtString) else {
+            print("Could not parse calculated_at:", calculatedAtString)
+            throw DecodingError.dataCorruptedError(
+                forKey: .calculatedAt,
+                in: container,
+                debugDescription: "Invalid calculated_at format: \(calculatedAtString)"
+            )
+        }
+
+        calculatedAt = date.timeIntervalSince1970
+
+
+        winnerPercentage = try container.decode(Double.self, forKey: .winnerPercentage)
+        averagePlacement = try container.decode(Double.self, forKey: .averagePlacement)
+        tichuMaster = try container.decode(Double.self, forKey: .tichuMaster)
+        visionary = try container.decode(Double.self, forKey: .visionary)
+        addict = try container.decode(Double.self, forKey: .addict)
+        teamplayer = try container.decode(Double.self, forKey: .teamplayer)
+        announcer = try container.decode(Double.self, forKey: .announcer)
+        saboteur = try container.decode(Double.self, forKey: .saboteur)
+        gambler = try container.decode(Double.self, forKey: .gambler)
+        bigGambler = try container.decode(Double.self, forKey: .bigGambler)
+        pinguGambler = try container.decode(Double.self, forKey: .pinguGambler)
+        bomber = try container.decode(Double.self, forKey: .bomber)
+
+    }
+
+    func getStat(for stat: Profile.playerStat) -> Double {
+        switch stat {
+        case .elo:
+            return 0
+        case .winnerPercentage:
+            return winnerPercentage
+        case .averagePlacement:
+            return averagePlacement
+        case .tichuMaster:
+            return tichuMaster
+        case .visionary:
+            return visionary
+        case .addict:
+            return addict
+        case .teamplayer:
+            return teamplayer
+        case .announcer:
+            return announcer
+        case .saboteur:
+            return saboteur
+        case .gambler:
+            return gambler
+        case .bigGambler:
+            return bigGambler
+        case .pinguGambler:
+            return pinguGambler
+        case .bomber:
+            return bomber
+        case .dateAdded:
+            return 0
+        }
+    }
     
-    
-    
-    //Fallback
+    // MARK: Fallback
+
     static var empty: ProfileStats {
         ProfileStats(
-            winnerPercentage: 0,averagePlacement: 0, tichuMaster: 0, visionary: 0,
-            addict: 0, teamplayer: 0, announcer: 0, saboteur: 0,
-            gambler: 0, bigGambler: 0, pinguGambler: 0, bomber: 0
+            calculatedAt: nil,
+            winnerPercentage: 0,
+            averagePlacement: 0,
+            tichuMaster: 0,
+            visionary: 0,
+            addict: 0,
+            teamplayer: 0,
+            announcer: 0,
+            saboteur: 0,
+            gambler: 0,
+            bigGambler: 0,
+            pinguGambler: 0,
+            bomber: 0
         )
     }
 }
+
+
+    
+
+
+
 
 //MARK: Possible Timeframes
 enum Timeframe: String, CaseIterable {

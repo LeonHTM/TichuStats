@@ -56,6 +56,9 @@ class NetworkService: ObservableObject {
     @Published var friendRequests: [(id: Int, senderId: Int)] = []
     @Published var sentRequests: [(id: Int, receiverId: Int)] = []
     
+    //StatsHistory
+    @Published var statsHistory: [String:[ProfileStats]] = [:]
+    
     //No one else can create instance only ever talks to this instance
     private init() {
         pathMonitor.pathUpdateHandler = { [weak self] path in
@@ -548,6 +551,31 @@ class NetworkService: ObservableObject {
         }
     }
     
+    func fetchProfileStatsHistory(profileId: Int,stat: String = "all_time") async {
+        guard let url = URL(string: "\(apiURL)/profilestats/history") else { return }
+        var request = authorizedRequest(url: url, method: "POST")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONSerialization.data(withJSONObject: [
+            "profile_id": profileId,
+            "stat": stat
+        ])
+        do{
+            do {
+                let (data, _) = try await URLSession.shared.data(for: request)
+                
+                let history = try JSONDecoder().decode([String: [ProfileStats]].self, from: data)
+                
+                await MainActor.run {
+                    self.statsHistory = history
+                }
+            }catch{
+                print("fetchProfileStatsHistory Error: \(error)")
+            }
+        }
+    }
+    
+        
+        
     // MARK: fetchProfileSettings used in fetch
     func fetchProfileSettings(profileId: Int) async {
         guard let url = URL(string: "\(apiURL)/profile/\(profileId)/settings") else { return }

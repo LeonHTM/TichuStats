@@ -52,6 +52,42 @@ struct StatsView: View {
         }
     }
     
+    
+    var selectedTimeframeBinding: Binding<Timeframe> {
+        Binding(
+            get: {
+                switch selectedTags.first {
+                case String(localized: "statistics.timeframes.year"):
+                    return .year
+                case String(localized: "statistics.timeframe.month"):
+                    return .month
+                case String(localized: "statistics.timeframe.week"):
+                    return .week
+                case String(localized: "statistics.timeframe.day"):
+                    return .day
+                default:
+                    return .allTime
+                }
+            },
+            set: { newValue in
+                withAnimation(.easeInOut) {
+                    switch newValue {
+                    case .allTime:
+                        selectedTags = [String(localized: "statistics.timeframes.alltime")]
+                    case .year:
+                        selectedTags = [String(localized: "statistics.timeframes.year")]
+                    case .month:
+                        selectedTags = [String(localized: "statistics.timeframe.month")]
+                    case .week:
+                        selectedTags = [String(localized: "statistics.timeframe.week")]
+                    case .day:
+                        selectedTags = [String(localized: "statistics.timeframe.day")]
+                    }
+                }
+            }
+        )
+    }
+    
     // MARK: - Body
     var body: some View {
         NavigationStack {
@@ -145,7 +181,7 @@ struct StatsView: View {
                 percentage: false,
                 inTop: 0.025,
                 stat: .elo,
-                timeframe: selectedTimeframe,
+                timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .elo, sortBy: sortBy, timeframe: selectedTimeframe)
             )
             .transition(.opacity.combined(with: .scale))
@@ -161,7 +197,7 @@ struct StatsView: View {
                 percentage: true,
                 inTop: 0.1,
                 stat: .winnerPercentage,
-                timeframe: selectedTimeframe,
+                timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .winnerPercentage, sortBy: sortBy, timeframe: selectedTimeframe)
             )
             .transition(.opacity.combined(with: .scale))
@@ -177,7 +213,7 @@ struct StatsView: View {
                 percentage: false,
                 inTop: 0.1,
                 stat: .averagePlacement,
-                timeframe: selectedTimeframe,
+                timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .averagePlacement, sortBy: sortBy, timeframe: selectedTimeframe,reverse:true),
                 digits:2,
                 reverse: true
@@ -195,7 +231,7 @@ struct StatsView: View {
                 percentage: false,
                 inTop: 0.75,
                 stat: .tichuMaster,
-                timeframe: selectedTimeframe,
+                timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .tichuMaster, sortBy: sortBy, timeframe: selectedTimeframe)
             )
             .transition(.opacity.combined(with: .scale))
@@ -211,7 +247,7 @@ struct StatsView: View {
                 percentage: true,
                 inTop: 0.025,
                 stat: .visionary,
-                timeframe: selectedTimeframe,
+                timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .visionary, sortBy: sortBy, timeframe: selectedTimeframe)
             )
             .transition(.opacity.combined(with: .scale))
@@ -227,7 +263,7 @@ struct StatsView: View {
                 percentage: false,
                 inTop: 0.9,
                 stat: .addict,
-                timeframe: selectedTimeframe,
+                timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .addict, sortBy: sortBy, timeframe: selectedTimeframe)
             )
             .transition(.opacity.combined(with: .scale))
@@ -243,7 +279,7 @@ struct StatsView: View {
                 percentage: true,
                 inTop: 0.06,
                 stat: .teamplayer,
-                timeframe: selectedTimeframe,
+                timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .teamplayer, sortBy: sortBy, timeframe: selectedTimeframe)
             )
             .transition(.opacity.combined(with: .scale))
@@ -259,7 +295,7 @@ struct StatsView: View {
                 percentage: true,
                 inTop: 0.76,
                 stat: .announcer,
-                timeframe: selectedTimeframe,
+                timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .announcer, sortBy: sortBy, timeframe: selectedTimeframe)
             )
             .transition(.opacity.combined(with: .scale))
@@ -275,7 +311,7 @@ struct StatsView: View {
                 percentage: true,
                 inTop: 0.87,
                 stat: .saboteur,
-                timeframe: selectedTimeframe,
+                timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .saboteur, sortBy: sortBy, timeframe: selectedTimeframe)
             )
             .transition(.opacity.combined(with: .scale))
@@ -291,7 +327,7 @@ struct StatsView: View {
                 percentage: true,
                 inTop: 0.9,
                 stat: .gambler,
-                timeframe: selectedTimeframe,
+                timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .gambler, sortBy: sortBy, timeframe: selectedTimeframe)
             )
             .transition(.opacity.combined(with: .scale))
@@ -307,7 +343,7 @@ struct StatsView: View {
                 percentage: true,
                 inTop: 0.1,
                 stat: .bigGambler,
-                timeframe: selectedTimeframe,
+                timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .bigGambler, sortBy: sortBy, timeframe: selectedTimeframe)
             )
             .transition(.opacity.combined(with: .scale))
@@ -323,7 +359,7 @@ struct StatsView: View {
                     percentage: true,
                     inTop: 0.1,
                     stat: .pinguGambler,
-                    timeframe: selectedTimeframe,
+                    timeframe: selectedTimeframeBinding,
                     items: makeItems(from: compareList, stat: .pinguGambler, sortBy: sortBy, timeframe: selectedTimeframe)
                 )
                 .transition(.opacity.combined(with: .scale))
@@ -340,7 +376,7 @@ struct StatsView: View {
                 percentage: true,
                 inTop: 0.9,
                 stat: .bomber,
-                timeframe: selectedTimeframe,
+                timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .bomber, sortBy: sortBy, timeframe: selectedTimeframe)
             )
             .transition(.opacity.combined(with: .scale))
