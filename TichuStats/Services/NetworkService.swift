@@ -73,22 +73,31 @@ class NetworkService: ObservableObject {
     var flexibleDateDecoder: JSONDecoder {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
+
         decoder.dateDecodingStrategy = .custom { decoder in
             let container = try decoder.singleValueContainer()
             let str = try container.decode(String.self)
+
             let isoFormatter = ISO8601DateFormatter()
+            isoFormatter.timeZone = TimeZone(identifier: "UTC") // incoming strings are UTC
             isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
             if let date = isoFormatter.date(from: str) { return date }
+
             isoFormatter.formatOptions = [.withInternetDateTime]
             if let date = isoFormatter.date(from: str) { return date }
+
             let fallback = DateFormatter()
             fallback.locale = Locale(identifier: "en_US_POSIX")
+            fallback.timeZone = TimeZone(identifier: "UTC") // naive strings assumed UTC too
             fallback.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
             if let date = fallback.date(from: str) { return date }
+
             fallback.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
             if let date = fallback.date(from: str) { return date }
+
             fallback.dateFormat = "yyyy-MM-dd"
             if let date = fallback.date(from: str) { return date }
+
             throw DecodingError.dataCorruptedError(
                 in: container,
                 debugDescription: "Cannot decode date: \(str)"
@@ -453,7 +462,8 @@ class NetworkService: ObservableObject {
         guard let url = URL(string: "\(apiURL)/profilessimple") else { return false }
         do {
             let (data, _) = try await URLSession.shared.data(for: authorizedRequest(url: url))
-            let decoded = try JSONDecoder().decode([Profile].self, from: data)
+            let decoded = try flexibleDateDecoder.decode([Profile].self, from: data)
+            //let decoded = try JSONDecoder().decode([Profile].self, from: data)
             await MainActor.run {
                 withAnimation(.easeInOut) {
                     let fetchedById = Dictionary(uniqueKeysWithValues: decoded.map { ($0.id, $0) })
@@ -483,6 +493,7 @@ class NetworkService: ObservableObject {
     
     //MARK: fetchProfileImages used in fetchProfiles
     func fetchProfileImages(replace:Bool = false) async {
+        print("fetching profile images")
         let snapshot = await MainActor.run { profiles }
         for profile in snapshot {
             guard let urlString = profile.profileImageUrl,
@@ -510,23 +521,30 @@ class NetworkService: ObservableObject {
     func fetchProfilesStats(profileId: Int) async {
         let timeframes = ["all_time", "year", "month", "week", "day"]
         let apiURL = self.apiURL
+        let timezone = TimeZone.current.identifier // e.g. "Europe/Zurich"
 
         await withTaskGroup(of: (String, ProfileStats?).self) { group in
             for timeframe in timeframes {
                 group.addTask {
-                    guard let url = URL(string: "\(apiURL)/profilesstats/\(profileId)?timeframe=\(timeframe)") else {
+                    guard var components = URLComponents(string: "\(apiURL)/profilesstats/\(profileId)") else {
+                        return (timeframe, nil)
+                    }
+                    components.queryItems = [
+                        URLQueryItem(name: "timeframe", value: timeframe),
+                        URLQueryItem(name: "timezone", value: timezone)
+                    ]
+                    guard let url = components.url else {
                         return (timeframe, nil)
                     }
                     do {
                         let (data, _) = try await URLSession.shared.data(for: self.authorizedRequest(url: url))
                         let decoded = try await MainActor.run {
-                            try JSONDecoder().decode(ProfileStats.self, from: data)
+                            try self.flexibleDateDecoder.decode(ProfileStats.self, from: data)
                         }
                         return (timeframe, decoded)
                     } catch {
                         print("fetchProfilesStats error (\(timeframe)): \(error)")
                         return (timeframe, nil)
-                        
                     }
                 }
             }
@@ -562,8 +580,15 @@ class NetworkService: ObservableObject {
         do{
             do {
                 let (data, _) = try await URLSession.shared.data(for: request)
+                print(data)
                 
-                let history = try JSONDecoder().decode([String: [ProfileStats]].self, from: data)
+                let decoder = flexibleDateDecoder
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let history = try decoder.decode([String: [ProfileStats]].self, from: data)
+                
+                //let history = try JSONDecoder().decode([String: [ProfileStats]].self, from: data)
+                
+                print(history)
                 
                 await MainActor.run {
                     self.statsHistory = history
@@ -769,14 +794,12 @@ class NetworkService: ObservableObject {
 
             let fetchedFriends: [Friend] = raw.compactMap { dict in
                 guard let jsonData = try? JSONSerialization.data(withJSONObject: dict),
-                      let profile = try? JSONDecoder().decode(Profile.self, from: jsonData) else { return nil }
+                      let profile = try? flexibleDateDecoder.decode(Profile.self, from: jsonData) else { return nil }
 
                 var date: Date? = nil
-                if let dateStr = dict["friends_since"] as? String {
-                    let formatter = DateFormatter()
-                    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-                    formatter.locale = Locale(identifier: "en_US_POSIX")
-                    date = formatter.date(from: dateStr)
+                if let dateStr = dict["friends_since"] as? String,
+                   let dateData = try? JSONEncoder().encode(dateStr) {
+                    date = try? flexibleDateDecoder.decode(Date.self, from: dateData)
                 }
 
                 return Friend(id: profile.id, profile: profile, friendsSince: date)

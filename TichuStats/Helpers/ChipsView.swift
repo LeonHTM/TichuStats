@@ -30,7 +30,7 @@ struct ChipsView<Content: View, Tag: Hashable>: View {
                                 if onlyOne {
                                     if selectedTags.contains(tag) {
                                         if let first = tags.first {
-                                            selectedTags = [first]
+                                            //selectedTags = [first]
                                         }
                                     } else {
                                         selectedTags = [tag]
@@ -39,6 +39,7 @@ struct ChipsView<Content: View, Tag: Hashable>: View {
                                     if selectedTags.contains(tag) {
                                         selectedTags.removeAll(where: { $0 == tag })
                                     } else {
+                                        
                                         selectedTags.append(tag)
                                     }
                                 }

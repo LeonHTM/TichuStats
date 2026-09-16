@@ -203,6 +203,7 @@ struct StatsView: View {
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
             
+            
             StatsContainer(
                 title: String(localized: "statistics.statscontainer.title.climber"),
                 description: String(localized: "statistics.statscontainer.description.climber"),

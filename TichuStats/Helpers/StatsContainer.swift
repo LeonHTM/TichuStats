@@ -12,6 +12,7 @@ struct StatsContainer: View {
 
     
     @Environment(\.colorScheme) var colorScheme
+
     
     //MARK: Vars
     var title: String
@@ -28,6 +29,7 @@ struct StatsContainer: View {
     var items: [Profile]
     var digits: Int = 0
     var reverse: Bool = false
+    
     
     //MARK: Width tracking (so minHeight can match width)
     @State private var containerWidth: CGFloat = 0
@@ -75,19 +77,26 @@ struct StatsContainer: View {
                 
                 VStack(alignment:.leading){
                     ZStack{
-                        if timeframe == .day{
-                            
-                            Text(String(localized: "statistics.timeframe.day"))
-                        }else if timeframe == .week{
-                            Text(String(localized: "statistics.timeframe.week"))
-                        }else if timeframe == .month{
-                            Text(String(localized: "statistics.timeframe.month"))
-                        }else if timeframe == .year{
-                            Text(String(localized: "statistics.timeframes.year"))
+                        
+                        
+                        if !(stat == .elo){
+                            if timeframe == .day{
+                                
+                                Text(String(localized: "statistics.timeframe.day"))
+                            }else if timeframe == .week{
+                                Text(String(localized: "statistics.timeframe.week"))
+                            }else if timeframe == .month{
+                                Text(String(localized: "statistics.timeframe.month"))
+                            }else if timeframe == .year{
+                                Text(String(localized: "statistics.timeframes.year"))
+                            }else{
+                                Text(String(localized: "statistics.timeframes.alltime"))
+                            }
                         }else{
                             Text(String(localized: "statistics.timeframes.alltime"))
                         }
                     }.animation(.easeInOut,value:timeframe).font(.system(size:14)).redactedShimmer()
+                    
                     HStack{
                         if percentage == false {
                             if digits == 0{
@@ -230,7 +239,8 @@ struct StatsContainer: View {
 struct StatsDetailView: View {
     @ObservedObject private var network = NetworkService.shared
     @AppStorage("userId") var userId: Int = -69420
-    
+    @Environment(\.colorScheme) var colorScheme
+    @State private var isLoading: Bool = false
     
     
     
@@ -245,21 +255,53 @@ struct StatsDetailView: View {
     var reverse: Bool = false
     
     
-    private func statToString(stat: Profile.playerStat) -> String {
-        switch stat {
-        case .elo:              return String(localized: "statistics.statscontainer.title.rating")
-        case .winnerPercentage: return String(localized: "statistics.statscontainer.title.winner")
-        case .averagePlacement: return String(localized: "statistics.statscontainer.title.climber")
-        case .tichuMaster:      return String(localized: "statistics.statscontainer.title.tichumaster")
-        case .visionary:        return String(localized: "statistics.statscontainer.title.visionary")
-        case .addict:            return String(localized: "statistics.statscontainer.title.addict")
-        case .teamplayer:       return String(localized: "statistics.statscontainer.title.teamplayer")
-        case .announcer:        return String(localized: "statistics.statscontainer.title.announcer")
-        case .saboteur:          return String(localized: "statistics.statscontainer.title.saboteur")
-        case .gambler:           return String(localized: "statistics.statscontainer.title.gambler")
-        case .bigGambler:       return String(localized: "statistics.statscontainer.title.bigGambler")
-        case .pinguGambler:     return String(localized: "statistics.statscontainer.title.pinguGambler")
-        case .bomber:            return String(localized: "statistics.statscontainer.title.bomber")
+    private func statToString(stat: Profile.playerStat,title: Bool = true) -> String {
+        if title{
+            switch stat {
+            case .elo:              return String(localized: "statistics.statscontainer.title.rating")
+            case .winnerPercentage: return String(localized: "statistics.statscontainer.title.winner")
+            case .averagePlacement: return String(localized: "statistics.statscontainer.title.climber")
+            case .tichuMaster:      return String(localized: "statistics.statscontainer.title.tichumaster")
+            case .visionary:        return String(localized: "statistics.statscontainer.title.visionary")
+            case .addict:            return String(localized: "statistics.statscontainer.title.addict")
+            case .teamplayer:       return String(localized: "statistics.statscontainer.title.teamplayer")
+            case .announcer:        return String(localized: "statistics.statscontainer.title.announcer")
+            case .saboteur:          return String(localized: "statistics.statscontainer.title.saboteur")
+            case .gambler:           return String(localized: "statistics.statscontainer.title.gambler")
+            case .bigGambler:       return String(localized: "statistics.statscontainer.title.bigGambler")
+            case .pinguGambler:     return String(localized: "statistics.statscontainer.title.pinguGambler")
+            case .bomber:            return String(localized: "statistics.statscontainer.title.bomber")
+            default:
+                return String(localized:"general.unknown")
+            }
+        }else{
+            switch stat {
+            case .elo:              return String(localized: "statistics.statscontainer.description.rating.long")
+            case .winnerPercentage: return String(localized: "statistics.statscontainer.description.winner.long")
+            case .averagePlacement: return String(localized: "statistics.statscontainer.description.climber.long")
+            case .tichuMaster:      return String(localized: "statistics.statscontainer.description.tichumaster.long")
+            case .visionary:        return String(localized: "statistics.statscontainer.description.visionary.long")
+            case .addict:            return String(localized: "statistics.statscontainer.description.addict.long")
+            case .teamplayer:       return String(localized: "statistics.statscontainer.description.teamplayer.long")
+            case .announcer:        return String(localized: "statistics.statscontainer.description.announcer.long")
+            case .saboteur:          return String(localized: "statistics.statscontainer.description.saboteur.long")
+            case .gambler:           return String(localized: "statistics.statscontainer.description.gambler.long")
+            case .bigGambler:       return String(localized: "statistics.statscontainer.description.bigGambler.long")
+            case .pinguGambler:     return String(localized: "statistics.statscontainer.description.pinguGambler.long")
+            case .bomber:            return String(localized: "statistics.statscontainer.description.bomber.long")
+            default:
+                return String(localized:"general.unknown")
+            }
+        }
+    }
+    
+    private func timeFrametoString(timeframe:Timeframe) -> String{
+        switch timeframe{
+        case .day: return "Last 24 Hourse"
+        case .week: return "Last Seven Days"
+        case .month: return "Last 30 Days"
+        case .year: return "Last 365 Days"
+        case .allTime: return "Since you downloaded the App"
         default:
             return String(localized:"general.unknown")
         }
@@ -280,7 +322,10 @@ struct StatsDetailView: View {
                 }
                 .pickerStyle(.segmented)
                 
-                Text("\(timeframe)").font(.system(size:16)).foregroundStyle(Color.secondary).padding(.bottom,-15)
+                
+                
+                
+                Text(timeFrametoString(timeframe: timeframe)).font(.system(size:16)).foregroundStyle(Color.secondary).padding(.bottom,-15)
                 HStack{
                     if percentage == false {
                         if digits == 0{
@@ -301,18 +346,106 @@ struct StatsDetailView: View {
                     
                 }.foregroundColor(.accentColor).font(.system(size:29/*,design:.rounded*/)).fontWeight(.bold)
                 Text("The history of your \(timeframe) \(statToString(stat: stat)) Statistic.").font(.system(size:16)).foregroundStyle(Color.secondary).padding(.top,-15)
-                StatsHistoryGraph(
-                    timeframe: timeframe,
-                    percentage:percentage,
-                    inTop:inTop,
-                    digits:digits,
-                    reverse:reverse,
-                    data: network.statsHistory,
-                    stat: stat
-                ).frame(height: 250)
+                if isLoading {
+                    VStack{
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            ProgressView()
+                            Spacer()
+                        }
+                        Spacer()
+                    }.frame(height: 250)
+                }else{
+                    StatsHistoryGraph(
+                        timeframe: timeframe,
+                        percentage:percentage,
+                        inTop:inTop,
+                        digits:digits,
+                        reverse:reverse,
+                        data: network.statsHistory,
+                        stat: stat
+                    ).frame(height: 250)
+                }
                 Text("Explanation").font(.system(size:16)).foregroundStyle(Color.secondary).padding(.vertical,-15)
-                Text("isjdfjasdlkfjlöska djflkjsljfd löasjdfljasklödjfasdlkfjf sadfasdfasdfasdf")
-                Text("your direction competition").foregroundStyle(Color.secondary).padding(.bottom,-15)
+                Text(statToString(stat: stat,title:false))
+                Text("Comparison").foregroundStyle(Color.secondary)
+                //Automtically Load Dictionary and display it
+                VStack(alignment: .leading, spacing: 8) {
+                    
+                    //For loop over all indices, id:value itssself,index is index
+                    ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
+                        let itemValue = item.getStat(for: stat,timeframe:timeframe)
+                        VStack(spacing: 0) {
+                            HStack {
+                                if itemValue > value {
+                                    HStack{
+                                        if reverse {
+                                            Image(systemName: "chevron.down.circle.fill")
+                                                .foregroundStyle(.red)
+                                                .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                                .font(.system(size:14))
+                                                .redactedShimmer()
+                                        }else{
+                                            Image(systemName: "chevron.up.circle.fill")
+                                                .foregroundStyle(.green)
+                                                .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                                .font(.system(size: 14))
+                                                .redactedShimmer()
+                                        }
+                                        
+                                        Text(item.name ?? "")
+                                            .font(.system(size: 13))
+                                        
+                                            .redactedShimmer()
+                                    }.lineLimit(1)
+                                } else if itemValue.isEqual(to: value) || itemValue == value {
+                                    HStack{
+                                        Image(systemName: "equal.circle.fill")
+                                            .foregroundStyle(.yellow)
+                                            .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                            .font(.system(size: 14))
+                                            .redactedShimmer()
+                                        Text(item.name ?? "")
+                                            .font(.system(size: 13))
+                                        
+                                            .redactedShimmer()
+                                    }.lineLimit(1)
+                                } else {
+                                    HStack{
+                                        if reverse{
+                                            Image(systemName: "chevron.up.circle.fill")
+                                                .foregroundStyle(.green)
+                                                .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                                .font(.system(size: 14))
+                                                .redactedShimmer()
+                                        }else{
+                                            Image(systemName: "chevron.down.circle.fill")
+                                                .foregroundStyle(.red)
+                                                .opacity(colorScheme == .dark ? 0.6 : 0.75)
+                                                .font(.system(size:14))
+                                                .redactedShimmer()
+                                        }
+                                        Text(item.name ?? "")
+                                            .font(.system(size: 13))
+                                            .redactedShimmer()
+                                    }
+                                    //.lineLimit(.max)
+                                    .lineLimit(1)
+                                }
+                                Spacer()
+                                Text(percentage ? "\(Int(itemValue*100))%" : "\(Int(itemValue))")
+                                    .font(.system(size: 14))
+                                    .redactedShimmer()
+                            }.padding(.bottom,3).padding(.top,-5)
+                            if index != items.count - 1 {
+                                Divider()
+                            }
+                        }
+                    }
+                }
+                .animation(.easeInOut, value: items)
+                
                 Spacer()
             }.padding(.horizontal)
                 .animation(.easeInOut,value:timeframe)
@@ -320,7 +453,10 @@ struct StatsDetailView: View {
                 .navigationTitle(statToString(stat: stat))
         }.task{
             Task{
+                isLoading = true
                 await network.fetchProfileStatsHistory(profileId: userId)
+                isLoading = false
+                
             }
         }
     }
@@ -365,14 +501,20 @@ struct StatsHistoryGraph: View {
     }
 
     private var chartData: [StatPoint] {
-        selectedData.compactMap { entry in
-            guard let timestamp = entry.calculatedAt else {
-                return nil
-            }
+        var calendar = Calendar.current
+        calendar.timeZone = .current
 
-            return StatPoint(
-                date: Date(timeIntervalSince1970: timestamp),
-                value: percentage ? entry.getStat(for: stat)*100 : entry.getStat(for: stat)
+        let latestPerDay = Dictionary(grouping: selectedData) { entry -> Date in
+            calendar.startOfDay(for: entry.calculatedAt)
+        }
+        .compactMapValues { entries in
+            entries.max { $0.calculatedAt < $1.calculatedAt }
+        }
+
+        return latestPerDay.values.map { entry in
+            StatPoint(
+                date: entry.calculatedAt,
+                value: percentage ? entry.getStat(for: stat) * 100 : entry.getStat(for: stat)
             )
         }
         .sorted { $0.date < $1.date }
