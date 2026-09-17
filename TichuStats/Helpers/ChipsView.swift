@@ -14,10 +14,10 @@ struct ChipsView<Content: View, Tag: Hashable>: View {
     var tags: [Tag]
     var spacing: CGFloat = 10
     var animation: Animation = .easeInOut(duration: 0.2)
+    @Binding var selectedTags: [Tag]
     var onlyOne: Bool = false
     @ViewBuilder var content: (Tag, Bool) -> Content
-    var didChangeSelection: ([Tag]) -> ()
-    @State private var selectedTags: [Tag] = []
+
     //MARK: BODY
     var body: some View {
         GlassEffectContainer {
@@ -29,9 +29,9 @@ struct ChipsView<Content: View, Tag: Hashable>: View {
                             withAnimation(animation) {
                                 if onlyOne {
                                     if selectedTags.contains(tag) {
-                                        if let first = tags.first {
+                                        /*if let first = tags.first {
                                             //selectedTags = [first]
-                                        }
+                                        }*/
                                     } else {
                                         selectedTags = [tag]
                                     }
@@ -44,7 +44,6 @@ struct ChipsView<Content: View, Tag: Hashable>: View {
                                     }
                                 }
                             }
-                            didChangeSelection(selectedTags)
                         }
                 }
             }
@@ -52,7 +51,6 @@ struct ChipsView<Content: View, Tag: Hashable>: View {
         .onAppear {
             if onlyOne && selectedTags.isEmpty, let first = tags.first {
                 selectedTags = [first]
-                didChangeSelection(selectedTags)
             }
         }
     }

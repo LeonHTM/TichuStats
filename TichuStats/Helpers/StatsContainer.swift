@@ -297,19 +297,17 @@ struct StatsDetailView: View {
     
     private func timeFrametoString(timeframe:Timeframe) -> String{
         switch timeframe{
-        case .day: return "Last 24 Hourse"
-        case .week: return "Last Seven Days"
-        case .month: return "Last 30 Days"
-        case .year: return "Last 365 Days"
-        case .allTime: return "Since you downloaded the App"
-        default:
-            return String(localized:"general.unknown")
+        case .day: return "Daily"
+        case .week: return "Weekly"
+        case .month: return "Monthly"
+        case .year: return "Yearly"
+        case .allTime: return "Since you downloaded the TichuStats"
         }
     }
     
     var body: some View {
         NavigationStack{
-            VStack(alignment:.leading,spacing:10){
+            VStack(alignment:.leading,spacing:12){
                 Picker(
                     String(localized: "gamesummary.picker.view"),
                     selection: $timeframe
@@ -325,7 +323,7 @@ struct StatsDetailView: View {
                 
                 
                 
-                Text(timeFrametoString(timeframe: timeframe)).font(.system(size:16)).foregroundStyle(Color.secondary).padding(.bottom,-15)
+                Text("Current Value").font(.system(size:16)).foregroundStyle(Color.secondary).padding(.bottom,-15)
                 HStack{
                     if percentage == false {
                         if digits == 0{
@@ -345,28 +343,19 @@ struct StatsDetailView: View {
                     }
                     
                 }.foregroundColor(.accentColor).font(.system(size:29/*,design:.rounded*/)).fontWeight(.bold)
-                Text("The history of your \(timeframe) \(statToString(stat: stat)) Statistic.").font(.system(size:16)).foregroundStyle(Color.secondary).padding(.top,-15)
-                if isLoading {
-                    VStack{
-                        Spacer()
-                        HStack{
-                            Spacer()
-                            ProgressView()
-                            Spacer()
-                        }
-                        Spacer()
-                    }.frame(height: 250)
-                }else{
-                    StatsHistoryGraph(
-                        timeframe: timeframe,
-                        percentage:percentage,
-                        inTop:inTop,
-                        digits:digits,
-                        reverse:reverse,
-                        data: network.statsHistory,
-                        stat: stat
-                    ).frame(height: 250)
-                }
+                Text(timeFrametoString(timeframe: timeframe)).font(.system(size:16)).foregroundStyle(Color.secondary).padding(.top,-15)
+                
+                StatsHistoryGraph(
+                    timeframe: timeframe,
+                    percentage:percentage,
+                    inTop:inTop,
+                    digits:digits,
+                    reverse:reverse,
+                    data: network.statsHistory,
+                    stat: stat,
+                    isLoading: isLoading
+                ).frame(height: 250)
+                
                 Text("Explanation").font(.system(size:16)).foregroundStyle(Color.secondary).padding(.vertical,-15)
                 Text(statToString(stat: stat,title:false))
                 Text("Comparison").foregroundStyle(Color.secondary)
@@ -452,12 +441,14 @@ struct StatsDetailView: View {
                 .toolbarTitleDisplayMode( .large)
                 .navigationTitle(statToString(stat: stat))
         }.task{
-            Task{
+            
                 isLoading = true
-                await network.fetchProfileStatsHistory(profileId: userId)
+                if network.statsHistory == [:]{
+                    await network.fetchProfileStatsHistory(profileId: userId)
+                }
                 isLoading = false
                 
-            }
+            
         }
     }
 }
@@ -477,9 +468,11 @@ struct StatsHistoryGraph: View {
     let inTop: Double
     let digits: Int
     let reverse: Bool
+
     
     let data: [String: [ProfileStats]]
     let stat: Profile.playerStat
+    let isLoading: Bool
 
     private func stringforTimeframe(timeframe: Timeframe) -> String {
         switch timeframe {
@@ -521,37 +514,50 @@ struct StatsHistoryGraph: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading) {
-
-            Chart {
-                ForEach(chartData) { point in
-                    BarMark(
-                        x: .value("Date", point.date),
-                        y: .value("Value", point.value)
-            
-                    )
-                    .annotation(position: .top) {
-                        if percentage {
-                            Text("\(point.value, specifier: "%.0f")%")
-                                .font(.caption)
-                        } else {
-                            Text("\(point.value, specifier: "%.\(digits)f")")
-                                .font(.caption)
+        
+        if isLoading{
+                   VStack{
+                       Spacer()
+                       HStack{
+                           Spacer()
+                           ProgressView()
+                           Spacer()
+                       }
+                       Spacer()
+                   }
+        }else{
+            VStack(alignment: .leading) {
+                
+                Chart {
+                    ForEach(chartData) { point in
+                        BarMark(
+                            x: .value("Date", point.date),
+                            y: .value("Value", point.value)
+                            
+                        )
+                        .annotation(position: .top) {
+                            if percentage {
+                                Text("\(point.value, specifier: "%.0f")%")
+                                    .font(.caption)
+                            } else {
+                                Text("\(point.value, specifier: "%.\(digits)f")")
+                                    .font(.caption)
+                            }
+                        }
+                    }
+                }.chartXAxis {
+                    AxisMarks(values: .automatic) { value in
+                        AxisGridLine()
+                        AxisTick()
+                        AxisValueLabel {
+                            if let date = value.as(Date.self) {
+                                Text(date, format: .dateTime.day().month(.abbreviated))
+                            }
                         }
                     }
                 }
-            }.chartXAxis {
-                AxisMarks(values: .automatic) { value in
-                    AxisGridLine()
-                    AxisTick()
-                    AxisValueLabel {
-                        if let date = value.as(Date.self) {
-                            Text(date, format: .dateTime.day().month(.abbreviated))
-                        }
-                    }
-                }
+                .frame(height: 250)
             }
-            .frame(height: 250)
         }
     }
 }

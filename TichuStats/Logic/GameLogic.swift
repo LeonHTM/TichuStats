@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 //MARK: - Struct Game
-struct Game: Identifiable, Decodable, Equatable {
+nonisolated struct Game: Identifiable, Decodable, Equatable {
     //MARK: Vars
     var favorite: Bool = false
     let id: Int
@@ -110,7 +110,7 @@ struct Game: Identifiable, Decodable, Equatable {
 
 
 //MARK: - ROUND
-struct Round: Identifiable, Decodable, Equatable {
+nonisolated struct Round: Identifiable, Decodable, Equatable {
     let id: Int
     var gameId: Int
     var roundOrder: Int
@@ -175,7 +175,7 @@ enum tichuGameTarget: Int, CaseIterable, Identifiable {
 
 
 //MARK: - EloHistoryEntry used in NetworkService
-struct EloHistoryEntry: Identifiable, Codable {
+nonisolated struct EloHistoryEntry: Identifiable, Codable {
     var id: Int
     var gameId: Int?
     var eloChange: Double

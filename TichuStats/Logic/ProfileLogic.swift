@@ -24,7 +24,7 @@ let placeholderProfile = Profile(
 
 
 // MARK: - ProfileStats used in Profiles
-struct ProfileStats: Codable {
+nonisolated struct ProfileStats: Codable,Equatable {
     // MARK: Vars
 
     var calculatedAt: Date
@@ -76,6 +76,22 @@ struct ProfileStats: Codable {
     }
     
     // MARK: Fallback
+    
+    static func == (lhs: ProfileStats, rhs: ProfileStats) -> Bool {
+        lhs.calculatedAt == rhs.calculatedAt &&
+        lhs.winnerPercentage == rhs.winnerPercentage &&
+        lhs.averagePlacement == rhs.averagePlacement &&
+        lhs.tichuMaster == rhs.tichuMaster &&
+        lhs.visionary == rhs.visionary &&
+        lhs.addict == rhs.addict &&
+        lhs.teamplayer == rhs.teamplayer &&
+        lhs.announcer == rhs.announcer &&
+        lhs.saboteur == rhs.saboteur &&
+        lhs.gambler == rhs.gambler &&
+        lhs.bigGambler == rhs.bigGambler &&
+        lhs.pinguGambler == rhs.pinguGambler &&
+        lhs.bomber == rhs.bomber
+    }
 
     static var empty: ProfileStats {
         ProfileStats(
@@ -112,7 +128,7 @@ enum Timeframe: String, CaseIterable {
 }
 
 //MARK: - Profile
-struct Profile: Identifiable, Equatable, Codable {
+nonisolated struct Profile: Identifiable, Equatable, Codable {
     //MARK: Vars
     var id: Int
     var name: String?
@@ -326,7 +342,7 @@ func makeItems(
 
 
 // MARK: - Friend used to Store Friends
-struct Friend: Identifiable, Equatable {
+nonisolated struct Friend: Identifiable, Equatable {
     //MARK: Vars
     let id: Int
     let profile: Profile

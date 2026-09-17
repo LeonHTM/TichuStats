@@ -462,8 +462,9 @@ class NetworkService: ObservableObject {
         guard let url = URL(string: "\(apiURL)/profilessimple") else { return false }
         do {
             let (data, _) = try await URLSession.shared.data(for: authorizedRequest(url: url))
-            let decoded = try flexibleDateDecoder.decode([Profile].self, from: data)
-            //let decoded = try JSONDecoder().decode([Profile].self, from: data)
+            let decoded = try await Task.detached(priority: .userInitiated) { [decoder = self.flexibleDateDecoder] in
+                try decoder.decode([Profile].self, from: data)
+            }.value
             await MainActor.run {
                 withAnimation(.easeInOut) {
                     let fetchedById = Dictionary(uniqueKeysWithValues: decoded.map { ($0.id, $0) })
@@ -521,7 +522,7 @@ class NetworkService: ObservableObject {
     func fetchProfilesStats(profileId: Int) async {
         let timeframes = ["all_time", "year", "month", "week", "day"]
         let apiURL = self.apiURL
-        let timezone = TimeZone.current.identifier // e.g. "Europe/Zurich"
+        let timezone = TimeZone.current.identifier
 
         await withTaskGroup(of: (String, ProfileStats?).self) { group in
             for timeframe in timeframes {
@@ -538,9 +539,9 @@ class NetworkService: ObservableObject {
                     }
                     do {
                         let (data, _) = try await URLSession.shared.data(for: self.authorizedRequest(url: url))
-                        let decoded = try await MainActor.run {
-                            try self.flexibleDateDecoder.decode(ProfileStats.self, from: data)
-                        }
+                        let decoded = try await Task.detached(priority: .userInitiated) { [decoder = self.flexibleDateDecoder] in
+                            try decoder.decode(ProfileStats.self, from: data)
+                        }.value
                         return (timeframe, decoded)
                     } catch {
                         print("fetchProfilesStats error (\(timeframe)): \(error)")
@@ -569,7 +570,7 @@ class NetworkService: ObservableObject {
         }
     }
     
-    func fetchProfileStatsHistory(profileId: Int,stat: String = "all_time") async {
+    func fetchProfileStatsHistory(profileId: Int, stat: String = "all_time") async {
         guard let url = URL(string: "\(apiURL)/profilestats/history") else { return }
         var request = authorizedRequest(url: url, method: "POST")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -577,25 +578,21 @@ class NetworkService: ObservableObject {
             "profile_id": profileId,
             "stat": stat
         ])
-        do{
-            do {
-                let (data, _) = try await URLSession.shared.data(for: request)
-                print(data)
-                
+
+        do {
+            let (data, _) = try await URLSession.shared.data(for: request)
+
+            let history = try await Task.detached(priority: .userInitiated) { [flexibleDateDecoder] in
                 let decoder = flexibleDateDecoder
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let history = try decoder.decode([String: [ProfileStats]].self, from: data)
-                
-                //let history = try JSONDecoder().decode([String: [ProfileStats]].self, from: data)
-                
-                print(history)
-                
-                await MainActor.run {
-                    self.statsHistory = history
-                }
-            }catch{
-                print("fetchProfileStatsHistory Error: \(error)")
+                return try decoder.decode([String: [ProfileStats]].self, from: data)
+            }.value
+
+            await MainActor.run {
+                self.statsHistory = history
             }
+        } catch {
+            print("fetchProfileStatsHistory Error: \(error)")
         }
     }
     
@@ -792,18 +789,20 @@ class NetworkService: ObservableObject {
             let (data, _) = try await URLSession.shared.data(for: authorizedRequest(url: url))
             let raw = try JSONSerialization.jsonObject(with: data) as? [[String: Any]] ?? []
 
-            let fetchedFriends: [Friend] = raw.compactMap { dict in
-                guard let jsonData = try? JSONSerialization.data(withJSONObject: dict),
-                      let profile = try? flexibleDateDecoder.decode(Profile.self, from: jsonData) else { return nil }
+            let fetchedFriends = await Task.detached(priority: .userInitiated) { [decoder = self.flexibleDateDecoder] () -> [Friend] in
+                raw.compactMap { dict in
+                    guard let jsonData = try? JSONSerialization.data(withJSONObject: dict),
+                          let profile = try? decoder.decode(Profile.self, from: jsonData) else { return nil }
 
-                var date: Date? = nil
-                if let dateStr = dict["friends_since"] as? String,
-                   let dateData = try? JSONEncoder().encode(dateStr) {
-                    date = try? flexibleDateDecoder.decode(Date.self, from: dateData)
+                    var date: Date? = nil
+                    if let dateStr = dict["friends_since"] as? String,
+                       let dateData = try? JSONEncoder().encode(dateStr) {
+                        date = try? decoder.decode(Date.self, from: dateData)
+                    }
+
+                    return Friend(id: profile.id, profile: profile, friendsSince: date)
                 }
-
-                return Friend(id: profile.id, profile: profile, friendsSince: date)
-            }
+            }.value
 
             await MainActor.run {
                 withAnimation(.easeInOut) {
@@ -1082,12 +1081,14 @@ class NetworkService: ObservableObject {
 
         do {
             let (data, _) = try await URLSession.shared.data(for: authorizedRequest(url: url))
-            struct Response: Decodable {
+            nonisolated struct Response: Decodable {
                 let profileId: Int
                 let games: [Game]
             }
 
-            let decoded = try flexibleDateDecoder.decode(Response.self, from: data)
+            let decoded = try await Task.detached(priority: .userInitiated) { [decoder = self.flexibleDateDecoder] in
+                try decoder.decode(Response.self, from: data)
+            }.value
 
             await MainActor.run {
                 self.games = decoded.games.map { game in
@@ -1104,27 +1105,18 @@ class NetworkService: ObservableObject {
                     existingGames = decodedExisting
                 }
 
-                let updatedGames = decoded.games.map { game in
+                let updatedGames = decoded.games.map { game -> WidgetGameData in
                     let isFavorite = favDic[game.id].map { $0 == 1 } ?? false
-
                     if let existing = existingGames.first(where: { $0.id == game.id }) {
                         return WidgetGameData(
-                            winner: game.winner,
-                            favorite: isFavorite,
-                            id: game.id,
-                            date: game.date,
-                            team1Score: game.currentPointsTeam1,
-                            team2Score: game.currentPointsTeam2,
+                            winner: game.winner, favorite: isFavorite, id: game.id, date: game.date,
+                            team1Score: game.currentPointsTeam1, team2Score: game.currentPointsTeam2,
                             rounds: existing.rounds
                         )
                     } else {
                         return WidgetGameData(
-                            winner: game.winner,
-                            favorite: isFavorite,
-                            id: game.id,
-                            date: game.date,
-                            team1Score: game.currentPointsTeam1,
-                            team2Score: game.currentPointsTeam2,
+                            winner: game.winner, favorite: isFavorite, id: game.id, date: game.date,
+                            team1Score: game.currentPointsTeam1, team2Score: game.currentPointsTeam2,
                             rounds: []
                         )
                     }
@@ -1271,12 +1263,14 @@ class NetworkService: ObservableObject {
         do {
             let (data, _) = try await URLSession.shared.data(for: authorizedRequest(url: url))
 
-            struct Response: Decodable {
+            nonisolated struct Response: Decodable {
                 let gameId: Int
                 let rounds: [Round]
             }
 
-            let decoded = try flexibleDateDecoder.decode(Response.self, from: data)
+            let decoded = try await Task.detached(priority: .userInitiated) { [decoder = self.flexibleDateDecoder] in
+                try decoder.decode(Response.self, from: data)
+            }.value
 
             await MainActor.run {
                 self.roundsByGame[gameId] = decoded.rounds
@@ -1473,7 +1467,9 @@ class NetworkService: ObservableObject {
 
         do {
             let (data, _) = try await URLSession.shared.data(for: authorizedRequest(url: url))
-            let decoded = try flexibleDateDecoder.decode([EloHistoryEntry].self, from: data)
+            let decoded = try await Task.detached(priority: .userInitiated) { [decoder = self.flexibleDateDecoder] in
+                try decoder.decode([EloHistoryEntry].self, from: data)
+            }.value
 
             let defaults = UserDefaults(suiteName: "group.com.drakynem.tichu")
             if let encoded = try? JSONEncoder().encode(decoded) {

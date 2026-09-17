@@ -73,6 +73,7 @@ struct StatsView: View {
                 withAnimation(.easeInOut) {
                     switch newValue {
                     case .allTime:
+                        print("have to switch tags: allTime")
                         selectedTags = [String(localized: "statistics.timeframes.alltime")]
                     case .year:
                         selectedTags = [String(localized: "statistics.timeframes.year")]
@@ -132,7 +133,15 @@ struct StatsView: View {
             .refreshable {
                 if network.isOnline {
                     Task {
-                        await network.fetchSelectedProfilesStats()
+                        await withTaskGroup(of:Void.self){group in
+                            group.addTask{
+                                await network.fetchSelectedProfilesStats()
+                            }
+                            group.addTask{
+                                await network.fetchProfileStatsHistory(profileId: userId)
+                            }
+                        }
+                        
                     }
                 }
             }
@@ -453,21 +462,21 @@ struct StatsView: View {
     
     // MARK: - Time Filter Chips
     private var timeFilterChips: some View {
-        ChipsView(tags: timeTags, onlyOne: true) { tag, isSelected in
+        ChipsView(tags: timeTags, selectedTags: $selectedTags, onlyOne: true) { tag, isSelected in
             if !network.isOnline {
                 ChipView(tag: tag, isSelected: isSelected, showAlert: true)
             } else {
                 ChipView(tag: tag, isSelected: isSelected, showAlert: false)
             }
-        } didChangeSelection: { selection in
-            if selection.isEmpty {
-                selectedTags = [String(localized: "statistics.timeframes.alltime")]
-            } else {
-                selectedTags = selection
-            }
         }
         .padding(.leading, 10)
+        .onChange(of: selectedTags) { _, newValue in
+            if newValue.isEmpty {
+                selectedTags = [String(localized: "statistics.timeframes.alltime")]
+            }
+        }
     }
+    
     
     // MARK: - Bottom Bar
     private var bottomBar: some View {

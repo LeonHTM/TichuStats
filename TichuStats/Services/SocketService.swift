@@ -319,12 +319,20 @@ final class SocketService: ObservableObject {
                 print("game_deleted: failed to parse \(data)")
                 return
             }
-                Task{
-                    print("Game Deleted: \(gameId)")
-                    NetworkService.shared.games.removeAll { $0.id == gameId }
-                    NetworkService.shared.roundsByGame.removeValue(forKey: gameId)
-                    await NetworkService.shared.fetchSelectedProfilesStats()
+            Task {
+                print("Game Deleted: \(gameId)")
+                NetworkService.shared.games.removeAll { $0.id == gameId }
+                NetworkService.shared.roundsByGame.removeValue(forKey: gameId)
+
+                await withTaskGroup(of: Void.self) { group in
+                    group.addTask {
+                        await NetworkService.shared.fetchSelectedProfilesStats()
+                    }
+                    group.addTask {
+                        await NetworkService.shared.fetchProfileStatsHistory(profileId: self.userId)
+                    }
                 }
+            }
             
         }
         
@@ -338,9 +346,17 @@ final class SocketService: ObservableObject {
 
             print("game_recalculated for game \(gameId)")
                 Task {
-                    await NetworkService.shared.fetchGame(gameId: gameId)
-                    await NetworkService.shared.fetchGameRounds(gameId: gameId)
-                    
+                    await withTaskGroup(of:Void.self){group in
+                        group.addTask{
+                            await NetworkService.shared.fetchGame(gameId: gameId)
+                        }
+                        group.addTask{
+                            await NetworkService.shared.fetchGameRounds(gameId: gameId)
+                        }
+                        group.addTask{
+                            await NetworkService.shared.fetchProfileStatsHistory(profileId: self.userId)
+                        }
+                    }
                 }
             
         }

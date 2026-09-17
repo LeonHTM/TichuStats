@@ -62,11 +62,9 @@ struct ShareStatsView: View{
                
                 
                 Text(String(localized:"general.title.statistics")).foregroundStyle(Color.secondary).fontWeight(.bold).padding(.vertical,7)
-                ChipsView(tags: Tags,onlyOne:true) { tag, isSelected in
+                ChipsView(tags: Tags,selectedTags: .constant([]), onlyOne:true) { tag, isSelected in
                    
                     ChipViewShare(tag:tag, isSelected: isSelected,showAlert:true,accentCo:accentCo)
-                    }didChangeSelection: { selection in
-                        
                     }
                 Divider()
                 HStack{
