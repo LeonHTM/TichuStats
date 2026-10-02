@@ -27,6 +27,7 @@ let placeholderProfile = Profile(
 nonisolated struct ProfileStats: Codable,Equatable {
     // MARK: Vars
 
+
     var calculatedAt: Date
     var winnerPercentage: Double
     var averagePlacement: Double
@@ -136,6 +137,7 @@ nonisolated struct Profile: Identifiable, Equatable, Codable {
     var imageData: Data?
     var elo: Double?
     var isAdmin: Bool?
+    var createdAt: Date?
 
     var allTime: ProfileStats
     var year:    ProfileStats
@@ -164,6 +166,7 @@ nonisolated struct Profile: Identifiable, Equatable, Codable {
     
     //MARK: Init
     init(
+        createdAt: Date = Date.now,
         id: Int = 0,
         name: String? = nil,
         profileImageUrl: String? = nil,
@@ -176,6 +179,7 @@ nonisolated struct Profile: Identifiable, Equatable, Codable {
         week:    ProfileStats = .empty,
         day:     ProfileStats = .empty
     ) {
+        self.createdAt = createdAt
         self.id = id
         self.name = name
         self.profileImageUrl = profileImageUrl
@@ -192,6 +196,7 @@ nonisolated struct Profile: Identifiable, Equatable, Codable {
     //MARK: Decoder
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
+        createdAt       = try c.decodeIfPresent(Date.self, forKey: .createdAt)
         id              = try c.decode(Int.self, forKey: .id)
         name            = try c.decodeIfPresent(String.self, forKey: .name)
         profileImageUrl = try c.decodeIfPresent(String.self, forKey: .profileImageUrl)

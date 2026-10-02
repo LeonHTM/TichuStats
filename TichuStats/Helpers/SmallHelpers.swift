@@ -556,3 +556,12 @@ enum TextFieldStyle: String, CaseIterable{
 }
 
 
+func timeFrametoString(timeframe:Timeframe) -> String{
+     switch timeframe{
+     case .day: return "Daily"
+     case .week: return "Weekly"
+     case .month: return "Monthly"
+     case .year: return "Yearly"
+     case .allTime: return "Since download"
+     }
+ }

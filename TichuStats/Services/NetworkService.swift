@@ -177,26 +177,6 @@ class NetworkService: ObservableObject {
         }
     }
     
-
-    // MARK: Login used in EditNameSheetView on creating Account, LoginView and ProfileView
-    func login(userId: Int) async -> Bool {
-        guard let url = URL(string: "\(apiURL)/login") else { return false }
-        var request = appAuthorizedRequest(url: url, method: "POST")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = try? JSONSerialization.data(withJSONObject: ["id": userId])
-        do {
-            let (data, _) = try await URLSession.shared.data(for: request)
-            let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-            if let token = json?["token"] as? String,
-               let userId = json?["id"] as? Int {
-                await completeAuth(token: token, userId: userId)
-                return true
-            }
-        } catch {
-            print("login error: \(error)")
-        }
-        return false
-    }
     
     
     // MARK: sendMail used in LoginView to request a login code be sent to the given email
@@ -471,6 +451,7 @@ class NetworkService: ObservableObject {
                     self.profiles.removeAll { fetchedById[$0.id] == nil }
                     for newProfile in decoded {
                         if let index = self.profiles.firstIndex(where: { $0.id == newProfile.id }) {
+                            self.profiles[index].createdAt = newProfile.createdAt
                             self.profiles[index].name = newProfile.name
                             self.profiles[index].profileImageUrl = newProfile.profileImageUrl
                             self.profiles[index].elo = newProfile.elo
