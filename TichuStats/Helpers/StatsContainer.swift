@@ -119,6 +119,7 @@ struct StatsContainer: View {
     var items: [Profile]
     var digits: Int = 0
     var reverse: Bool = false
+    var renderedImage: Image?
 
     @State private var containerWidth: CGFloat = 0
 
@@ -133,7 +134,9 @@ struct StatsContainer: View {
                 timeframe: $timeframe,
                 items: items,
                 digits: digits,
-                reverse: reverse
+                reverse: reverse,
+                renderedImage: renderedImage
+                
             )
         } label: {
             VStack(alignment: .leading) {
@@ -225,6 +228,7 @@ struct StatsDetailView: View {
     @State private var selection = StatsSelection()
     @ObservedObject private var network = NetworkService.shared
     @AppStorage("userId") var userId: Int = -69420
+    @AppStorage("userName") var userName: String = "Unknown"
     @State private var isLoading: Bool = false
 
     var value: Double
@@ -236,6 +240,8 @@ struct StatsDetailView: View {
     var items: [Profile]
     var digits: Int = 0
     var reverse: Bool = false
+    
+    var renderedImage: Image?
 
     var selectedPointDateInterval: String {
         let end = selection.selectedPoint?.date ?? Date.now
@@ -310,6 +316,7 @@ struct StatsDetailView: View {
             }
         }
     }
+    
 
     var body: some View {
         let headerOpacity: Double = selection.selectedPoint == nil ? 1 : 0
@@ -321,11 +328,12 @@ struct StatsDetailView: View {
                     String(localized: "gamesummary.picker.view"),
                     selection: $timeframe
                 ) {
-                    Text("All time").tag(Timeframe.allTime)
-                    Text("Year").tag(Timeframe.year)
-                    Text("Month").tag(Timeframe.month)
-                    Text("Week").tag(Timeframe.week)
-                    Text("Day").tag(Timeframe.day)
+                    
+                    Text(String(localized: "statistics.timeframes.alltime")).tag(Timeframe.allTime)
+                    Text(String(localized: "statistics.timeframes.year")).tag(Timeframe.year)
+                    Text(String(localized: "statistics.timeframe.month")).tag(Timeframe.month)
+                    Text(String(localized: "statistics.timeframe.week")).tag(Timeframe.week)
+                    Text(String(localized: "statistics.timeframe.day")).tag(Timeframe.day)
                 }
                 .pickerStyle(.segmented)
                 
@@ -367,12 +375,15 @@ struct StatsDetailView: View {
                 
                     .frame(height: 250)
                 
-                Text("Explanation")
+                Text(String(localized: "statistics.statscontainer.explanation"))
                     .font(.system(size: 16))
                     .foregroundStyle(Color.secondary)
                     .padding(.vertical, -15)
+                    .padding(.top,10)
                 Text(statToString(stat: stat, title: false))
-                Text("Comparison").foregroundStyle(Color.secondary)
+                if !items.isEmpty && !isLoading {
+                    Text(String(localized: "statistics.statscontainer.comparison")).foregroundStyle(Color.secondary)
+                }
                 
                 ComparisonList(
                     items: items,
@@ -384,8 +395,21 @@ struct StatsDetailView: View {
                 )
                 
                 Spacer()
+            }.toolbar{
+                if let renderedImage{
+                    ToolbarItem{
+                        ShareLink(
+                            userName == "Luis" ? String(localized:"statistics.luis") : String(localized:"statistics.share"),
+                            item: renderedImage,
+                            message: Text(String(localized:"statistics.share.check")),
+                            preview: SharePreview("Tichu Statistics", image: renderedImage)
+                        )
+                        .foregroundColor(.primary)
+                    }
+                }
             }
             .padding(.horizontal)
+            .animation(.easeInOut, value: items.map { $0 })
             .animation(.easeInOut, value: timeframe)
             .toolbarTitleDisplayMode(.large)
             .navigationTitle(statToString(stat: stat))
@@ -539,7 +563,7 @@ struct StatsHistoryGraph: View {
                         .lineStyle(StrokeStyle(lineWidth: 2))
                         .annotation(
                             position: .top,
-                            spacing: 10,
+                            spacing: 9,
                             overflowResolution: .init(x: .fit(to: .chart), y: .disabled)
                         ) {
                             selectionBox(for: selected)
@@ -569,6 +593,7 @@ struct StatsHistoryGraph: View {
                             endPoint: .top
                         )
                     )
+                    //Text above bars doesnt look good when overlaps
                     /*.annotation(position: .top) {
                         Text(formattedValue(point.value))
                         .font(.caption)

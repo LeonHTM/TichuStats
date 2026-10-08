@@ -331,6 +331,12 @@ final class SocketService: ObservableObject {
                     group.addTask {
                         await NetworkService.shared.fetchProfileStatsHistory(profileId: self.userId)
                     }
+                    group.addTask{
+                        await  NetworkService.shared.fetchEloHistory(profileId: self.userId)
+                    }
+                    group.addTask{
+                        await NetworkService.shared.fetchProfiles()
+                    }
                 }
             }
             

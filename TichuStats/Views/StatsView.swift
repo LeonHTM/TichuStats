@@ -170,8 +170,8 @@ struct StatsView: View {
                 )
             }
             .safeAreaInset(edge: .top) { timeFilterChips }
-            .safeAreaInset(edge: .bottom) { bottomBar }
-        }
+            
+        }.safeAreaInset(edge: .bottom) { bottomBar }
     }
     
     // MARK: - Stats Grid
@@ -191,7 +191,8 @@ struct StatsView: View {
                 inTop: 0.025,
                 stat: .elo,
                 timeframe: selectedTimeframeBinding,
-                items: makeItems(from: compareList, stat: .elo, sortBy: sortBy, timeframe: selectedTimeframe)
+                items: makeItems(from: compareList, stat: .elo, sortBy: sortBy, timeframe: selectedTimeframe),
+                renderedImage: renderedImage
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
@@ -207,7 +208,8 @@ struct StatsView: View {
                 inTop: 0.1,
                 stat: .winnerPercentage,
                 timeframe: selectedTimeframeBinding,
-                items: makeItems(from: compareList, stat: .winnerPercentage, sortBy: sortBy, timeframe: selectedTimeframe)
+                items: makeItems(from: compareList, stat: .winnerPercentage, sortBy: sortBy, timeframe: selectedTimeframe),
+                renderedImage: renderedImage
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
@@ -226,7 +228,8 @@ struct StatsView: View {
                 timeframe: selectedTimeframeBinding,
                 items: makeItems(from: compareList, stat: .averagePlacement, sortBy: sortBy, timeframe: selectedTimeframe,reverse:true),
                 digits:2,
-                reverse: true
+                reverse: true,
+                renderedImage: renderedImage
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }*/
@@ -242,7 +245,8 @@ struct StatsView: View {
                 inTop: 0.75,
                 stat: .tichuMaster,
                 timeframe: selectedTimeframeBinding,
-                items: makeItems(from: compareList, stat: .tichuMaster, sortBy: sortBy, timeframe: selectedTimeframe)
+                items: makeItems(from: compareList, stat: .tichuMaster, sortBy: sortBy, timeframe: selectedTimeframe),
+                renderedImage: renderedImage
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
@@ -258,7 +262,8 @@ struct StatsView: View {
                 inTop: 0.025,
                 stat: .visionary,
                 timeframe: selectedTimeframeBinding,
-                items: makeItems(from: compareList, stat: .visionary, sortBy: sortBy, timeframe: selectedTimeframe)
+                items: makeItems(from: compareList, stat: .visionary, sortBy: sortBy, timeframe: selectedTimeframe),
+                renderedImage: renderedImage
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
@@ -274,7 +279,8 @@ struct StatsView: View {
                 inTop: 0.9,
                 stat: .addict,
                 timeframe: selectedTimeframeBinding,
-                items: makeItems(from: compareList, stat: .addict, sortBy: sortBy, timeframe: selectedTimeframe)
+                items: makeItems(from: compareList, stat: .addict, sortBy: sortBy, timeframe: selectedTimeframe),
+                renderedImage: renderedImage
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
@@ -290,7 +296,8 @@ struct StatsView: View {
                 inTop: 0.06,
                 stat: .teamplayer,
                 timeframe: selectedTimeframeBinding,
-                items: makeItems(from: compareList, stat: .teamplayer, sortBy: sortBy, timeframe: selectedTimeframe)
+                items: makeItems(from: compareList, stat: .teamplayer, sortBy: sortBy, timeframe: selectedTimeframe),
+                renderedImage: renderedImage
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
@@ -306,7 +313,8 @@ struct StatsView: View {
                 inTop: 0.76,
                 stat: .announcer,
                 timeframe: selectedTimeframeBinding,
-                items: makeItems(from: compareList, stat: .announcer, sortBy: sortBy, timeframe: selectedTimeframe)
+                items: makeItems(from: compareList, stat: .announcer, sortBy: sortBy, timeframe: selectedTimeframe),
+                renderedImage: renderedImage
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
@@ -322,7 +330,8 @@ struct StatsView: View {
                 inTop: 0.87,
                 stat: .saboteur,
                 timeframe: selectedTimeframeBinding,
-                items: makeItems(from: compareList, stat: .saboteur, sortBy: sortBy, timeframe: selectedTimeframe)
+                items: makeItems(from: compareList, stat: .saboteur, sortBy: sortBy, timeframe: selectedTimeframe),
+                renderedImage: renderedImage
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
@@ -338,7 +347,8 @@ struct StatsView: View {
                 inTop: 0.9,
                 stat: .gambler,
                 timeframe: selectedTimeframeBinding,
-                items: makeItems(from: compareList, stat: .gambler, sortBy: sortBy, timeframe: selectedTimeframe)
+                items: makeItems(from: compareList, stat: .gambler, sortBy: sortBy, timeframe: selectedTimeframe),
+                renderedImage: renderedImage
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
@@ -354,7 +364,8 @@ struct StatsView: View {
                 inTop: 0.1,
                 stat: .bigGambler,
                 timeframe: selectedTimeframeBinding,
-                items: makeItems(from: compareList, stat: .bigGambler, sortBy: sortBy, timeframe: selectedTimeframe)
+                items: makeItems(from: compareList, stat: .bigGambler, sortBy: sortBy, timeframe: selectedTimeframe),
+                renderedImage: renderedImage
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
@@ -370,7 +381,8 @@ struct StatsView: View {
                     inTop: 0.1,
                     stat: .pinguGambler,
                     timeframe: selectedTimeframeBinding,
-                    items: makeItems(from: compareList, stat: .pinguGambler, sortBy: sortBy, timeframe: selectedTimeframe)
+                    items: makeItems(from: compareList, stat: .pinguGambler, sortBy: sortBy, timeframe: selectedTimeframe),
+                    renderedImage: renderedImage
                 )
                 .transition(.opacity.combined(with: .scale))
                 .contextMenu { shareContextMenu }
@@ -387,7 +399,8 @@ struct StatsView: View {
                 inTop: 0.9,
                 stat: .bomber,
                 timeframe: selectedTimeframeBinding,
-                items: makeItems(from: compareList, stat: .bomber, sortBy: sortBy, timeframe: selectedTimeframe)
+                items: makeItems(from: compareList, stat: .bomber, sortBy: sortBy, timeframe: selectedTimeframe),
+                renderedImage: renderedImage
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }

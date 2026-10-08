@@ -558,14 +558,14 @@ enum TextFieldStyle: String, CaseIterable{
 
 func timeFrametoString(timeframe:Timeframe,elo:Bool = false) -> String{
     if elo{
-        return "Since download"
+        return String(localized:"statistics.timeframe.sinceDownload")
     }else{
         switch timeframe{
-        case .day: return "Daily"
-        case .week: return "Weekly"
-        case .month: return "Monthly"
-        case .year: return "Yearly"
-        case .allTime: return "Since download"
+        case .day: return String(localized:"statistics.timeframe.daily")
+        case .week: return String(localized:"statistics.timeframe.weekly")
+        case .month: return String(localized:"statistics.timeframe.monthly")
+        case .year: return String(localized:"statistics.timeframe.yearly")
+        case .allTime: return String(localized:"statistics.timeframe.sinceDownload")
         }
     }
  }
