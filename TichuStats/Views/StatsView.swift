@@ -213,7 +213,7 @@ struct StatsView: View {
             .contextMenu { shareContextMenu }
             
             
-            StatsContainer(
+            /*StatsContainer(
                 title: String(localized: "statistics.statscontainer.title.climber"),
                 description: String(localized: "statistics.statscontainer.description.climber"),
                 image: "trophy",
@@ -229,7 +229,7 @@ struct StatsView: View {
                 reverse: true
             )
             .transition(.opacity.combined(with: .scale))
-            .contextMenu { shareContextMenu }
+            .contextMenu { shareContextMenu }*/
 
             StatsContainer(
                 title: String(localized: "statistics.statscontainer.title.tichumaster"),

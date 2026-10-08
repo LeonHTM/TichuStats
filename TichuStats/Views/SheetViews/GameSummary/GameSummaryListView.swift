@@ -23,6 +23,7 @@ struct GameSummaryListView: View {
 
     @Environment(\.colorScheme) var colorScheme
     @Binding var allowEditing: Bool
+    var gameOverSheet: Bool = false
 
     // MARK: - Computed
 
@@ -185,9 +186,16 @@ struct GameSummaryListView: View {
                         let index = item.index
                         let currentRound = item.round
                         let hasExpanded = expandedRows.contains(index)
-                        let isWinningRound = winRounds.contains { $0.id == currentRound.id }
-                        let isLocked = !isWinningRound
-                        
+                        let isWinningRound = currentRound.boolWinRound
+                        var isLocked: Bool{
+                            if !allowEditing{
+                                return !isWinningRound
+                            }else if gameOverSheet{
+                                return !isWinningRound
+                            }else{
+                                return false
+                            }
+                        }
                         let sortedTeam1 = sortedTeamProfiles(team1Profiles, in: currentRound)
                         let sortedTeam2 = sortedTeamProfiles(team2Profiles, in: currentRound)
                         
@@ -328,7 +336,7 @@ struct GameSummaryListView: View {
                     }
                     
 
-                    if allRounds.count != winRounds.count {
+                    if (allRounds.count != winRounds.count) && allowEditing == false || (allRounds.count != winRounds.count) && gameOverSheet{
                         Section {
                             Text(
                                 String(format: String(localized: "rounds.notCounted"),"\(allRounds.count - winRounds.count)","\(winRounds.count)"))

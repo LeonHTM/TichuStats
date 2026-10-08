@@ -129,7 +129,7 @@ struct Provider: AppIntentTimelineProvider {
             percentage = true
             image = "trophy"
             
-        case .averagePlacement:
+        /*case .averagePlacement:
             switch configuration.timeframe {
             case .year:
                 value = TichuStorage.double("useraveragePlacementYear")
@@ -147,7 +147,7 @@ struct Provider: AppIntentTimelineProvider {
             description = String(localized: "statistics.stat.climber.description")
             percentage = false
             image = "figure.climbing"
-            digits = 2
+            digits = 2*/
 
         case .tichuMaster:
             switch configuration.timeframe {

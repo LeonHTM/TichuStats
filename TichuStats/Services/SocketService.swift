@@ -373,7 +373,7 @@ final class SocketService: ObservableObject {
                     print("RECIEVED GAME FINISHED CALL ")
                 }*/
                 Task{
-                    //THis should fetch anyway right, stats of other people could have changed
+                    //THis should fetch anyway, stats of other people could have changed
                     await NetworkService.shared.fetchSelectedProfilesStats()
                 }
             }

@@ -4371,20 +4371,20 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%1$@ Runden werden nicht gezählt. Dies, weil eine Runde so bearbeitet wurde, sodass das Spiel schon nach %2$@ Runden beendet war."
           }
         },
         "de-CH" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%1$@ Rundinä wärdä nid zeut. Ds passiert wüu a Rundi isch bearbeitet worde, sodass ds Schpiu scho nach %2$@ Rundinä isch entschidä isch wordä."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ Rounds are not being counted. This happens because a Round was edited in such a way, that the winner already won after Round %2$@."
+            "value" : "%1$@ Rounds are not being counted. This happens because a the game was edited , such that it already ended after Round  %2$@."
           }
         }
       }

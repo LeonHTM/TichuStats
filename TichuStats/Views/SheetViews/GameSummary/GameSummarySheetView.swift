@@ -97,7 +97,8 @@ struct GameSummarySheetView: View {
                     currentGameId: currentGameId,
                     profiles: profiles,
                     network: network,
-                    allowEditing: $allowEditing
+                    allowEditing: $allowEditing,
+                    gameOverSheet: true
                 )
                 .padding(.bottom, -50)
             default:

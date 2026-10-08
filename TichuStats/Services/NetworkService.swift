@@ -286,6 +286,7 @@ class NetworkService: ObservableObject {
             self.sortByProfiles = .nameDown
             self.sortByStats = .valueDown
             self.favDic = [:]
+            self.statsHistory = [:]
 
             let defaults = UserDefaults(suiteName: "group.com.drakynem.tichu")
             defaults?.removeObject(forKey: "userName")
@@ -1018,6 +1019,12 @@ class NetworkService: ObservableObject {
             let decoder = flexibleDateDecoder
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let game = try decoder.decode(Game.self, from: data)
+            //Append the game itsself dont wait for socket
+            await MainActor.run {
+                if !self.games.contains(where: { $0.id == game.id }) {
+                    self.games.append(game)
+                }
+            }
             return game
         } catch {
             print("addGame error: \(error)")

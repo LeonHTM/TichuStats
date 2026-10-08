@@ -20,7 +20,7 @@ private func formatStat(_ v: Double, percentage: Bool, digits: Int) -> String {
 
 private extension Timeframe {
     // Key used by the server for this timeframe.
-    var apiKey: String {
+    var serverTimeframeKey: String {
         switch self {
         case .day: return "day"
         case .week: return "week"
@@ -248,25 +248,29 @@ struct StatsDetailView: View {
         let currentProfile = network.profiles.first(where:{$0.id == userId})
         let days: Double
         let formatter: DateFormatter
-        switch timeframe {
-        case .day:
+        if stat == .elo{
             return dayFormatter.string(from: end)
-        case .week:
-            days = 7; formatter = dayFormatter
-        case .month:
-            days = 30; formatter = dayFormatter
-        case .year:
-            days = 365; formatter = yearFormatter
-        case .allTime:
+        }else{
+            switch timeframe {
+            case .day:
+                return dayFormatter.string(from: end)
+            case .week:
+                days = 7; formatter = dayFormatter
+            case .month:
+                days = 30; formatter = dayFormatter
+            case .year:
+                days = 365; formatter = yearFormatter
+            case .allTime:
+                let since = currentProfile?.createdAt ?? end
+                return "\(yearFormatter.string(from: since)) - \(yearFormatter.string(from: end))"
+            }
             let since = currentProfile?.createdAt ?? end
-            return "\(yearFormatter.string(from: since)) - \(yearFormatter.string(from: end))"
+            var start = end.addingTimeInterval(-days * 24 * 3600)
+            if (start < since){
+                start = since
+            }
+            return "\(formatter.string(from: start)) - \(formatter.string(from: end))"
         }
-        let since = currentProfile?.createdAt ?? end
-        var start = end.addingTimeInterval(-days * 24 * 3600)
-        if (start < since){
-            start = since
-        }
-        return "\(formatter.string(from: start)) - \(formatter.string(from: end))"
     }
 
     private func statToString(stat: Profile.playerStat, title: Bool = true) -> String {
@@ -311,6 +315,7 @@ struct StatsDetailView: View {
         let headerOpacity: Double = selection.selectedPoint == nil ? 1 : 0
 
         NavigationStack {
+            ScrollView{
             VStack(alignment: .leading, spacing: 12) {
                 Picker(
                     String(localized: "gamesummary.picker.view"),
@@ -323,14 +328,14 @@ struct StatsDetailView: View {
                     Text("Day").tag(Timeframe.day)
                 }
                 .pickerStyle(.segmented)
-
+                
                 VStack(alignment: .leading, spacing: 12) {
-                    Text(timeFrametoString(timeframe: timeframe))
+                    Text(timeFrametoString(timeframe: timeframe,elo: stat == .elo))
                         .font(.system(size: 16))
                         .foregroundStyle(Color.secondary)
                         .padding(.bottom, -15)
                         .opacity(headerOpacity)
-
+                    
                     HStack {
                         Text(formatStat(value, percentage: percentage, digits: digits))
                             .opacity(headerOpacity)
@@ -339,35 +344,36 @@ struct StatsDetailView: View {
                     .foregroundColor(.accentColor)
                     .font(.system(size: 29))
                     .fontWeight(.bold)
-
+                    
                     Text(selectedPointDateInterval)
                         .opacity(headerOpacity)
                         .font(.system(size: 16))
                         .foregroundStyle(Color.secondary)
                         .padding(.top, -15)
                 }
-
-                StatsHistoryGraph(
-                    timeframe: timeframe,
-                    percentage: percentage,
-                    inTop: inTop,
-                    digits: digits,
-                    reverse: reverse,
-                    data: network.statsHistory,
-                    stat: stat,
-                    isLoading: isLoading,
-                    selectedPointDateInterval: selectedPointDateInterval,
-                    selection: selection
-                )
-                .frame(height: 250)
-
+                    StatsHistoryGraph(
+                            timeframe: timeframe,
+                            percentage: percentage,
+                            inTop: inTop,
+                            digits: digits,
+                            reverse: reverse,
+                            data: network.statsHistory,
+                            stat: stat,
+                            isLoading: isLoading,
+                            selectedPointDateInterval: selectedPointDateInterval,
+                            selection: selection
+                        )
+                    
+                
+                    .frame(height: 250)
+                
                 Text("Explanation")
                     .font(.system(size: 16))
                     .foregroundStyle(Color.secondary)
                     .padding(.vertical, -15)
                 Text(statToString(stat: stat, title: false))
                 Text("Comparison").foregroundStyle(Color.secondary)
-
+                
                 ComparisonList(
                     items: items,
                     stat: stat,
@@ -376,13 +382,14 @@ struct StatsDetailView: View {
                     percentage: percentage,
                     reverse: reverse
                 )
-
+                
                 Spacer()
             }
             .padding(.horizontal)
             .animation(.easeInOut, value: timeframe)
             .toolbarTitleDisplayMode(.large)
             .navigationTitle(statToString(stat: stat))
+        }
         }
         .task {
             isLoading = true
@@ -424,22 +431,57 @@ struct StatsHistoryGraph: View {
     let stat: Profile.playerStat
     let isLoading: Bool
     let selectedPointDateInterval: String
+    
+    private var points: [StatPoint] {
+        stat == .elo ? chartDataElo : chartData
+    }
 
     @Bindable var selection: StatsSelection
 
-    //Server should handle data
+    //Server handles data so no logic needed
     private var chartData: [StatPoint] {
-        (data[timeframe.apiKey] ?? [])
+        (data[timeframe.serverTimeframeKey] ?? [])
             .map { entry in
                 let v = entry.getStat(for: stat)
                 return StatPoint(date: entry.calculatedAt, value: percentage ? v * 100 : v)
             }
             .sorted { $0.date < $1.date }
     }
+    
+    //In this case we need to handle the data
+    private var chartDataElo: [StatPoint] {
+        let calendar = Calendar.current
+        var currentElo: Double = 1000.0
+        var latestPerDay: [Date: StatPoint] = [:]
+
+        let sortedHistory = NetworkService.shared.eloHistory
+            .sorted { ($0.changedAt ?? .distantPast) < ($1.changedAt ?? .distantPast) }
+
+        for entry in sortedHistory {
+            currentElo += entry.eloChange
+            if let date = entry.changedAt {
+                // Later entries overwrite earlier ones such that the newest of day wins
+                latestPerDay[calendar.startOfDay(for: date)] = StatPoint(date: date, value: currentElo)
+            }
+        }
+
+        return Array(
+            latestPerDay.values
+                .sorted { $0.date < $1.date }
+                .suffix(14)
+        )
+    }
 
     private func nearestPoint(to date: Date?) -> StatPoint? {
         guard let date else { return nil }
-        return chartData.min {
+        var data: [StatPoint] = []
+        if stat == .elo{
+            data = chartDataElo
+        }else{
+            data = chartData
+        }
+
+        return data.min {
             abs($0.date.timeIntervalSince(date)) < abs($1.date.timeIntervalSince(date))
         }
     }
@@ -453,6 +495,27 @@ struct StatsHistoryGraph: View {
             return String(format: "%.\(digits)f", value)
         }
     }
+    
+    private var yDomain: ClosedRange<Double> {
+        guard let minV = points.map(\.value).min(),
+              let maxV = points.map(\.value).max() else { return 0...1 }
+
+        let padding = max((maxV - minV) * 0.15, 1)
+        return (minV - padding)...(maxV + padding)
+    }
+    
+    //The elo graph should not start at zero rather at the min Value all other grpahs start at zero
+    private var yBaseline: Double { stat == .elo ? yDomain.lowerBound : 0 }
+    
+    private var minBarHeight: Double {
+        let maxValue = points.map(\.value).max() ?? 0
+        return maxValue / 100
+    }
+
+    private func plottedValue(_ value: Double) -> Double {
+        max(value, yBaseline + minBarHeight)
+    }
+    
 
     var body: some View {
         if isLoading {
@@ -466,33 +529,34 @@ struct StatsHistoryGraph: View {
                 Spacer()
             }
         } else {
-            let points = chartData
-
+           
             Chart {
 
                 if let selected = selection.selectedPoint {
                     RuleMark(x: .value("Date", selected.date))
-                        .offset(y:-15)
+                        //.offset(y:-5)
                         .foregroundStyle(Color.accentColor)
                         .lineStyle(StrokeStyle(lineWidth: 2))
                         .annotation(
                             position: .top,
-                            spacing: -8,
-                            overflowResolution: .init(x: .fit(to: .plot), y: .disabled)
+                            spacing: 10,
+                            overflowResolution: .init(x: .fit(to: .chart), y: .disabled)
                         ) {
                             selectionBox(for: selected)
                         }
                     //Bar should be on top of Rulemark but doesnt seem to work
                         .zIndex(0)
                 }
+                    
 
                 ForEach(points) { point in
                     let isHighlighted = selection.selectedPoint == nil || selection.selectedPoint?.id == point.id
-                    let labelOpacity: Double = selection.selectedPoint == nil ? 1 : (isHighlighted ? 1 : 0.5)
+                    //let labelOpacity: Double = selection.selectedPoint == nil ? 1 : (isHighlighted ? 1 : 0.5)
 
                     BarMark(
                         x: .value("Date", point.date),
-                        y: .value("Value", point.value)
+                        yStart: .value("Baseline", yBaseline),
+                        yEnd: .value("Value", plottedValue(point.value))
                     )
                     //ZIndex Part 2
                     .zIndex(1)
@@ -505,27 +569,49 @@ struct StatsHistoryGraph: View {
                             endPoint: .top
                         )
                     )
-                    .annotation(position: .top) {
+                    /*.annotation(position: .top) {
                         Text(formattedValue(point.value))
                         .font(.caption)
                         .opacity(labelOpacity)
+                    }*/
+                }
+            }
+            .chartBackground { proxy in
+                GeometryReader { geo in
+                    if let selected = selection.selectedPoint,
+                       let plotFrame = proxy.plotFrame,          // iOS 17+; use proxy.plotAreaFrame on iOS 16
+                       let x = proxy.position(forX: selected.date) {
+                        let frame = geo[plotFrame]
+                        let extra: CGFloat = 20                  // how far above the chart it extends
+
+                        Rectangle()
+                            .fill(Color.accentColor)
+                            .frame(width: 2, height: frame.height + extra)
+                            .position(x: frame.minX + x,
+                                      y: frame.minY - extra / 2 + frame.height / 2)
+                            .allowsHitTesting(false)
+                    }
+                }
+            }
+            .chartYAxis {
+                AxisMarks(position: .trailing)
+
+                
+                //MAKES SPACE TO THE LEFT FOR THE BOX TO CONNECT PROEPRY
+                AxisMarks(position: .leading) { _ in
+                    AxisValueLabel {
+                        Color.clear.frame(width: 1, height: 1)
                     }
                 }
             }
             .chartXAxis {
-                let dayCount = max(points.count, 1)
-                let strideCount = max(1, dayCount / 6)
-                AxisMarks(values: .stride(by: .day, count: strideCount)) { value in
+                AxisMarks { _ in
                     AxisGridLine()
                     AxisTick()
-                    AxisValueLabel {
-                        if let date = value.as(Date.self) {
-                            Text(date, format: .dateTime.day(.twoDigits).month(.twoDigits))
-                        }
-                    }
+                    AxisValueLabel(format: Date.FormatStyle(date: .numeric, time: .omitted))
                 }
             }
-
+            .chartYScale(domain: stat == .elo ? yDomain : 0...(points.map(\.value).max() ?? 1) * 1.15)
             .chartXSelection(value: $selection.selectedDate)
             .onChange(of: selection.selectedDate) { _, newDate in
                 selection.selectedPoint = nearestPoint(to: newDate)
@@ -540,7 +626,7 @@ struct StatsHistoryGraph: View {
     private func selectionBox(for point: StatPoint) -> some View {
         HStack {
             VStack(alignment: .leading, spacing: 12) {
-                Text(timeFrametoString(timeframe: timeframe))
+                Text(timeFrametoString(timeframe: timeframe, elo: stat == .elo))
                     .font(.system(size: 16))
                     .foregroundStyle(Color.secondary)
                     .padding(.bottom, -15)

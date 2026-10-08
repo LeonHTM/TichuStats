@@ -13,7 +13,7 @@ import AppIntents
 enum PlayerStat: String, AppEnum {
     case elo
     case winnerPercentage
-    case averagePlacement
+    //case averagePlacement
     case tichuMaster
     case visionary
     case addict
@@ -30,7 +30,7 @@ enum PlayerStat: String, AppEnum {
     static var caseDisplayRepresentations: [PlayerStat: DisplayRepresentation] = [
         .elo:              DisplayRepresentation(title: LocalizedStringResource("statistics.stat.elo")),
         .winnerPercentage: DisplayRepresentation(title: LocalizedStringResource("statistics.stat.winnerPercentage")),
-        .averagePlacement: DisplayRepresentation(title: LocalizedStringResource("statistics.stat.climber")),
+        //.averagePlacement: DisplayRepresentation(title: LocalizedStringResource("statistics.stat.climber")),
         .tichuMaster:      DisplayRepresentation(title: LocalizedStringResource("statistics.stat.tichuMaster")),
         .visionary:        DisplayRepresentation(title: LocalizedStringResource("statistics.stat.visionary")),
         .addict:           DisplayRepresentation(title: LocalizedStringResource("statistics.stat.addict")),
