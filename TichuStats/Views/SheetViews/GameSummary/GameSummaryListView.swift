@@ -11,7 +11,8 @@ import TipKit
 struct GameSummaryListView: View {
     @Binding var showGameSummarySheetView: Bool
     var currentGameId: Int?
-
+    @State private var showNotCountetAlert: Bool = false
+    
     let profiles: [Profile]
     @ObservedObject var network: NetworkService
 
@@ -24,6 +25,7 @@ struct GameSummaryListView: View {
     @Environment(\.colorScheme) var colorScheme
     @Binding var allowEditing: Bool
     var gameOverSheet: Bool = false
+    let winnerName: String
 
     // MARK: - Computed
 
@@ -65,84 +67,27 @@ struct GameSummaryListView: View {
 
     // MARK: - Helpers
 
-    
     private func place(of profile: Profile, in round: Round) -> Int {
-        if round.doubleWinTeam1 {
-            if round.firstProfileId == profile.id {
-                return 1
-            }
+        let isDoubleWin = round.doubleWinTeam1 || round.doubleWinTeam2
 
-            if round.secondProfileId == profile.id {
-                return 2
-            }
-
-            if round.thirdProfileId == profile.id {
-                return 3
-            }
-
-            if round.fourthProfileId == profile.id {
-                return 3
-            }
-        }
-
-        if round.doubleWinTeam2 {
-            if round.firstProfileId == profile.id {
-                return 1
-            }
-
-            if round.secondProfileId == profile.id {
-                return 2
-            }
-
-            if round.thirdProfileId == profile.id {
-                return 3
-            }
-
-            if round.fourthProfileId == profile.id {
-                return 3
-            }
-        }
-
-        // Normal placement
-        if round.firstProfileId == profile.id {
-            return 1
-        }
-
-        if round.secondProfileId == profile.id {
-            return 2
-        }
-
-        if round.thirdProfileId == profile.id {
-            return 3
-        }
-
-        if round.fourthProfileId == profile.id {
-            return 4
-        }
+        // Normal placement (with a double win, 3rd and 4th both count as 3rd)
+        if round.firstProfileId == profile.id { return 1 }
+        if round.secondProfileId == profile.id { return 2 }
+        if round.thirdProfileId == profile.id { return 3 }
+        if round.fourthProfileId == profile.id { return isDoubleWin ? 3 : 4 }
 
         // Guest players
         if profile.id == -1 || profile.id == -2 || profile.id == -3 || profile.id == -4 {
-            if network.profiles.first(where: { $0.id == round.firstProfileId }) == nil {
-                return 1
-            }
-
-            if network.profiles.first(where: { $0.id == round.secondProfileId }) == nil {
-                return 2
-            }
-
-            if network.profiles.first(where: { $0.id == round.thirdProfileId }) == nil {
-                return 3
-            }
-
+            if network.profiles.first(where: { $0.id == round.firstProfileId }) == nil { return 1 }
+            if network.profiles.first(where: { $0.id == round.secondProfileId }) == nil { return 2 }
+            if network.profiles.first(where: { $0.id == round.thirdProfileId }) == nil { return 3 }
             if network.profiles.first(where: { $0.id == round.fourthProfileId }) == nil {
-                return round.doubleWinTeam1 || round.doubleWinTeam2 ? 3 : 4
+                return isDoubleWin ? 3 : 4
             }
         }
 
         return 0
     }
-    
-
 
     private func sortedTeamProfiles(_ teamProfiles: [Profile], in round: Round) -> [Profile] {
         teamProfiles.sorted { place(of: $0, in: round) < place(of: $1, in: round) }
@@ -166,6 +111,67 @@ struct GameSummaryListView: View {
         )
     }
 
+    // MARK: - Row Label
+
+    /// T / t / P markers next to a team's points column.
+    private func tichuIndicators(for players: [Profile], in round: Round, alignment: HorizontalAlignment) -> some View {
+        VStack(alignment: alignment, spacing: 2) {
+            ForEach(players, id: \.id) { player in
+                let isFirst = round.firstProfileId == player.id
+                let tichu = round.announcedTichu.contains(player.id)
+                let bigTichu = round.announcedBigTichu.contains(player.id)
+                let pingu = round.announcedPingu.contains(player.id)
+
+                if tichu || bigTichu || pingu {
+                    Text(bigTichu ? "T" : pingu ? "P" : "t")
+                        .fontWeight(.bold)
+                        .foregroundStyle(isFirst ? .green : .red)
+                }
+            }
+        }
+        .frame(width: 20)
+    }
+
+    /// Round delta on top, cumulative score below.
+    private func pointsColumn(delta: Int, cumulative: Int, isDoubleWin: Bool) -> some View {
+        VStack(alignment: .center, spacing: 0) {
+            Text(delta >= 0 ? "+\(delta) " : "\(delta)")
+            Divider().background(Color.primary).frame(width: 40).frame(height: 2)
+            Text("\(cumulative)")
+        }
+        .frame(width: 50, alignment: .leading)
+        .foregroundStyle(isDoubleWin ? Color.green : Color.primary)
+    }
+
+    private func roundLabel(index: Int,
+                            round: Round,
+                            cum1: Int,
+                            cum2: Int,
+                            expanded: Bool,
+                            team1: [Profile],
+                            team2: [Profile]) -> some View {
+        HStack {
+            if !expanded {
+                tichuIndicators(for: team1, in: round, alignment: .leading)
+                pointsColumn(delta: round.tichuPointsTeam1 + round.roundPointsTeam1,
+                             cumulative: cum1,
+                             isDoubleWin: round.doubleWinTeam1)
+                Spacer()
+            }
+
+            Text(String(format: String(localized: "round.round"), String(index + 1)))
+                .fontWeight(.bold)
+            Spacer()
+
+            if !expanded {
+                pointsColumn(delta: round.tichuPointsTeam2 + round.roundPointsTeam2,
+                             cumulative: cum2,
+                             isDoubleWin: round.doubleWinTeam2)
+                tichuIndicators(for: team2, in: round, alignment: .trailing)
+            }
+        }
+    }
+
     // MARK: - Body
 
     var body: some View {
@@ -182,183 +188,137 @@ struct GameSummaryListView: View {
                     }
                     
                     ForEach(cumulative, id: \.round.id) { item in
-                        Section{
-                        let index = item.index
-                        let currentRound = item.round
-                        let hasExpanded = expandedRows.contains(index)
-                        let isWinningRound = currentRound.boolWinRound
-                        var isLocked: Bool{
-                            if !allowEditing{
-                                return !isWinningRound
-                            }else if gameOverSheet{
-                                return !isWinningRound
-                            }else{
-                                return false
-                            }
-                        }
-                        let sortedTeam1 = sortedTeamProfiles(team1Profiles, in: currentRound)
-                        let sortedTeam2 = sortedTeamProfiles(team2Profiles, in: currentRound)
-                        
-                        DisclosureGroup(isExpanded: bindingForExpanded(row: index, disabled: isLocked)) {
-                            HStack(alignment: .top) {
-                                VStack(alignment: .leading) {
-                                    HStack {
-                                        Text(String(format:String(localized:"general.team"),String(1))).fontWeight(.bold).foregroundStyle(Color.accentColor)
-                                        Spacer()
-                                    }
-                                    .padding(.top)
-                                    .padding(.horizontal)
-                                    
-                                    playerRows(players: sortedTeam1, round: currentRound, teamProfileIds: (currentGame?.team1Player1Id ?? placeholderProfile.id, currentGame?.team1Player2Id ?? placeholderProfile.id))
-                                    
-                                    HStack {
-                                        Text(String(format:String(localized:"general.team"),String(2))).fontWeight(.bold)
-                                        Spacer()
-                                    }
-                                    .padding(.top)
-                                    .padding(.horizontal)
-                                    
-                                    playerRows(players: sortedTeam2, round: currentRound, teamProfileIds: (currentGame!.team2Player1Id, currentGame!.team2Player2Id))
-                                }
-                                Spacer()
-                            }
-                            .padding(.leading, -20)
-                            .padding(.trailing, 5)
+                        Section {
+                            let index = item.index
+                            let currentRound = item.round
+                            let hasExpanded = expandedRows.contains(index)
+                            let isWinningRound = currentRound.boolWinRound
+                            // Rounds that don't end the game are locked when editing is off or the game is over.
+                            let isLocked = (!allowEditing || gameOverSheet) && !isWinningRound
+                            let sortedTeam1 = sortedTeamProfiles(team1Profiles, in: currentRound)
+                            let sortedTeam2 = sortedTeamProfiles(team2Profiles, in: currentRound)
                             
-                        } label: {
-                            HStack {
-                                if !hasExpanded {
-                                    // Team 1 indicators
-                                    VStack(alignment: .leading, spacing: 2) {
-                                        let allPlayers = sortedTeam1
-                                        ForEach(allPlayers, id: \.id) { player in
-                                            let isFirst = currentRound.firstProfileId == player.id
-                                            let tichu = currentRound.announcedTichu.contains(player.id)
-                                            let bigTichu = currentRound.announcedBigTichu.contains(player.id)
-                                            let pingu = currentRound.announcedPingu.contains(player.id)
-                                            
-                                            if tichu || bigTichu || pingu {
-                                                Text(bigTichu ? "T" : pingu ? "P" : "t")
-                                                    .fontWeight(.bold)
-                                                    .foregroundStyle(isFirst ? .green : .red)
-                                            }
+                            DisclosureGroup(isExpanded: bindingForExpanded(row: index, disabled: isLocked)) {
+                                HStack(alignment: .top) {
+                                    VStack(alignment: .leading) {
+                                        HStack {
+                                            Text(String(format: String(localized: "general.team"), String(1)))
+                                                .fontWeight(.bold)
+                                                .foregroundStyle(Color.accentColor)
+                                            Spacer()
                                         }
-                                    }
-                                    .frame(width: 20)
-
-                                    VStack(alignment: .center, spacing: 0) {
-                                        let delta1 = item.round.tichuPointsTeam1 + item.round.roundPointsTeam1
-                                        if delta1 >= 0 {
-                                            Text("+\(delta1) ")
-                                        } else {
-                                            Text("\(delta1)")
+                                        .padding(.top)
+                                        .padding(.horizontal)
+                                        
+                                        playerRows(players: sortedTeam1,
+                                                   round: currentRound,
+                                                   teamProfileIds: (currentGame?.team1Player1Id ?? placeholderProfile.id,
+                                                                    currentGame?.team1Player2Id ?? placeholderProfile.id))
+                                        
+                                        HStack {
+                                            Text(String(format: String(localized: "general.team"), String(2)))
+                                                .fontWeight(.bold)
+                                            Spacer()
                                         }
-                                        Divider().background(Color.primary).frame(width: 40).frame(height: 2)
-                                        Text("\(item.cum1)")
+                                        .padding(.top)
+                                        .padding(.horizontal)
+                                        
+                                        playerRows(players: sortedTeam2,
+                                                   round: currentRound,
+                                                   teamProfileIds: (currentGame?.team2Player1Id ?? placeholderProfile.id,
+                                                                    currentGame?.team2Player2Id ?? placeholderProfile.id))
                                     }
-                                    .frame(width: 50, alignment: .leading)
-                                    .foregroundStyle(item.round.doubleWinTeam1 ? .green : .primary)
-                                    
-                                }
-
-                                if !hasExpanded {
                                     Spacer()
                                 }
-
-                                Text(String(format:String(localized:"round.round"), String(item.index + 1)))
-                                    .fontWeight(.bold)
-                                Spacer()
-
-                                if !hasExpanded {
-                                    VStack(alignment: .center, spacing: 0) {
-                                        let delta2 = item.round.tichuPointsTeam2 + item.round.roundPointsTeam2
-                                        if delta2 >= 0 {
-                                            Text("+\(delta2) ")
-                                        } else {
-                                            Text("\(delta2)")
-                                        }
-                                        Divider().frame(width: 40).background(Color.primary).frame(height: 2)
-                                        Text("\(item.cum2)")
-                                    }
-                                    .frame(width: 50, alignment: .leading)
-                                    .foregroundStyle(item.round.doubleWinTeam2 ? .green : .primary)
-
-                                    // Team 2 indicators
-                                    VStack(alignment: .trailing, spacing: 2) {
-                                        let allPlayers = sortedTeam2
-                                        ForEach(allPlayers, id: \.id) { player in
-                                            let isFirst = currentRound.firstProfileId == player.id
-                                            let tichu = currentRound.announcedTichu.contains(player.id)
-                                            let bigTichu = currentRound.announcedBigTichu.contains(player.id)
-                                            let pingu = currentRound.announcedPingu.contains(player.id)
-                                            
-                                            if tichu || bigTichu || pingu {
-                                                Text(bigTichu ? "T" : pingu ? "P" : "t")
-                                                    .fontWeight(.bold)
-                                                    .foregroundStyle(isFirst ? .green : .red)
-                                            }
-                                        }
-                                    }
-                                    .frame(width: 20)
+                                .padding(.leading, -20)
+                                .padding(.trailing, 5)
+                                
+                            } label: {
+                                let label = roundLabel(index: index,
+                                                       round: currentRound,
+                                                       cum1: item.cum1,
+                                                       cum2: item.cum2,
+                                                       expanded: hasExpanded,
+                                                       team1: sortedTeam1,
+                                                       team2: sortedTeam2)
+                                if isLocked {
+                                    Button {
+                                        showNotCountetAlert = true
+                                    } label: {
+                                        label
+                                    }.foregroundStyle(Color.primary)
+                                } else {
+                                    label
                                 }
                             }
-                        }
-                        .opacity(isLocked ? 0.5 : 1.0)
-                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                            if allowEditing {
-                                Button(role: .destructive) {
-                                   
-                                    Task {
-                                        guard let gameId = currentGame?.id else {
-                                            print("no game id")
-                                            return
-                                        }
+                            .opacity(isLocked ? 0.5 : 1.0)
+                            .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                if allowEditing {
+                                    Button(role: .destructive) {
+                                        Task {
+                                            guard let gameId = currentGame?.id else {
+                                                print("no game id")
+                                                return
+                                            }
                                             await network.deleteRound(gameId: gameId, roundId: currentRound.id)
                                             await network.reCalculate(gameId: gameId)
                                         }
-                                    
-                                } label: {
-                                    Label(String(localized:"general.delete"), systemImage: "trash")
-                                }
-                                
-                                if !isLocked {
-                                    Button {
-                                        editingRoundIndex = index
-                                        showAddRoundSheet = true
                                     } label: {
-                                        Label(String(localized:"general.edit"), systemImage: "pencil")
+                                        Label(String(localized: "general.delete"), systemImage: "trash")
                                     }
-                                    .tint(.accentColor)
+                                    
+                                    if !isLocked {
+                                        Button {
+                                            editingRoundIndex = index
+                                            showAddRoundSheet = true
+                                        } label: {
+                                            Label(String(localized: "general.edit"), systemImage: "pencil")
+                                        }
+                                        .tint(.accentColor)
+                                    }
                                 }
                             }
                         }
-                    }
-                    }
-                    
-
-                    if (allRounds.count != winRounds.count) && allowEditing == false || (allRounds.count != winRounds.count) && gameOverSheet{
-                        Section {
-                            Text(
-                                String(format: String(localized: "rounds.notCounted"),"\(allRounds.count - winRounds.count)","\(winRounds.count)"))
-                        }
-                        .listRowBackground(Color.clear)
-                        .foregroundStyle(.secondary)
                     }
 
                     if !allowEditing {
                         Section {
                             HStack {
                                 Spacer()
-                                Text(String(format:String(localized:"gameSummary.playedOn"),"\(currentGame?.date.formatted(date: .complete, time: .omitted) ?? String(localized:"general.unknown"))"))
-                             
+                                Text(String(format: String(localized: "gameSummary.playedOn"),
+                                            "\(currentGame?.date.formatted(date: .complete, time: .omitted) ?? String(localized: "general.unknown"))"))
                                 Spacer()
                             }
                             .foregroundStyle(Color.secondary)
                         }
                         .listRowBackground(Color.clear)
-                
                     }
                 }
+                .alert(String(localized: "rounds.notCounted.title"), isPresented: $showNotCountetAlert) {
+                    Button(String(localized: "general.alert.ok"), role: .cancel) {
+                        showNotCountetAlert = false
+                    }
+                   
+                } message: {
+                    let uncounted = allRounds.count - winRounds.count
+
+                    if uncounted != 0 && (!allowEditing || gameOverSheet) {
+                        Section {
+                            Text(
+                                String(
+                                    format: String(localized: uncounted > 1 ? "rounds.notCounted" : "round.notCounted"),
+                                    "\(uncounted)",
+                                    "\(winRounds.count)",
+                                    winnerName,
+                                    String(currentGame?.target ?? 0)
+                                )
+                            )
+                        }
+                        .listRowBackground(Color.clear)
+                        .foregroundStyle(.secondary)
+                    }
+                }
+               
                 .task {
                     do { try Tips.configure() } catch {
                         print("Error initializing TipKit \(error.localizedDescription)")
@@ -371,14 +331,14 @@ struct GameSummaryListView: View {
                     }
                 }) {
                     AddRoundSheetView(
-                                    showAddRoundsSheet: $showAddRoundSheet,
-                                    currentGameId: currentGame?.id ?? 0,
-                                    profiles: profiles,
-                                    network: network,
-                                    editMode: true,
-                                    roundIndex: editingRoundIndex + 1,
-                                    editingRound: allRounds[safe: editingRoundIndex]
-                                )
+                        showAddRoundsSheet: $showAddRoundSheet,
+                        currentGameId: currentGame?.id ?? 0,
+                        profiles: profiles,
+                        network: network,
+                        editMode: true,
+                        roundIndex: editingRoundIndex + 1,
+                        editingRound: allRounds[safe: editingRoundIndex]
+                    )
                 }
                 .id(editingRoundIndex)
                 .listSectionSpacing(5)
@@ -388,8 +348,9 @@ struct GameSummaryListView: View {
             } else {
                 Text(" ")
             }
-        }.onChange(of:allowEditing){
-            if allowEditing == false{
+        }
+        .onChange(of: allowEditing) {
+            if allowEditing == false {
                 showAddRoundSheet = false
             }
         }
@@ -400,19 +361,19 @@ struct GameSummaryListView: View {
                 }
             }
         }
-        .alert(String(localized:"gameSummary.alert.delete.title"), isPresented: $showDeleteGameAlert) {
-            Button(String(localized:"gamesummary.delete.alert.cancel"), role: .cancel) {
+        .alert(String(localized: "gameSummary.alert.delete.title"), isPresented: $showDeleteGameAlert) {
+            Button(String(localized: "gamesummary.delete.alert.cancel"), role: .cancel) {
                 showDeleteGameAlert = false
                 showList = false
             }
-            Button(String(localized:"gamesummary.delete.alert.confirm"), role: .destructive) {
+            Button(String(localized: "gamesummary.delete.alert.confirm"), role: .destructive) {
                 Task {
                     await network.deleteGame(gameId: currentGame?.id ?? 0)
                     showGameSummarySheetView = false
                 }
             }
         } message: {
-            Text(String(localized:"gamesummary.delete.alert.description"))
+            Text(String(localized: "gamesummary.delete.alert.description"))
         }
     }
 
@@ -441,14 +402,13 @@ struct GameSummaryListView: View {
                 HStack {
                     Text("\(playerPlace).").fontWeight(.bold).foregroundStyle(placeColor)
                     
-                    
-                    if player.id == -2{
-                        Text(currentGame?.guest2Name ?? String(localized:"play.guest"))
-                    }else if player.id == -3{
-                        Text(currentGame?.guest3Name ?? String(localized:"play.guest"))
-                    }else if player.id == -4{
-                        Text(currentGame?.guest4Name ?? String(localized:"play.guest"))
-                    }else{
+                    if player.id == -2 {
+                        Text(currentGame?.guest2Name ?? String(localized: "play.guest"))
+                    } else if player.id == -3 {
+                        Text(currentGame?.guest3Name ?? String(localized: "play.guest"))
+                    } else if player.id == -4 {
+                        Text(currentGame?.guest4Name ?? String(localized: "play.guest"))
+                    } else {
                         Text(player.name ?? String(localized: "general.unknown"))
                     }
                   
@@ -465,11 +425,10 @@ struct GameSummaryListView: View {
                     }
 
                     if bomb > 0 {
-                        bombView(bomb:bomb)
+                        bombView(bomb: bomb)
                     }
                 }
             }
-            
         }
         .padding()
         .background(RoundedRectangle(cornerRadius: 20).fill(Color(uiColor: .systemGroupedBackground)))

@@ -573,7 +573,8 @@ struct GameRow: View {
                 currentGameId: game.id,
                 profiles: profiles,
                 network: network,
-                allowEditing: .constant(false)
+                allowEditing: .constant(false),
+                winnerName: "Unknown"
             )
             .onAppear {
                 let renderer = ImageRenderer(content: GameSummaryShareView(

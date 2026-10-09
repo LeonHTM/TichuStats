@@ -99,7 +99,7 @@ struct Provider: AppIntentTimelineProvider {
         var description: String
         var image: String
         var percentage: Bool
-        var digits: Int = 0
+        let digits: Int = 0
 
         switch configuration.stat {
 

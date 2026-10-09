@@ -206,7 +206,8 @@ struct EditRoundsListView: View {
                                                     currentGameId: currentGameId,
                                                     profiles: network.profiles,
                                                     network: network,
-                                                    allowEditing: .constant(true)
+                                                    allowEditing: .constant(true),
+                        winnerName: "Unknown"
                     )
                 } else {
                     VStack{

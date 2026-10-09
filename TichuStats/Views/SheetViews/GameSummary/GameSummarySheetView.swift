@@ -98,7 +98,8 @@ struct GameSummarySheetView: View {
                     profiles: profiles,
                     network: network,
                     allowEditing: $allowEditing,
-                    gameOverSheet: true
+                    gameOverSheet: true,
+                    winnerName: winnerName
                 )
                 .padding(.bottom, -50)
             default:
