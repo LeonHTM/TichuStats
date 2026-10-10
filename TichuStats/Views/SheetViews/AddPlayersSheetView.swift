@@ -39,8 +39,8 @@ struct AddPlayersSheetView: View {
     @State private var showNameAlert: Bool = false
 
     // MARK: - Computed
-    var friendsFilterActive: Bool { sortByFriends != .nameDown || hideUnavailableFriends }
-    var playersFilterActive: Bool { sortByPlayers != .nameDown || hideUnavailablePlayers }
+    var friendsFilterActive: Bool { sortByFriends != sortByProfiles || hideUnavailableFriends }
+    var playersFilterActive: Bool { sortByPlayers != sortByProfiles || hideUnavailablePlayers }
 
     var query: String {
         searchText.trimmingCharacters(in: .whitespacesAndNewlines)

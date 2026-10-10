@@ -16,6 +16,7 @@ struct ShareStatsView: View{
     var winnerPercentage: Double
     var tichuMaster: Double
     let accentCo: Color
+    let timeframe: Timeframe
     
     @Binding var Tags:[String]
     
@@ -70,11 +71,13 @@ struct ShareStatsView: View{
                 HStack{
                     Spacer()
                     Text(String(format:String(localized:"statistics.share.captured"),Date().formatted(date: .complete, time: .shortened)))
+                    //Text(timeFrametoString(timeframe:timeframe))
                     Spacer()
                 }.foregroundStyle(Color.secondary).font(.system(size:16))
             }.padding(.horizontal)
             HStack {
                 Text(String(localized:"general.madeWith")).fontWeight(.bold)
+                Text(String(localized:"general.tichustats")).fontWeight(.bold)
                 Image("AppLogo").resizable().frame(width: 45, height: 45)
             }
                 

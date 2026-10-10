@@ -267,7 +267,7 @@ struct StatsView: View {
             )
             .transition(.opacity.combined(with: .scale))
             .contextMenu { shareContextMenu }
-
+            
             StatsContainer(
                 title: String(localized: "statistics.statscontainer.title.addict"),
                 description: String(localized: "statistics.statscontainer.description.addict"),
@@ -440,7 +440,10 @@ struct StatsView: View {
                 winnerPercentage: profile?.getStat(for: .winnerPercentage, timeframe: selectedTimeframe) ?? 0,
                 tichuMaster: profile?.getStat(for: .tichuMaster, timeframe: selectedTimeframe) ?? 0,
                 accentCo: .accent,
-                Tags: .constant(shareTags)
+                timeframe:selectedTimeframe,
+                Tags: .constant(shareTags),
+                
+                
             )
             .environment(\.colorScheme, colorScheme)
             .background(colorScheme == .dark ? Color.black : Color.white))

@@ -466,8 +466,8 @@ struct GameSettingsView: View {
                 Picker(String(localized: "gamesettings.section.players.sortBy"), selection: $sortByProfiles) {
                     Label(String(localized:"statistics.sort.abcdown"), image: "ABC.down").tag(sortBy.nameDown)
                     Label(String(localized:"statistics.sort.abcup"), image: "ABC.up").tag(sortBy.nameUp)
-                    Label(String(localized:"statistics.sort.rankingdown"), image: "123.down").tag(sortBy.valueUp)
-                    Label(String(localized:"statistics.sort.rankingup"), image: "123.up").tag(sortBy.valueDown)
+                    Label(String(localized:"statistics.sort.rankingdown"), image: "123.down").tag(sortBy.valueDown)
+                    Label(String(localized:"statistics.sort.rankingup"), image: "123.up").tag(sortBy.valueUp)
                 }.disabled(!network.isOnline)
             } header: {
                 Text(String(localized: "gamesettings.section.players"))

@@ -994,13 +994,13 @@
         "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zeig immer aui Schpiler, wenns drum geitg Schpiler drzuä z tuä, o wenn si nid verfüägbar si wöu si entwerder gad imänä Schpiu si, scho Verglichä wärdä oder scho di Fründ si."
+            "value" : "Zeig immer aui Schpiler, o wenn si nid verfüägbar si wöu si entweder gad imänä Schpiu si, scho Verglichä wärdä oder scho di Fründ si."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Always show all Players when viewing Players in the app, even when they are not avialable because they are in a game, being already compared or already a friend."
+            "value" : "When viewing a list of players, always show the full list including players who are not available because they are in a game, already being compared with you or already a friend."
           }
         }
       }
@@ -2082,6 +2082,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Team %1$@: %2$@"
+          }
+        }
+      }
+    },
+    "general.tichustats" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TichuStats"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TichuStats"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TichuStats"
           }
         }
       }
