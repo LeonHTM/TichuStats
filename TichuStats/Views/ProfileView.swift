@@ -52,8 +52,9 @@ struct ProfileView: View {
             }.alert(isPresented:$showOfflineAlert){
                 OfflineView.offlineAlert()
             }
+            .scrollEdgeEffectStyle(.soft, for: .all)
             .animation(.easeInOut, value: network.isOnline)
-            .padding(.top, -20)
+            .padding(.top, -10)
             .navigationTitle(String(localized: "profile.title"))
             .toolbarTitleDisplayMode(.inlineLarge)
         }.onReceive(NotificationCenter.default.publisher(for: .openFriendsSheet)) { _ in

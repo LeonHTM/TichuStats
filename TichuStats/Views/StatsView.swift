@@ -155,10 +155,18 @@ struct StatsView: View {
                         }
                     }
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationProfileImage()
+                if #available(anyAppleOS 27.1, *) {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationProfileImage()
+                    }
+                    .axisBehavior(.horizontalOnly)
+                    .sharedBackgroundVisibility(.hidden)
+                        
+                } else {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationProfileImage()
+                    }.sharedBackgroundVisibility(.hidden)
                 }
-                .sharedBackgroundVisibility(.hidden)
             }
             .sheet(isPresented: $showDebugSheetView) {
                 DebugSheetView(

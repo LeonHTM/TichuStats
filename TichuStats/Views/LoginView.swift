@@ -1,9 +1,14 @@
+//
+//  LoginView.swift
+//  Tichu
+//
+//  Created by Leon on 29.08.2026
+//
+
+
 import SwiftUI
 import AuthenticationServices
 import Combine
-
-
-
 
 struct WelcomeView: View {
     

@@ -69,84 +69,131 @@ struct HistoryView: View {
         NavigationStack {
             GlassEffectContainer {
                 GeometryReader { outerGeo in
-                    let rowHeight: CGFloat = 75
-                    let centerY = outerGeo.size.height / 2 - 5
-                    let topPadding = centerY - rowHeight / 2 - 10
-                    let bottomPadding = centerY - rowHeight / 2 + 20
+                        let rowHeight: CGFloat = 75
+                        let topPadding: CGFloat = 0
 
-                    ScrollView(.vertical) {
-                        LazyVStack(spacing: 0) {
-                            Color.clear.frame(height: topPadding)
-                            if isLoading {
-                                let game = Game(favorite: false, id: 0, date: Date(), target: 1000, allowPingus: true, currentPointsTeam1: 0, currentPointsTeam2: 0)
-                                ForEach(0..<10, id: \.self) { _ in
-                                    GameRow(
-                                        game: game,
-                                        isSelected: selectedGameId == game.id,
-                                        userId: userId,
-                                        profiles: network.profiles,
-                                        network: network,
-                                        historySpace: historySpace,
-                                        colorScheme: colorScheme,
-                                        selectedCounter: selectedCounter,
-                                        sheetGame: $sheetGame,
-                                        scrolledGameId: $scrolledGameId
-                                    )
-                                    .padding(.horizontal, 10)
-                                    .frame(height: rowHeight)
-                                    .disabled(true)
-                                }
-                            } else {
-                                ForEach(gameHistory, id: \.id) { game in
-                                    GameRow(
-                                        game: game,
-                                        isSelected: selectedGameId == game.id,
-                                        userId: userId,
-                                        profiles: network.profiles,
-                                        network: network,
-                                        historySpace: historySpace,
-                                        colorScheme: colorScheme,
-                                        selectedCounter: selectedCounter,
-                                        sheetGame: $sheetGame,
-                                        scrolledGameId: $scrolledGameId
-                                    )
-                                    //Forces View to redraw when favorite status has changed because otherwise it wont update view
-                                    .id("\(game.id)-\(game.favorite)")
-                                    .padding(.horizontal, 10)
-                                    .frame(height: rowHeight)
-                                }
-                                .task {
-                                    do {
-                                        try Tips.configure()
-                                    } catch {
-                                        print("Error initializing TipKit \(error.localizedDescription)")
+                            ScrollView(.vertical) {
+                                LazyVStack(spacing: 0) {
+                                    Color.clear.frame(height: topPadding)
+                                    if isLoading {
+                                        let game = Game(favorite: false, id: 0, date: Date(), target: 1000, allowPingus: true, currentPointsTeam1: 0, currentPointsTeam2: 0)
+                                        ForEach(0..<10, id: \.self) { _ in
+                                            GameRow(
+                                                game: game,
+                                                isSelected: selectedGameId == game.id,
+                                                userId: userId,
+                                                profiles: network.profiles,
+                                                network: network,
+                                                historySpace: historySpace,
+                                                colorScheme: colorScheme,
+                                                selectedCounter: selectedCounter,
+                                                sheetGame: $sheetGame,
+                                                scrolledGameId: $scrolledGameId
+                                            )
+                                            .padding(.horizontal, 10)
+                                            .frame(height: rowHeight)
+                                            .disabled(true)
+                                        }
+                                    } else {
+                                        ForEach(gameHistory, id: \.id) { game in
+                                            GameRow(
+                                                game: game,
+                                                isSelected: selectedGameId == game.id,
+                                                userId: userId,
+                                                profiles: network.profiles,
+                                                network: network,
+                                                historySpace: historySpace,
+                                                colorScheme: colorScheme,
+                                                selectedCounter: selectedCounter,
+                                                sheetGame: $sheetGame,
+                                                scrolledGameId: $scrolledGameId
+                                            )
+                                            //Forces View to redraw when favorite status has changed because otherwise it wont update view
+                                            .id("\(game.id)-\(game.favorite)")
+                                            .padding(.horizontal, 10)
+                                            .frame(height: rowHeight)
+                                        }
+                                        .task {
+                                            do {
+                                                try Tips.configure()
+                                            } catch {
+                                                print("Error initializing TipKit \(error.localizedDescription)")
+                                            }
+                                        }
+                                        
+                                        // Lets the last row scroll up to the top position.
+                                        // containerRelativeFrame reads the scroll view's size during layout,
+                                        // so no @State / GeometryReader feedback loop.
+                                        Color.clear.containerRelativeFrame(.vertical) { length, _ in
+                                            max(0, length - rowHeight)
+                                        }
                                     }
                                 }
-
-                                Color.clear.frame(height: bottomPadding)
+                                .scrollTargetLayout()
+                            }
+                            .scrollDisabled(isLoading)
+                            .animation(.easeInOut, value: isLoading)
+                            .scrollEdgeEffectStyle(.soft, for: .all)
+                            .scrollPosition(id: $scrolledGameId, anchor: .top)
+                            .scrollTargetBehavior(RowSnappingBehavior(rowHeight: rowHeight))
+                            .background(Color(uiColor: .systemGroupedBackground))
+                            .onChange(of: scrolledGameId) { _, newId in
+                                guard let newId, selectedGameId != newId else { return }
+                                selectedGameId = newId
+                                selectedCounter += 1
+                            }
+                            .onChange(of: gameHistory.map(\.id)) { _, newIds in
+                                guard let selectedGameId, !newIds.contains(selectedGameId) else { return }
+                                let newSelection = newIds.first
+                                self.selectedGameId = newSelection
+                                self.scrolledGameId = newSelection
+                            }
+                            .onAppear { outerSize = outerGeo.size }
+                            .onChange(of: outerGeo.size) { _, s in outerSize = s }
+                            .safeAreaInset(edge: .top, spacing: 16) {
+                        if isLoading {
+                            ZStack() {
+                                VStack(spacing: 10) {
+                                    ProgressView()
+                                    Text(String(localized: "history.loading"))
+                                } .foregroundStyle(.secondary)
+                                EloHistoryChartView(profileId: userId, markedGameId: -69420)
+                                    .animation(.easeInOut, value: isLoading)
+                                    .opacity(0)
+                                    .frame(height: outerSize.height / 2 - 125)
+                                    .padding(.vertical)
+                                    .glassEffect(
+                                        .regular.tint(
+                                            colorScheme == .dark
+                                            ? Color(uiColor: .tertiarySystemFill)
+                                            : .white
+                                        ).interactive(),
+                                        in: .rect(cornerRadius: 20)
+                                    )
+                                    .padding(.horizontal, 10)
+                                
+                               
+                                //.offset(y: 30)
+                            }
+                        } else {
+                            if let selectedId = selectedGameId {
+                                EloHistoryChartView(profileId: userId, markedGameId: selectedId)
+                                    .frame(height: outerSize.height / 2 - 125)
+                                    .padding(.vertical)
+                                    .glassEffect(
+                                        .regular.tint(
+                                            colorScheme == .dark
+                                            ? Color(uiColor: .tertiarySystemFill)
+                                            : .white
+                                        ).interactive(),
+                                        in: .rect(cornerRadius: 20)
+                                    )
+                                    
+                                    .padding(.horizontal, 10)
+                                    
                             }
                         }
-                        .scrollTargetLayout()
-                    }
-                    .scrollDisabled(isLoading)
-                    .animation(.easeInOut, value: isLoading)
-                    .scrollEdgeEffectStyle(.soft, for: .all)
-                    .scrollPosition(id: $scrolledGameId, anchor: .center)
-                    .scrollTargetBehavior(RowSnappingBehavior(rowHeight: rowHeight))
-                    .background(Color(uiColor: .systemGroupedBackground))
-                    .onChange(of: scrolledGameId) { _, newId in
-                        guard let newId, selectedGameId != newId else { return }
-                        selectedGameId = newId
-                        selectedCounter += 1
-                    }
-                    .onChange(of: gameHistory.map(\.id)) { _, newIds in
-                        guard let selectedGameId, !newIds.contains(selectedGameId) else { return }
-                        let newSelection = newIds.first
-                        self.selectedGameId = newSelection
-                        self.scrolledGameId = newSelection
-                    }
-                    .onAppear { outerSize = outerGeo.size }
-                    .onChange(of: outerGeo.size) { _, s in outerSize = s }
+                            }
                 }
             }
             .sheet(isPresented: $showDebugSheetView) {
@@ -186,58 +233,22 @@ struct HistoryView: View {
                         }
                     }
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationProfileImage()
-                }
-                .sharedBackgroundVisibility(.hidden)
-            }
-        }
-        .safeAreaInset(edge: .top) {
-            if isLoading {
-                ZStack() {
-                    EloHistoryChartView(profileId: userId, markedGameId: -69420)
-                        .animation(.easeInOut, value: isLoading)
-                        .opacity(0)
-                        .frame(height: outerSize.height / 2 - 125)
-                        .padding(.vertical)
-                        .glassEffect(
-                            .regular.tint(
-                                colorScheme == .dark
-                                ? Color(uiColor: .tertiarySystemFill)
-                                : .white
-                            ).interactive(),
-                            in: .rect(cornerRadius: 20)
-                        )
-                        .padding(.top, 50)
-                        .padding(.horizontal, 10)
-                        .padding(.top, 5)
-
-                    VStack(spacing: 10) {
-                        ProgressView()
-                        Text(String(localized: "history.loading"))
+                if #available(anyAppleOS 27.1, *) {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationProfileImage()
                     }
-                    .foregroundStyle(.secondary)
-                    .offset(y: 30)
-                }
-            } else {
-                if let selectedId = selectedGameId {
-                    EloHistoryChartView(profileId: userId, markedGameId: selectedId)
-                        .frame(height: outerSize.height / 2 - 125)
-                        .padding(.vertical)
-                        .glassEffect(
-                            .regular.tint(
-                                colorScheme == .dark
-                                ? Color(uiColor: .tertiarySystemFill)
-                                : .white
-                            ).interactive(),
-                            in: .rect(cornerRadius: 20)
-                        )
-                        .padding(.top, 50)
-                        .padding(.horizontal, 10)
-                        .padding(.top, 5)
+                    .axisBehavior(.horizontalOnly)
+                    .sharedBackgroundVisibility(.hidden)
+                        
+                } else {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationProfileImage()
+                    }
+                    .sharedBackgroundVisibility(.hidden)
                 }
             }
         }
+        
         .safeAreaInset(edge: .bottom) {
             bottomBar
         }
@@ -307,10 +318,19 @@ struct HistoryView: View {
                         }
                     }
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationProfileImage()
+                if #available(anyAppleOS 27.1, *) {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationProfileImage()
+                    }
+                    .axisBehavior(.horizontalOnly)
+                    .sharedBackgroundVisibility(.hidden)
+                        
+                } else {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationProfileImage()
+                    }
+                    .sharedBackgroundVisibility(.hidden)
                 }
-                .sharedBackgroundVisibility(.hidden)
             }
         }
     }

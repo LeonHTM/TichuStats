@@ -15,7 +15,7 @@ extension Notification.Name {
 
 @MainActor
 class CustomAppDelegate: NSObject, UIApplicationDelegate {
-    var app: TichuApp?
+    var app: TichuStats?
     var onDeviceToken: ((String) -> Void)?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {

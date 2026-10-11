@@ -73,7 +73,7 @@ struct MainView: View {
                         }else {
                             OfflineView(showNavBar: .constant(true),title:"general.title.profile")
                         }
-                    }
+                    }.badge(network.friendRequestProfiles.count)
                 }
                 .animation(.easeInOut, value: isReachable)
                 .tabViewStyle(.sidebarAdaptable)
@@ -107,7 +107,7 @@ struct MainView: View {
         .onChange(of:selectedTab){
             socket.reconnectIfNeeded()
         }
-        .onAppear{
+        /*.onAppear{
             if isFirstLogin{
                 isFirstLogin = false
                 Task{
@@ -116,7 +116,7 @@ struct MainView: View {
                 }
             }
                 
-        }
+        }*/
         .alert(String(localized:"login.logoutAlert.title"), isPresented: $showLogoutAlert) {
             
             Button(String(localized: "general.alert.ok"), role: .cancel) { }

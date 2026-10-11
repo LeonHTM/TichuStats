@@ -314,10 +314,19 @@ struct PlayView: View {
                             }
                         }
                     }
-                    ToolbarItem(placement: .topBarTrailing) {
-                        NavigationProfileImage()
+                    if #available(anyAppleOS 27.1, *) {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            NavigationProfileImage()
+                        }
+                        .axisBehavior(.horizontalOnly)
+                        .sharedBackgroundVisibility(.hidden)
+                            
+                    } else {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            NavigationProfileImage()
+                        }
+                        .sharedBackgroundVisibility(.hidden)
                     }
-                    .sharedBackgroundVisibility(.hidden)
                 }
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
@@ -606,7 +615,7 @@ struct PlayView: View {
     // MARK: - Center Spacer
     private func centerSpacer(availableHeight: CGFloat) -> some View {
         let fixedContentHeight: CGFloat = 65 + 50 + 120 + 50 + 120 + 80
-        let dynamicHeight = max(availableHeight - fixedContentHeight, 80)
+        let dynamicHeight = max(availableHeight - fixedContentHeight, 140)
 
         return Section {
             Color.clear

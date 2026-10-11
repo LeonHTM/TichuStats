@@ -2557,19 +2557,19 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spiele Tichu-Spiele mit deinen Freunden und analysiere Statistiken über dein Spielverhalten."
+            "value" : "Spiele Tichu-Spiele mit deinen Freunden!"
           }
         },
         "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Track Tichu Schpiu mit dinä Fründä und analysier Statisktikä über dini Performance."
+            "value" : "Track Tichu Schpiu mit dinä Fründä!"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Play tichu games with your friends and gets statistics about your perfomance."
+            "value" : "Play tichu games with your friends!"
           }
         }
       }
@@ -2580,19 +2580,19 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Andere Email verwenden"
+            "value" : "Andere Email"
           }
         },
         "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Angeri Email bruchä"
+            "value" : "Angeri Email"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "User different Email"
+            "value" : "Use other Email"
           }
         }
       }
