@@ -54,7 +54,7 @@
             "value" : "Elo"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Elo"
@@ -77,10 +77,10 @@
             "value" : "%@ Wertung"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ Wertung"
+            "value" : "%@ Βαθμολογία"
           }
         },
         "en" : {
@@ -100,10 +100,10 @@
             "value" : "Deine Elo-Wertung über Zeit"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Deine Elo-Wertung über Zeit"
+            "value" : "Η βαθμολογία Elo σου με την πάροδο του χρόνου"
           }
         },
         "en" : {
@@ -123,10 +123,10 @@
             "value" : "Elo-Wertung Verlauf"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elo-Wertung Verlauf"
+            "value" : "Ιστορικό βαθμολογίας Elo"
           }
         },
         "en" : {
@@ -146,10 +146,10 @@
             "value" : "Der Graph deiner Elo-Wertung wird hier erscheinen, sobald du ein Tichu-Spiel gespielt hast."
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Graph deiner Elo-Wertung wird hier erscheinen, sobald du ein Tichu-Spiel gespielt hast."
+            "value" : "Το γράφημα της βαθμολογίας Elo σου θα εμφανιστεί εδώ μόλις παίξεις ένα παιχνίδι Tichu."
           }
         },
         "en" : {
@@ -169,10 +169,10 @@
             "value" : "Tichu-Spiel wählen"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tichu-Spiel wählen"
+            "value" : "Επιλογή παιχνιδιού Tichu"
           }
         },
         "en" : {
@@ -192,10 +192,10 @@
             "value" : "Team %lld"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Team %lld"
+            "value" : "Ομάδα %lld"
           }
         },
         "en" : {
@@ -215,10 +215,10 @@
             "value" : "Spiel auswählen"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spiel auswählen"
+            "value" : "Επιλογή παιχνιδιού"
           }
         },
         "en" : {
@@ -238,10 +238,10 @@
             "value" : "Wähle Lieblings Tichu-Spiel"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wähle Lieblings Tichu-Spiel"
+            "value" : "Επιλογή αγαπημένου παιχνιδιού Tichu"
           }
         },
         "en" : {
@@ -261,10 +261,10 @@
             "value" : "Graph deines Lieblings Tichu-Spiels. Favorisiere ein Spiel in der App, um es hier auswählen zu können."
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Graph deines Lieblings Tichu-Spiels. Favorisiere ein Spiel in der App, um es hier auswählen zu können."
+            "value" : "Γράφημα του αγαπημένου σου παιχνιδιού Tichu. Πρόσθεσε ένα παιχνίδι στα αγαπημένα μέσα στην εφαρμογή για να μπορείς να το επιλέξεις εδώ."
           }
         },
         "en" : {
@@ -284,10 +284,10 @@
             "value" : "Lieblings Tichu-Spiel"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lieblings Tichu-Spiel"
+            "value" : "Αγαπημένο παιχνίδι Tichu"
           }
         },
         "en" : {
@@ -308,10 +308,10 @@
             "value" : "Unbekannt"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unbekannt"
+            "value" : "Άγνωστος"
           }
         },
         "en" : {
@@ -376,10 +376,10 @@
             "value" : "Süchtiger"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Süchtiger"
+            "value" : "Εθισμένος"
           }
         },
         "en" : {
@@ -398,10 +398,10 @@
             "value" : "Gespielte Spiele"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gespielte Spiele"
+            "value" : "Παιχνίδια που παίχτηκαν"
           }
         },
         "en" : {
@@ -422,10 +422,10 @@
             "value" : "Ansager"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ansager"
+            "value" : "Εκφωνητής"
           }
         },
         "en" : {
@@ -444,10 +444,10 @@
             "value" : "Ansagen-Warscheindlichkeit"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ansagen-Warscheindlichkeit"
+            "value" : "Πιθανότητα ανακοίνωσης"
           }
         },
         "en" : {
@@ -467,10 +467,10 @@
             "value" : "Grosser Gambler"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Grosser Gambler"
+            "value" : "Μεγάλος τζογαδόρος"
           }
         },
         "en" : {
@@ -489,10 +489,10 @@
             "value" : "Grosse-Tichu-Rate"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Grosse-Tichu-Rate"
+            "value" : "Ποσοστό Μεγάλου Tichu"
           }
         },
         "en" : {
@@ -512,10 +512,10 @@
             "value" : "Bomber"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bomber"
+            "value" : "Βομβιστής"
           }
         },
         "en" : {
@@ -534,10 +534,10 @@
             "value" : "Bomben pro Runde"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bomben pro Runde"
+            "value" : "Βόμβες ανά γύρο"
           }
         },
         "en" : {
@@ -557,10 +557,10 @@
             "value" : "Wähle Statistik"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wähle Statistik"
+            "value" : "Επιλογή στατιστικού"
           }
         },
         "en" : {
@@ -580,10 +580,10 @@
             "value" : "Kletterer"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chläterär"
+            "value" : "Αναρριχητής"
           }
         },
         "en" : {
@@ -603,10 +603,10 @@
             "value" : "Durchschnittliche Platzierung"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Durchschnitlächi Platzierig"
+            "value" : "Μέση κατάταξη"
           }
         },
         "en" : {
@@ -626,10 +626,10 @@
             "value" : "Elo-Wertung"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elo-Wertung"
+            "value" : "Βαθμολογία Elo"
           }
         },
         "en" : {
@@ -648,10 +648,10 @@
             "value" : "Elo-Wertung"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elo-Wertung"
+            "value" : "Συνολική βαθμολογία"
           }
         },
         "en" : {
@@ -671,10 +671,10 @@
             "value" : "Gambler"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gambler"
+            "value" : "Τζογαδόρος"
           }
         },
         "en" : {
@@ -693,10 +693,10 @@
             "value" : "Tichu-Rate"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tichu-Rate"
+            "value" : "Ποσοστό Tichu"
           }
         },
         "en" : {
@@ -716,10 +716,10 @@
             "value" : "Pingu Gambler"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pingu Gambler"
+            "value" : "Τζογαδόρος Pingu"
           }
         },
         "en" : {
@@ -738,10 +738,10 @@
             "value" : "Pingu-Rate"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pingu-Rate"
+            "value" : "Ποσοστό Pingu"
           }
         },
         "en" : {
@@ -761,10 +761,10 @@
             "value" : "Saboteur"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Saboteur"
+            "value" : "Σαμποτέρ"
           }
         },
         "en" : {
@@ -783,10 +783,10 @@
             "value" : "Vorgebeugte Tichus"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vorgebeugte Tichus"
+            "value" : "Ποσοστό αποτραπέντων Tichu"
           }
         },
         "en" : {
@@ -806,10 +806,10 @@
             "value" : "Teamspieler"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Teamspieler"
+            "value" : "Ομαδικός παίκτης"
           }
         },
         "en" : {
@@ -828,10 +828,10 @@
             "value" : "Doppelsieg-Rate"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Doppelsieg-Rate"
+            "value" : "Ποσοστό διπλής νίκης"
           }
         },
         "en" : {
@@ -851,10 +851,10 @@
             "value" : "Tichumeister"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tichumeister"
+            "value" : "Μάστερ του Tichu"
           }
         },
         "en" : {
@@ -873,10 +873,10 @@
             "value" : "Punkte von Ansagen"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Punkte von Ansagen"
+            "value" : "Πόντοι από ανακοινώσεις"
           }
         },
         "en" : {
@@ -896,10 +896,10 @@
             "value" : "Hellseher"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hellseher"
+            "value" : "Οραματιστής"
           }
         },
         "en" : {
@@ -918,10 +918,10 @@
             "value" : "Angesagt wenn erster geworden"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Angesagt wenn erster geworde"
+            "value" : "Ανακοίνωση όταν τερμάτισε πρώτος"
           }
         },
         "en" : {
@@ -941,10 +941,10 @@
             "value" : "Sieger"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sieger"
+            "value" : "Νικητής"
           }
         },
         "en" : {
@@ -963,10 +963,10 @@
             "value" : "Siegrate"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Siegrate"
+            "value" : "Ποσοστό νικών"
           }
         },
         "en" : {
@@ -987,10 +987,10 @@
             "value" : "Komplett"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Komplett"
+            "value" : "Συνολικά"
           }
         },
         "en" : {
@@ -1011,10 +1011,10 @@
             "value" : "Zeitrahmen wählen"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zeitrahmen wählen"
+            "value" : "Επιλογή χρονικού πλαισίου"
           }
         },
         "en" : {
@@ -1034,10 +1034,10 @@
             "value" : "Heute"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Heute"
+            "value" : "Σήμερα"
           }
         },
         "en" : {
@@ -1057,10 +1057,10 @@
             "value" : "Monat"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monat"
+            "value" : "Μήνας"
           }
         },
         "en" : {
@@ -1080,10 +1080,10 @@
             "value" : "Woche"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Woche"
+            "value" : "Εβδομάδα"
           }
         },
         "en" : {
@@ -1103,10 +1103,10 @@
             "value" : "Jahr"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jahr"
+            "value" : "Έτος"
           }
         },
         "en" : {
@@ -1127,10 +1127,10 @@
             "value" : "Wähle Statistik, welche angezeigt werden soll"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wähle Statistik, welche angezeigt werden soll"
+            "value" : "Επίλεξε το στατιστικό που θα εμφανιστεί"
           }
         },
         "en" : {
@@ -1150,10 +1150,10 @@
             "value" : "Statistik"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Statistik"
+            "value" : "Στατιστικό"
           }
         },
         "en" : {
@@ -1173,10 +1173,10 @@
             "value" : "Zeitrahmen"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zeitrahmen"
+            "value" : "Χρονικό πλαίσιο"
           }
         },
         "en" : {
@@ -1196,10 +1196,10 @@
             "value" : "Tichu Statistiken deiner Wahl"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tichu Statistiken deiner Wahl"
+            "value" : "Στατιστικά Tichu της επιλογής σου"
           }
         },
         "en" : {
@@ -1219,10 +1219,10 @@
             "value" : "Statistiken"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Statistiken"
+            "value" : "Στατιστικά"
           }
         },
         "en" : {

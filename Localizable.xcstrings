@@ -113,6 +113,12 @@
             "value" : "Dä Schpiler isch scho imänö Tichu Schpiu u cha drum nid joinä."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αυτός ο παίκτης συμμετέχει ήδη σε παιχνίδι Tichu και δεν μπορεί να προστεθεί."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -134,6 +140,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schpiler scho imänä aktive Schpiu"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ο παίκτης είναι ήδη σε παιχνίδι Tichu"
           }
         },
         "en" : {
@@ -159,6 +171,12 @@
             "value" : "Aui Schpilär"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Όλοι οι παίκτες"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -180,6 +198,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scho ä Fründ"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ήδη φίλος"
           }
         },
         "en" : {
@@ -205,6 +229,12 @@
             "value" : "Ha %@ nid gfungä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δεν βρέθηκε το %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -226,6 +256,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Momenten im Verglich"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σε σύγκριση αυτή τη στιγμή"
           }
         },
         "en" : {
@@ -251,6 +287,12 @@
             "value" : "Momentan imänä Schpiu"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σε παιχνίδι αυτή τη στιγμή"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -272,6 +314,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fründä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Φίλοι"
           }
         },
         "en" : {
@@ -297,6 +345,12 @@
             "value" : "Gascht"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επισκέπτης"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -318,6 +372,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bishärigi Fründä nid zeigä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Απόκρυψη υπαρχόντων φίλων"
           }
         },
         "en" : {
@@ -343,6 +403,12 @@
             "value" : "Bishörigi Verglichä nid zeigä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Απόκρυψη όσων συγκρίνονται ήδη"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -364,6 +430,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aktuelli Schpiuteilnähmer nid zeigä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Απόκρυψη παικτών που είναι ήδη σε παιχνίδι"
           }
         },
         "en" : {
@@ -389,6 +461,12 @@
             "value" : "Schpiler derzuetuä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προσθήκη παίκτη"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -410,6 +488,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fründ bearbeitä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επεξεργασία φίλου"
           }
         },
         "en" : {
@@ -435,6 +519,12 @@
             "value" : "Fründ afragä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αίτημα φιλίας"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -456,6 +546,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schiu beendä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Τέλος παιχνιδιού"
           }
         },
         "en" : {
@@ -481,6 +577,12 @@
             "value" : "Wosch ds Tichu Schpiu wük beändä? Ds Schpiu wird drum im unentschidä ändä und nid gwärtet."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Θέλεις πραγματικά να τελειώσεις το παιχνίδι τώρα; Το παιχνίδι θα λήξει ισόπαλο και δεν θα βαθμολογηθεί."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -504,6 +606,12 @@
             "value" : "Tichu Schpiu iz beeändä?"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Να τελειώσει το παιχνίδι τώρα;"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -525,6 +633,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ziu verändärä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αλλαγή στόχου"
           }
         },
         "en" : {
@@ -555,6 +669,12 @@
             "value" : "Fründä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Φίλοι"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -576,6 +696,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fründä verwautä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Διαχείριση φίλων"
           }
         },
         "en" : {
@@ -601,6 +727,12 @@
             "value" : "Du hesch no ke Fründä. Frag öpper a!"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δεν έχεις ακόμη φίλους. Στείλε αίτημα σε κάποιον!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -622,6 +754,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bechnoigi Afragä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ληφθέντα αιτήματα"
           }
         },
         "en" : {
@@ -647,6 +785,12 @@
             "value" : "Fründ wägtuä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αφαίρεση φίλου"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -668,6 +812,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afrag ignorierä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αφαίρεση αιτήματος"
           }
         },
         "en" : {
@@ -693,6 +843,12 @@
             "value" : "Fründe afragä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αίτημα σε φίλους"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -714,6 +870,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afragänä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Έχει σταλεί αίτημα"
           }
         },
         "en" : {
@@ -739,6 +901,12 @@
             "value" : "Afrag gschickt"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Στάλθηκε αίτημα"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -760,6 +928,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fründä sit äm %@"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Φίλοι από %@"
           }
         },
         "en" : {
@@ -790,6 +964,12 @@
             "value" : "Schpiu"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παιχνίδια"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -811,6 +991,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Default Ziel"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προεπιλεγμένος στόχος"
           }
         },
         "en" : {
@@ -836,6 +1022,12 @@
             "value" : "Ziäh Modus"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Λειτουργία σύρσιμου"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -857,6 +1049,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wemmä ä Rundi derzuteut, schtatt uf Schpilär z tipä zum dr Reihefoug feschtlegä, tuä sä irä Lischtä umäziäh."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κατά την προσθήκη γύρου, αντί να πατάς τους παίκτες για να ορίσεις τη σειρά τους, σύρε τους σε μια λίστα."
           }
         },
         "en" : {
@@ -882,6 +1080,12 @@
             "value" : "Bsoffinigi Pingus azeigä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εμφάνιση μεθυσμένων Pingus"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -903,6 +1107,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wi schpiut mä?"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πώς παίζεται;"
           }
         },
         "en" : {
@@ -928,6 +1138,12 @@
             "value" : "Ofiiziui Tichu Reglä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επίσημοι κανόνες Tichu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -949,6 +1165,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tichu Reglä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κανόνες Tichu"
           }
         },
         "en" : {
@@ -974,6 +1196,12 @@
             "value" : "Schpilär"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παίκτες"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -995,6 +1223,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zeig immer aui Schpiler, o wenn si nid verfüägbar si wöu si entweder gad imänä Schpiu si, scho Verglichä wärdä oder scho di Fründ si."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κατά την προβολή λίστας παικτών, εμφάνιση πάντα της πλήρους λίστας, συμπεριλαμβανομένων των παικτών που δεν είναι διαθέσιμοι επειδή είναι σε παιχνίδι, συγκρίνονται ήδη μαζί σου ή είναι ήδη φίλοι."
           }
         },
         "en" : {
@@ -1020,6 +1254,12 @@
             "value" : "Aui Schpilär zeigä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εμφάνιση όλων των παικτών"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1041,6 +1281,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sortier Schpilär nach"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ταξινόμηση παικτών κατά"
           }
         },
         "en" : {
@@ -1066,6 +1312,12 @@
             "value" : "Statistikä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Στατιστικά"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1087,6 +1339,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sortier Statistik-Verglichä nach"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ταξινόμηση συγκρίσεων στατιστικών κατά"
           }
         },
         "en" : {
@@ -1112,6 +1370,12 @@
             "value" : "Schpiu Isteuigä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ρυθμίσεις παιχνιδιού"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1133,6 +1397,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ds schpiu wird glöscht"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αυτό το παιχνίδι θα διαγραφεί."
           }
         },
         "en" : {
@@ -1158,6 +1428,12 @@
             "value" : "Schpiu löschä?"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Διαγραφή αυτού του παιχνιδιού;"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1179,6 +1455,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abbrächä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ακύρωση"
           }
         },
         "en" : {
@@ -1204,6 +1486,12 @@
             "value" : "Köschä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Διαγραφή"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1225,6 +1513,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ds Schpiu wird glöscht"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αυτό το παιχνίδι θα διαγραφεί"
           }
         },
         "en" : {
@@ -1250,6 +1544,12 @@
             "value" : "Ds Schpiu löschä?"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Διαγραφή αυτού του παιχνιδιού;"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1271,6 +1571,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schpiu loschä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Διαγραφή παιχνιδιού"
           }
         },
         "en" : {
@@ -1296,6 +1602,12 @@
             "value" : "Aluägä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προβολή"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1317,6 +1629,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gschpiut am %@"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παίχτηκε στις %@"
           }
         },
         "en" : {
@@ -1342,6 +1660,12 @@
             "value" : "Tichu Schpiu vum %@"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παιχνίδι Tichu από %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1363,6 +1687,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lug mau mis Tichu Schpiu."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δες το παιχνίδι μου στο Tichu."
           }
         },
         "en" : {
@@ -1388,6 +1718,12 @@
             "value" : "Tichu Schpiu"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παιχνίδι Tichu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1409,6 +1745,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Graph"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Γράφημα"
           }
         },
         "en" : {
@@ -1434,6 +1776,12 @@
             "value" : "Lischtä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Λίστα"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1455,6 +1803,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ het gwunnä!"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ο/Η %@ κέρδισε!"
           }
         },
         "en" : {
@@ -1480,6 +1834,12 @@
             "value" : "Revanche"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ρεβάνς"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1501,6 +1861,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Details"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Λεπτομέρειες"
           }
         },
         "en" : {
@@ -1526,6 +1892,12 @@
             "value" : "Rundinä:"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Γύροι:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1547,6 +1919,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ziel: %@"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Στόχος: %@"
           }
         },
         "en" : {
@@ -1572,6 +1950,12 @@
             "value" : "Resultat vom Tichu Schpiu"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αποτελέσματα παιχνιδιού Tichu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1593,6 +1977,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gwinner: %@"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Νικητής: %@"
           }
         },
         "en" : {
@@ -1618,6 +2008,12 @@
             "value" : "Abbrächä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ακύρωση"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1639,6 +2035,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ok"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         },
         "en" : {
@@ -1664,6 +2066,12 @@
             "value" : "No mau probiärä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δοκίμασε ξανά"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1685,6 +2093,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sichärä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αποθήκευση"
           }
         },
         "en" : {
@@ -1710,6 +2124,12 @@
             "value" : "Ha nid chöne mit äm Server verbindä."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αδυναμία σύνδεσης με τον διακομιστή"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1731,6 +2151,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Entweder isch dr Server offline oder du bisch nid mit em Internet verbundä. Bittä probiers später nomau."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Είτε ο διακομιστής δεν λειτουργεί είτε είσαι εκτός σύνδεσης. Δοκίμασε ξανά αργότερα."
           }
         },
         "en" : {
@@ -1756,6 +2182,12 @@
             "value" : "Löschä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Διαγραφή"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1777,6 +2209,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bearbeitä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επεξεργασία"
           }
         },
         "en" : {
@@ -1802,6 +2240,12 @@
             "value" : "Game bearbeitä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επεξεργασία παιχνιδιού"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1823,6 +2267,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Usloggä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αποσύνδεση"
           }
         },
         "en" : {
@@ -1848,6 +2298,12 @@
             "value" : "Gmacht mit"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Φτιαγμένο με"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1869,6 +2325,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "luis.tichupro@mail.com"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "me@tichuplayer.com"
           }
         },
         "en" : {
@@ -1894,6 +2356,12 @@
             "value" : "Wärtig"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Βαθμολογία"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1915,6 +2383,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Teilä…"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κοινοποίηση…"
           }
         },
         "en" : {
@@ -1940,6 +2414,12 @@
             "value" : "Verlouf"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ιστορικό"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1961,6 +2441,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schpilä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παιχνίδι"
           }
         },
         "en" : {
@@ -1986,6 +2472,12 @@
             "value" : "Profiu"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προφίλ"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2007,6 +2499,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Statistikä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Στατιστικά"
           }
         },
         "en" : {
@@ -2032,6 +2530,12 @@
             "value" : "Team %@"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ομάδα %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2053,6 +2557,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Team %@:"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ομάδα %@:"
           }
         },
         "en" : {
@@ -2078,6 +2588,12 @@
             "value" : "Team %1$@: %2$@"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ομάδα %1$@: %2$@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2096,6 +2612,12 @@
           }
         },
         "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TichuStats"
+          }
+        },
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "TichuStats"
@@ -2124,6 +2646,12 @@
             "value" : "Unentschidä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ισοπαλία"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2145,6 +2673,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verlouf"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ιστορικό"
           }
         },
         "en" : {
@@ -2170,6 +2704,12 @@
             "value" : "Schpilä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παιχνίδι"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2191,6 +2731,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profiu"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προφίλ"
           }
         },
         "en" : {
@@ -2216,6 +2762,12 @@
             "value" : "Statistikä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Στατιστικά"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2237,6 +2789,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unbekannt"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Άγνωστο"
           }
         },
         "en" : {
@@ -2262,6 +2820,12 @@
             "value" : "Entfavosrisiärä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προσθήκη στα αγαπημένα"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2283,6 +2847,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schpiu uftuä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Άνοιγμα παιχνιδιού"
           }
         },
         "en" : {
@@ -2308,6 +2878,12 @@
             "value" : "Favorisiärä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αφαίρεση από τα αγαπημένα"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2329,6 +2905,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verlouf ladä…"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Φόρτωση ιστορικού…"
           }
         },
         "en" : {
@@ -2354,6 +2936,12 @@
             "value" : "Check mis Tichu Schpiu ab. Gmacht mit TichuStats."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δες το παιχνίδι μου στο Tichu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2375,6 +2963,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aui Rundinä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Όλοι οι γύροι"
           }
         },
         "en" : {
@@ -2400,6 +2994,12 @@
             "value" : "Datum (Nöi-Aut)"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ημερομηνία (Νεότερα-Παλαιότερα)"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2421,6 +3021,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Datum (Aut-Nöi)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ημερομηνία (Παλαιότερα-Νεότερα)"
           }
         },
         "en" : {
@@ -2446,6 +3052,12 @@
             "value" : "Favoritä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αγαπημένα"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2469,6 +3081,12 @@
             "value" : "Di Verlouf vo Tichu Schpiu wird hiä uftouchä, sobaut du äs erschts Schpiu gschpiut hesch."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το ιστορικό των παιχνιδιών Tichu σου θα εμφανιστεί εδώ μόλις παίξεις ένα παιχνίδι."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2490,6 +3108,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No ke Schpiu gschpiut"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δεν έχουν παιχτεί παιχνίδια ακόμη"
           }
         },
         "en" : {
@@ -2520,6 +3144,12 @@
             "value" : "Amäudä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Έχω ήδη λογαριασμό"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2541,6 +3171,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Registiärä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Συνέχεια"
           }
         },
         "en" : {
@@ -2566,6 +3202,12 @@
             "value" : "Track Tichu Schpiu mit dinä Fründä!"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παίξε Tichu με τους φίλους σου!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2587,6 +3229,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Angeri Email"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Χρήση άλλου email"
           }
         },
         "en" : {
@@ -2612,6 +3260,12 @@
             "value" : "Registirärä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ας ξεκινήσουμε"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2633,6 +3287,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Äs nöis feature isch drzueta worde, wo nötig macht, dass du di nomau ilogsch."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προστέθηκε μια νέα λειτουργία που απαιτεί να συνδεθείς ξανά."
           }
         },
         "en" : {
@@ -2658,6 +3318,12 @@
             "value" : "Du bisch abgmäudet wordä."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αποσυνδέθηκες."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2679,6 +3345,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bitte gültigi Email igä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εισήγαγε ένα έγκυρο email"
           }
         },
         "en" : {
@@ -2704,6 +3376,12 @@
             "value" : "Fauschi Email"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Λάθος email"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2725,6 +3403,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "oder"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ή"
           }
         },
         "en" : {
@@ -2750,6 +3434,12 @@
             "value" : "Mit Passkey amäudä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σύνδεση με Passkey"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2771,6 +3461,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Email nomau schickä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επανάληψη αποστολής email"
           }
         },
         "en" : {
@@ -2796,6 +3492,12 @@
             "value" : "Amäudä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σύνδεση"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2817,6 +3519,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mit Passkey amäudä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σύνδεση με Passkey"
           }
         },
         "en" : {
@@ -2842,6 +3550,12 @@
             "value" : "Amäudä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εγγραφή ή σύνδεση"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2863,6 +3577,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Amäudä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εγγραφή"
           }
         },
         "en" : {
@@ -2888,6 +3608,12 @@
             "value" : "Mit Passkey registrärä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εγγραφή με Passkey"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2911,6 +3637,12 @@
             "value" : "Amäudä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σύνδεση"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2929,6 +3661,12 @@
           }
         },
         "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TichuStats"
+          }
+        },
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "TichuStats"
@@ -2957,6 +3695,12 @@
             "value" : "Amäudä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σύνδεση ή εγγραφή"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2978,6 +3722,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wiukommä bi"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Καλώς ήρθες στο"
           }
         },
         "en" : {
@@ -3018,6 +3768,12 @@
             "value" : "Du und %@ si iz Fründä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εσύ και ο/η %@ είστε πλέον φίλοι"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3039,6 +3795,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ het dini Fründsafrag agno"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ο/Η %@ αποδέχτηκε το αίτημα φιλίας σου"
           }
         },
         "en" : {
@@ -3064,6 +3826,12 @@
             "value" : "Fründesafrag agno"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το αίτημα φιλίας έγινε δεκτό"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3087,6 +3855,12 @@
             "value" : "%@ het dir a Fründesafrag gschickt"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ο/Η %@ σου έστειλε αίτημα φιλίας"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3108,6 +3882,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nöi Fründesafrag"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Νέο αίτημα φιλίας"
           }
         },
         "en" : {
@@ -3186,6 +3966,36 @@
             }
           }
         },
+        "el" : {
+          "variations" : {
+            "device" : {
+              "applevision" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Το Apple Vision σου δεν είναι συνδεδεμένο στο διαδίκτυο."
+                }
+              },
+              "ipad" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Το iPad σου δεν είναι συνδεδεμένο στο διαδίκτυο."
+                }
+              },
+              "iphone" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Το iPhone σου δεν είναι συνδεδεμένο στο διαδίκτυο."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Η συσκευή σου δεν είναι συνδεδεμένη στο διαδίκτυο."
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "device" : {
@@ -3228,6 +4038,12 @@
           }
         },
         "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -3304,6 +4120,36 @@
             }
           }
         },
+        "el" : {
+          "variations" : {
+            "device" : {
+              "applevision" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Το Apple Vision σου δεν είναι συνδεδεμένο στο διαδίκτυο. Για να συνδεθείς, απενεργοποίησε τη λειτουργία πτήσης ή σύνδεσέ το σε δίκτυο Wi-Fi."
+                }
+              },
+              "ipad" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Το iPad σου δεν είναι συνδεδεμένο στο διαδίκτυο. Για να συνδεθείς, απενεργοποίησε τη λειτουργία πτήσης ή σύνδεσέ το σε δίκτυο Wi-Fi."
+                }
+              },
+              "iphone" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Το iPhone σου δεν είναι συνδεδεμένο στο διαδίκτυο. Για να συνδεθείς, απενεργοποίησε τη λειτουργία πτήσης ή σύνδεσέ το σε δίκτυο Wi-Fi."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Η συσκευή σου δεν είναι συνδεδεμένη στο διαδίκτυο. Για να συνδεθείς, απενεργοποίησε τη λειτουργία πτήσης ή σύνδεσέ την σε δίκτυο Wi-Fi."
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "device" : {
@@ -3351,6 +4197,12 @@
             "value" : "Ke Internet-Verbindig"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Χωρίς σύνδεση στο διαδίκτυο"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3377,6 +4229,12 @@
             "value" : "Das het z lang duuret. Bitte nomau probiärä."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αυτό πήρε πολύ χρόνο. Δοκίμασε ξανά."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3398,6 +4256,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passkey amäudig fählgschlagä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η σύνδεση με Passkey απέτυχε"
           }
         },
         "en" : {
@@ -3423,6 +4287,12 @@
             "value" : "Öppis het nid funktionert. Bitte nomau probiärä."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κάτι πήγε στραβά. Δοκίμασε ξανά."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3444,6 +4314,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passkey het nid chöne drzuäta wärdä. Bitte nomau probiere."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δεν ήταν δυνατή η προσθήκη passkey. Δοκίμασε ξανά."
           }
         },
         "en" : {
@@ -3469,6 +4345,12 @@
             "value" : "Ke Passkey gfundä. Bitte nomau probiärä oder per Mail amäudä."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δεν βρέθηκε passkey. Δοκίμασε ξανά ή χρησιμοποίησε άλλη μέθοδο σύνδεσης."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3490,6 +4372,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mir hei dä Passkey nid chöne verfiziärä. Bitte nomau probiärä."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δεν μπορέσαμε να επαληθεύσουμε αυτό το passkey. Δοκίμασε ξανά."
           }
         },
         "en" : {
@@ -3515,6 +4403,12 @@
             "value" : "Schpiler derzuetue"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προσθήκη παίκτη"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3536,6 +4430,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rundi derzuätuä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προσθήκη γύρου"
           }
         },
         "en" : {
@@ -3561,6 +4461,12 @@
             "value" : "Name vom Gascht "
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εισήγαγε το όνομα του επισκέπτη"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3582,6 +4488,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bsoffnigi Pingu erloubä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Να επιτρέπονται οι μεθυσμένοι Pingus"
           }
         },
         "en" : {
@@ -3607,6 +4519,12 @@
             "value" : "TichuStats abäladä zum ä Rang becho."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κατέβασε το TichuStats για να βαθμολογείσαι"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3628,6 +4546,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rundi %@ bearbeite"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επεξεργασία γύρου %@"
           }
         },
         "en" : {
@@ -3653,6 +4577,12 @@
             "value" : "Gascht"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επισκέπτης "
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3674,6 +4604,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gascht Name"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Όνομα επισκέπτη"
           }
         },
         "en" : {
@@ -3699,6 +4635,12 @@
             "value" : "Spiler wägtuä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αφαίρεση παίκτη"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3720,6 +4662,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schick a Fründesafrag"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αποστολή αιτήματος φιλίας"
           }
         },
         "en" : {
@@ -3745,6 +4693,12 @@
             "value" : "Ziupünkt"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Στόχος"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3763,6 +4717,12 @@
           }
         },
         "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "VS"
+          }
+        },
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "VS"
@@ -3796,6 +4756,12 @@
             "value" : "Gmacht mit ❤️ z Bärn"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Φτιαγμένο με ❤️ στη Βέρνη"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3820,6 +4786,12 @@
             "value" : "Version %@ Bou %@"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Έκδοση %@ Build %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3838,6 +4810,12 @@
           }
         },
         "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -3866,6 +4844,12 @@
             "value" : "Bitte probier später nomau"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δοκίμασε ξανά αργότερα"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3887,6 +4871,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profiubiud het nid chönä ufägladä wärdä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αδυναμία ανεβάσματος εικόνας προφίλ"
           }
         },
         "en" : {
@@ -3912,6 +4902,12 @@
             "value" : "Benutzername bearbeitä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επεξεργασία ονόματος χρήστη"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3933,6 +4929,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Genereu"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Γενικά"
           }
         },
         "en" : {
@@ -3958,6 +4960,12 @@
             "value" : "Fründe verwaute"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Διαχείριση φίλων"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3979,6 +4987,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Usloggä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αποσύνδεση"
           }
         },
         "en" : {
@@ -4004,6 +5018,12 @@
             "value" : "Löschä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Διαγραφή"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4025,6 +5045,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aui dini Datä wärde glöscht und du wirsch ke zuegriff meh uf dis Konto ha."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Όλα τα δεδομένα σου θα διαγραφούν και δεν θα έχεις πλέον πρόσβαση στον λογαριασμό σου."
           }
         },
         "en" : {
@@ -4050,6 +5076,12 @@
             "value" : "Wosch di Account wük löschä?"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Θέλεις πραγματικά να διαγράψεις τον λογαριασμό σου;"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4071,6 +5103,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Account löschä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Διαγραφή λογαριασμού"
           }
         },
         "en" : {
@@ -4096,6 +5134,12 @@
             "value" : "Kontakt"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επικοινωνία"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4117,6 +5161,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passkey machä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δημιουργία Passkey"
           }
         },
         "en" : {
@@ -4142,6 +5192,12 @@
             "value" : "Datäschutz"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Απόρρητο"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4163,6 +5219,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kuul!"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Τέλεια!"
           }
         },
         "en" : {
@@ -4188,6 +5250,12 @@
             "value" : "Mir spichärä numä dini Tichu Schpiu und Login datä."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αποθηκεύουμε μόνο τους γύρους Tichu και τα στοιχεία σύνδεσής σου."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4209,6 +5277,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Datäschutzerklärig läsä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ανάγνωση πολιτικής απορρήτου"
           }
         },
         "en" : {
@@ -4234,6 +5308,12 @@
             "value" : "TichuStats tuet ke datä über di sammlä oder spichärä."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το TichuStats δεν συλλέγει προσωπικά δεδομένα."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4255,6 +5335,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Quell-Code"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πηγαίος κώδικας"
           }
         },
         "en" : {
@@ -4280,6 +5366,12 @@
             "value" : "TichuStats Supoort"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Υποστήριξη TichuStats"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4301,6 +5393,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profiu"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προφίλ"
           }
         },
         "en" : {
@@ -4336,6 +5434,12 @@
             "value" : "%1$@ Rundi wird nid zeut. Ds wüu ds Schpiu isch bearbeitet worde, sodass nach %2$@ Rundinä %3$@ ds Ziu %4$@ scho erreicht het."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ γύρος δεν μετράει. Αυτό συμβαίνει επειδή το παιχνίδι επεξεργάστηκε έτσι ώστε να έχει ήδη τελειώσει μετά τον γύρο %2$@, επειδή ο/η %3$@ έφτασε το %4$@."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4357,6 +5461,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rundi %@"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Γύρος %@"
           }
         },
         "en" : {
@@ -4382,6 +5492,12 @@
             "value" : "No ke Rundinä gschpiut"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δεν έχουν παιχτεί γύροι ακόμη."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4403,6 +5519,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ Rundinä wärdä nid zeut. Ds wüu ds Schpiu isch bearbeitet worde, sodass nach %2$@ Rundinä %3$@ ds Ziu %4$@ scho erreicht het."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ γύροι δεν μετράνε. Αυτό συμβαίνει επειδή το παιχνίδι επεξεργάστηκε έτσι ώστε να έχει ήδη τελειώσει μετά τον γύρο %2$@, επειδή ο/η %3$@ έφτασε το %4$@."
           }
         },
         "en" : {
@@ -4428,6 +5550,12 @@
             "value" : "Rundinä wärdä nid zeut"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Οι γύροι δεν μετράνε"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4449,6 +5577,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Platzierig"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κατάταξη"
           }
         },
         "en" : {
@@ -4474,6 +5608,12 @@
             "value" : "Pünkt %1$@"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πόντοι %1$@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4495,6 +5635,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Performance"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Απόδοση"
           }
         },
         "en" : {
@@ -4520,6 +5666,12 @@
             "value" : "Spiler drzutue zum verglichä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προσθήκη παίκτη για σύγκριση"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4541,6 +5693,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ wägtuä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αφαίρεση %@"
           }
         },
         "en" : {
@@ -4566,6 +5724,12 @@
             "value" : "Aui Spieler wägtuä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αφαίρεση όλων των παικτών"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4587,6 +5751,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Flex bi dinä Fründ indäm du dini krassä Tichu Stats mit ihnä teilsch…"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κάνε επίδειξη στους φίλους σου μοιράζοντας μαζί τους τα στατιστικά σου στο Tichu"
           }
         },
         "en" : {
@@ -4612,6 +5782,12 @@
             "value" : "Teilä…"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κοινοποίηση…"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4633,6 +5809,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Feschtghaute am %@"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Καταγράφηκε στις %@"
           }
         },
         "en" : {
@@ -4658,6 +5840,12 @@
             "value" : "Lug mau mini Tichu Stats"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δες τα στατιστικά μου στο Tichu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4679,6 +5867,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nach Wärtä (Höch-Töif)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κατά τιμή (Υψηλή-Χαμηλή)"
           }
         },
         "en" : {
@@ -4704,6 +5898,12 @@
             "value" : "Nach Wärt (Töif-Höch)"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κατά τιμή (Χαμηλή-Υψηλή)"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4725,6 +5925,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Auphabetisch (A-Z)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αλφαβητικά (Α-Ω)"
           }
         },
         "en" : {
@@ -4750,6 +5956,12 @@
             "value" : "Nach Wärtä (A-Z)"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αλφαβητικά (Ω-Α)"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4771,6 +5983,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Drzuetas Datum (Nöi-Aut)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ημερομηνία προσθήκης (Νεότερα-Παλαιότερα)"
           }
         },
         "en" : {
@@ -4796,6 +6014,12 @@
             "value" : "Drzuetas Datum (Aut-Nöi)"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ημερομηνία προσθήκης (Παλαιότερα-Νεότερα)"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4817,6 +6041,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rang (Töif-Höch)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κατάταξη (Υψηλή-Χαμηλή)"
           }
         },
         "en" : {
@@ -4842,6 +6072,12 @@
             "value" : "Rang (Höch-Töif)"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κατάταξη (Χαμηλή-Υψηλή)"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4863,6 +6099,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verglich"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σύγκριση"
           }
         },
         "en" : {
@@ -4888,6 +6130,12 @@
             "value" : "Fertigi Gschpiuti Schpiu."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ολοκληρωμένα παιχνίδια."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4909,6 +6157,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Anzahl vo fertig gschpiuta Schpiu. \n(Höcher isch besser)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πόσα παιχνίδια έχεις παίξει.\n(Όσο υψηλότερο, τόσο καλύτερο)"
           }
         },
         "en" : {
@@ -4934,6 +6188,12 @@
             "value" : "Prozänt vo Spilis mit ärä Sort vo Tichu agseit"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό παιχνιδιών με κάποιο είδος Tichu δηλωμένο."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4955,6 +6215,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wie hüüfig du (nid unbedingt erfougrich) äs Tichu, Grosses Tichu oder ä bsoffnigä Pingu aseisch.\n(Höcher isch besser)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πόσο συχνά δηλώνεις (όχι απαραίτητα με επιτυχία) Tichu, Big Tichu ή μεθυσμένο Pingu, κατά μέσο όρο ανά γύρο.\n(Όσο υψηλότερο, τόσο καλύτερο)"
           }
         },
         "en" : {
@@ -4980,6 +6246,12 @@
             "value" : "Ratä vo erfougirhce grosse Tichus."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό επιτυχίας Big Tichu."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5001,6 +6273,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wie hüüfig dini Grossä Tichus erfougrich si, wenn du eis agseit hesch.\n(Höcher isch besser)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό των φορών που ένα Big Tichu ήταν επιτυχημένο όταν δήλωσες ένα.\n(Όσο υψηλότερο, τόσο καλύτερο)"
           }
         },
         "en" : {
@@ -5026,6 +6304,12 @@
             "value" : "Ratä vo Bombä pro rundi."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αναλογία βομβών ανά γύρο."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5047,6 +6331,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dis Verhäutnis vo Bombä pro Rundi.\n(Höcher het meh Glück)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό των φορών που έχεις βόμβα σε έναν γύρο.\n(Όσο υψηλότερο, τόσο πιο τυχερός)"
           }
         },
         "en" : {
@@ -5072,6 +6362,12 @@
             "value" : "Durchschnittlächi Platzierig"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μέση κατάταξη."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5093,6 +6389,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dini durchschnittlächi Platzierig.\n(Höcher isch besser)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η μέση κατάταξή σου.\n(Όσο χαμηλότερη, τόσο καλύτερη)"
           }
         },
         "en" : {
@@ -5118,6 +6420,12 @@
             "value" : "Ratä vo erfougriche Tichus."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό επιτυχίας Tichu."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5139,6 +6447,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wi hüüfig dini Tichus erfougrich si, wenn du eis agseit hesch.\n(Höcher isch besser)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό των φορών που ένα Tichu ήταν επιτυχημένο όταν δήλωσες ένα.\n(Όσο υψηλότερο, τόσο καλύτερο)"
           }
         },
         "en" : {
@@ -5164,6 +6478,12 @@
             "value" : "Ratä vo erfougriche bsoffnigä Pingus."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό επιτυχίας μεθυσμένου Pingu."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5185,6 +6505,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wi hüüfig dini bsoffnigä Pingus erfougrich si, wenn du eine agseit hesc.\n(Höcher isch besser)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό των φορών που ένας μεθυσμένος Pingu ήταν επιτυχημένος όταν δήλωσες έναν.\n(Όσο υψηλότερο, τόσο καλύτερο)"
           }
         },
         "en" : {
@@ -5210,6 +6536,12 @@
             "value" : "Gsamt Elo-Wärtig."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Συνολική βαθμολογία Elo."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5231,6 +6563,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dini Elo-Wärtig wird gupdated nach jedem Schpiu. (Schpiu mit Gäscht wärdä nid gwärtet). Dini Wärtig geit ufä bimänä Sieg und nimmt ab wenn du verlürsch.\n(Höcher isch besser)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η βαθμολογία Elo σου ενημερώνεται μετά από κάθε βαθμολογημένο παιχνίδι (εξαιρούνται τα παιχνίδια με επισκέπτες), αυξάνεται όταν κερδίζεις και μειώνεται όταν χάνεις.\n(Όσο υψηλότερη, τόσο καλύτερη)"
           }
         },
         "en" : {
@@ -5256,6 +6594,12 @@
             "value" : "Ratä vo zerschörtä Tichus."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό αποτροπής Tichu."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5277,6 +6621,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Diä Statistik beschribt, wenn dini Gägner es Tichu, Grosses Tichu oder ä bsoffnigä Pingu agseit hei, wie hüüfig du nächär erscht wirsch und so ihri Asagä zerstört hesch.\n(Höcher isch besser)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Όταν οι αντίπαλοί σου δηλώνουν Tichu, Big Tichu ή μεθυσμένο Pingu, δείχνει πόσο συχνά τερματίζεις πρώτος και χαλάς τη δήλωσή τους, κατά μέσο όρο ανά γύρο.\n(Όσο υψηλότερο, τόσο καλύτερο)"
           }
         },
         "en" : {
@@ -5302,6 +6652,12 @@
             "value" : "Dopusieg ratä."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό διπλής νίκης."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5323,6 +6679,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wie hüüfig du a rundi mitämä Dopusieg beändisch.\n(Höcher isch besser)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό των γύρων που ολοκληρώνεις με διπλή νίκη.\n(Όσο υψηλότερο, τόσο καλύτερο)"
           }
         },
         "en" : {
@@ -5348,6 +6710,12 @@
             "value" : "Durchschnittlächi Asagpünkt"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μέσοι πόντοι από δηλώσεις."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5369,6 +6737,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dini durchschnittlächä Asagpünkt vo Tichus, Grossä Tichu und bsoffnigä Pingus pro Rundi.\n(Höcher isch besser)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Οι μέσοι πόντοι σου ανά γύρο από δηλώσεις Tichu, Grand Tichu και μεθυσμένου Pingu.\n(Όσο υψηλότερο, τόσο καλύτερο)"
           }
         },
         "en" : {
@@ -5394,6 +6768,12 @@
             "value" : "Tichu agseit wend aus erscht fertig worde bisch."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tichu δηλωμένο όταν τερματίζεις πρώτος."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5415,6 +6795,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wenn du erscht wirsch wi hüüfig du äs Tichu, Grosses Tichu oder ä bsoffnigä Pingus agseit hesch.\n(Höcher isch besser)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Όταν τερματίζεις πρώτος, πόσο συχνά είχες δηλώσει Tichu, Big Tichu ή μεθυσμένο Pingu, κατά μέσο όρο ανά γύρο.\n(Όσο υψηλότερο, τόσο καλύτερο)"
           }
         },
         "en" : {
@@ -5440,6 +6826,12 @@
             "value" : "Prozäntsatz vo gwunnänä Schpiu."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό νικηφόρων παιχνιδιών."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5461,6 +6853,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wie hüüfig du äs Tichu Schpiu gwinsch.\n(Höcher isch besser)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ποσοστό νικηφόρων παιχνιδιών.\n(Όσο υψηλότερο, τόσο καλύτερο)"
           }
         },
         "en" : {
@@ -5486,6 +6884,12 @@
             "value" : "Erklärig"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επεξήγηση"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5507,6 +6911,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Süchtigä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εθισμένος"
           }
         },
         "en" : {
@@ -5532,6 +6942,12 @@
             "value" : "Asäger"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εξαγγελτής"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5555,6 +6971,12 @@
             "value" : "Biggie Gambler"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μεγάλος τζογαδόρος"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5576,6 +6998,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bomber"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Βομβαρδιστής"
           }
         },
         "en" : {
@@ -5602,6 +7030,12 @@
             "value" : "Chläterer"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αναρριχητής"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5623,6 +7057,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gambler"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Τζογαδόρος"
           }
         },
         "en" : {
@@ -5648,6 +7088,12 @@
             "value" : "Pingu Gambler"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pingu τζογαδόρος"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5669,6 +7115,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wärtig"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Βαθμολογία"
           }
         },
         "en" : {
@@ -5694,6 +7146,12 @@
             "value" : "Sabotör"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σαμποτέρ"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5715,6 +7173,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Teamschpieler"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ομαδικός παίκτης"
           }
         },
         "en" : {
@@ -5740,6 +7204,12 @@
             "value" : "Tichumeischter"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μάστερ του Tichu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5761,6 +7231,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Häuseher"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Οραματιστής"
           }
         },
         "en" : {
@@ -5786,6 +7262,12 @@
             "value" : "Gwinner"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Νικητής"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5807,6 +7289,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Täglich"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Καθημερινά"
           }
         },
         "en" : {
@@ -5832,6 +7320,12 @@
             "value" : "Hüt"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ημέρα"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5853,6 +7347,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Monät"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μήνας"
           }
         },
         "en" : {
@@ -5878,6 +7378,12 @@
             "value" : "Monätlich"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μηνιαία"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5899,6 +7405,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sit em Download"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Από τη λήψη"
           }
         },
         "en" : {
@@ -5924,6 +7436,12 @@
             "value" : "Wuchä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εβδομάδα"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5945,6 +7463,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wöchentlich"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εβδομαδιαία"
           }
         },
         "en" : {
@@ -5970,6 +7494,12 @@
             "value" : "Jährlich"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ετήσια"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5991,6 +7521,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aues"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Συνολικά"
           }
         },
         "en" : {
@@ -6016,6 +7552,12 @@
             "value" : "Jahr"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Έτος"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6037,6 +7579,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verglich bearbeite"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επεξεργασία σύγκρισης"
           }
         },
         "en" : {
@@ -6067,6 +7615,12 @@
             "value" : "Grossäs Tichu"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Big Tichu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6088,6 +7642,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gr. Tichu"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "B. Tichu"
           }
         },
         "en" : {
@@ -6113,6 +7673,12 @@
             "value" : "Bombä: %@"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Βόμβες: %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6136,6 +7702,12 @@
             "value" : "Dopu Sieg"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Διπλή νίκη"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6154,6 +7726,12 @@
           }
         },
         "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pingu"
+          }
+        },
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pingu"
@@ -6182,6 +7760,12 @@
             "value" : "Schpiu äs Tichu"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παίξε Tichu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6200,6 +7784,12 @@
           }
         },
         "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tichu"
+          }
+        },
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tichu"
@@ -6228,6 +7818,12 @@
             "value" : "Hiä druf tipä für meh Informatione ober ds Tichu Schpiu und zum’s teilä."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πάτησε εδώ για να δεις περισσότερες πληροφορίες για το παιχνίδι Tichu και να το κοινοποιήσεις."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6249,6 +7845,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tipä für meh Informationä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πάτησε για περισσότερες πληροφορίες"
           }
         },
         "en" : {
@@ -6274,6 +7876,12 @@
             "value" : "Du chasch links uf ärä rundi wüschä zum sä bearbeitä oder löschä."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σύρε προς τα αριστερά σε έναν γύρο για να τον επεξεργαστείς ή/και να τον διαγράψεις."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6295,6 +7903,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Links wüschä zum bearbeite"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σύρε αριστερά για επεξεργασία"
           }
         },
         "en" : {
@@ -6320,6 +7934,12 @@
             "value" : "Du chasch links uf äm nä fründ wüschä zum nä entfernä."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σύρε προς τα αριστερά σε έναν φίλο για να τον αφαιρέσεις."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6341,6 +7961,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Links wüschä zum entfernä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σύρε αριστερά για αφαίρεση"
           }
         },
         "en" : {
@@ -6366,6 +7992,12 @@
             "value" : "Benutzername verfüegbar"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το όνομα χρήστη είναι διαθέσιμο"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6387,6 +8019,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Du chasch di Name ersch wird änderä i: %@"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μπορείς να αλλάξεις το όνομά σου σε: %@"
           }
         },
         "en" : {
@@ -6412,6 +8050,12 @@
             "value" : "Account machä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δημιουργία λογαριασμού"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6433,6 +8077,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Account wird gmacht…."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δημιουργία λογαριασμού…"
           }
         },
         "en" : {
@@ -6458,6 +8108,12 @@
             "value" : "Wähl ä eimaligä Benutzernämä us. Dini fründe chöi di när unger däm Benuzernamä zu Tichu Schpiu derzue tue."
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Διάλεξε ένα μοναδικό όνομα χρήστη. Απαιτείται για να σε προσθέτουν σε παιχνίδια Tichu."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6479,6 +8135,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benutzername bearbeitä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επεξεργασία ονόματος χρήστη"
           }
         },
         "en" : {
@@ -6504,6 +8166,12 @@
             "value" : "Benutzername igä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εισαγωγή ονόματος χρήστη"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6525,6 +8193,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Di aut Benutzername"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το παλιό σου όνομα χρήστη"
           }
         },
         "en" : {
@@ -6550,6 +8224,12 @@
             "value" : "Vorussetzigä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Απαιτήσεις"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6571,6 +8251,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benutzername verfüegbar"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το όνομα χρήστη είναι διαθέσιμο"
           }
         },
         "en" : {
@@ -6596,6 +8282,12 @@
             "value" : "Zwüschä 2 und 20 Zeichä"
           }
         },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Από 2 έως 20 χαρακτήρες."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6617,6 +8309,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nur Buächstabe, Zahlä und unterstrich."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μόνο γράμματα, αριθμοί και κάτω παύλες."
           }
         },
         "en" : {
