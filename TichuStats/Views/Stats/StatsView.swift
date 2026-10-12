@@ -441,7 +441,7 @@ struct StatsView: View {
             shareTags.append("\(String(localized: "statistics.statscontainer.title.bomber")): \(Int((profile?.getStat(for: .bomber, timeframe: selectedTimeframe) ?? 0) * 100))%")
             
 
-            let renderer = ImageRenderer(content: ShareStatsView(
+            let renderer = ImageRenderer(content: StatsShareView(
                 userName: profile?.name ?? String(localized: "general.unknown"),
                 userImageData: network.profileImages[userId],
                 elo: profile?.elo ?? 1000.0,

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ShareStatsView: View{
+struct StatsShareView: View{
     
     @Environment(\.colorScheme) var colorScheme
     var userName: String
