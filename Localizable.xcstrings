@@ -4533,6 +4533,35 @@
         }
       }
     },
+    "play.editGuestName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gast-Namen bearbeiten"
+          }
+        },
+        "de-CH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gascht Namä bearbeitä"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αλλαγή ονόματος επισκέπτη"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit guest name"
+          }
+        }
+      }
+    },
     "play.editRound" : {
       "extractionState" : "manual",
       "localizations" : {

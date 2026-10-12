@@ -30,6 +30,9 @@ struct PlayView: View {
     @State private var showDebugSheetView: Bool = false
     @State private var showGameOverSheet: Bool = false
     @State private var showOfflineAlert: Bool = false
+    @State private var showName2Alert: Bool = false
+    @State private var showName3Alert: Bool = false
+    @State private var showName4Alert: Bool = false
     @State private var selectedTab: Int = 1
     @State private var showPlayers: Bool = true
     @State private var showFriends: Bool = true
@@ -434,6 +437,16 @@ struct PlayView: View {
                                     Text(String(localized: "play.sendFriend"))
                                 }.disabled(p1.id == userId)
                             }
+                        }else if network.isOnline && p1.id != userId && p1.id < 0{
+                            Button{
+                                
+                            }label:{
+                                Image(systemName:"pencil")
+                                Text(String(localized:"play.editGuestName"))
+                                Text(String(format: String(localized: "play.guest"),String(1)))
+                                    
+                                
+                            }
                         }
                         
                     }.swipeActions(edge: .trailing) {
@@ -532,6 +545,16 @@ struct PlayView: View {
                                     Text(String(localized: "play.sendFriend"))
                                 }.disabled(p2.id == userId)
                             }
+                        }else if network.isOnline && p2.id != userId && p2.id < 0{
+                            Button{
+                                showName2Alert = true
+                            }label:{
+                                Image(systemName:"pencil")
+                                Text(String(localized:"play.editGuestName"))
+                                Text(guest2Name)
+                                    
+                                
+                            }
                         }
                         
                     }
@@ -550,6 +573,21 @@ struct PlayView: View {
                              } label: {
                                  Label(String(localized:"play.removePlayer"), systemImage: "person.badge.minus").tint(.red)
                              }
+                        }
+                    }
+                    .alert(String(format:String(localized:"play.alert.enterName")), isPresented: $showName2Alert) {
+                        TextField(String(localized:"play.guestName"), text: $guest2Name)
+                        Button(String(localized: "general.alert.save"),role:.confirm) {
+                            Task{
+                                
+                                if let id = currentGame?.id{
+                                    await network.updateGameGuestName(gameId: id, guestId: -2, guestName: guest2Name)
+                                }
+                            }
+                        }
+
+                        Button(String(localized:"general.alert.cancel"), role: .cancel) {
+                            showName2Alert = false
                         }
                     }
 
@@ -695,6 +733,16 @@ struct PlayView: View {
                                     Text(String(localized:"play.sendFriend"))
                                 }.disabled(p3.id == userId)
                             }
+                        }else if network.isOnline && p3.id != userId && p3.id < 0{
+                            Button{
+                                showName3Alert = true
+                            }label:{
+                                Image(systemName:"pencil")
+                                Text(String(localized:"play.editGuestName"))
+                                Text(guest3Name)
+                                    
+                                
+                            }
                         }
                         
                     }.swipeActions(edge: .trailing) {
@@ -712,6 +760,21 @@ struct PlayView: View {
                              } label: {
                                  Label(String(localized:"play.removePlayer"), systemImage: "person.badge.minus").tint(.red)
                              }
+                        }
+                    }
+                    .alert(String(format:String(localized:"play.alert.enterName")), isPresented: $showName3Alert) {
+                        TextField(String(localized:"play.guestName"), text: $guest3Name)
+                        Button(String(localized: "general.alert.save"),role:.confirm) {
+                            Task{
+                                
+                                if let id = currentGame?.id{
+                                    await network.updateGameGuestName(gameId: id, guestId: -3, guestName: guest3Name)
+                                }
+                            }
+                        }
+
+                        Button(String(localized:"general.alert.cancel"), role: .cancel) {
+                            showName3Alert = false
                         }
                     }
 
@@ -817,7 +880,18 @@ struct PlayView: View {
                                     Text(String(localized:"play.sendFriend"))
                                 }.disabled(p4.id == userId)
                             }
+                        }else if network.isOnline && p4.id != userId && p4.id < 0{
+                            Button{
+                                showName4Alert = true
+                            }label:{
+                                Image(systemName:"pencil")
+                                Text(String(localized:"play.editGuestName"))
+                                Text(guest4Name)
+                                    
+                                
+                            }
                         }
+                        
                         
                     }.swipeActions(edge: .trailing) {
                         if isGameReady == false{
@@ -834,6 +908,21 @@ struct PlayView: View {
                              } label: {
                                  Label(String(localized:"play.removePlayer"), systemImage: "person.badge.minus").tint(.red)
                              }
+                        }
+                    }
+                    .alert(String(format:String(localized:"play.alert.enterName")), isPresented: $showName4Alert) {
+                        TextField(String(localized:"play.guestName"), text: $guest4Name)
+                        Button(String(localized: "general.alert.save"),role:.confirm) {
+                            Task{
+                                
+                                if let id = currentGame?.id{
+                                    await network.updateGameGuestName(gameId: id, guestId: -4, guestName: guest4Name)
+                                }
+                            }
+                        }
+
+                        Button(String(localized:"general.alert.cancel"), role: .cancel) {
+                            showName4Alert = false
                         }
                     }
 

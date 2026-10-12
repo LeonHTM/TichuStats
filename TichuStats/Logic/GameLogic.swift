@@ -104,7 +104,7 @@ nonisolated struct Game: Identifiable, Decodable, Equatable {
     }
     
     static func == (lhs: Game, rhs: Game) -> Bool {
-        lhs.id == rhs.id
+        lhs.id == rhs.id && lhs.guest2Name == rhs.guest2Name && lhs.guest3Name == rhs.guest3Name && lhs.guest4Name == rhs.guest4Name
     }
 }
 

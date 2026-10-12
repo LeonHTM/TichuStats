@@ -1122,7 +1122,6 @@ class NetworkService: ObservableObject {
     //MARK: fetchGame used in SocketService, GameSummaryListview, EditRoundsSheetView, HistoryView and PlayView
     func fetchGame(gameId: Int) async {
         guard let url = URL(string: "\(apiURL)/game/\(gameId)") else { return }
-
         do {
             let (data, _) = try await URLSession.shared.data(for: authorizedRequest(url: url))
             let game = try flexibleDateDecoder.decode(Game.self, from: data)
@@ -1135,6 +1134,45 @@ class NetworkService: ObservableObject {
             }
         } catch {
             print("fetchGame error: \(error)")
+        }
+    }
+    
+    
+    //MARK: updateGuestName used in PlayView
+    func updateGameGuestName(gameId: Int, guestId: Int, guestName: String) async {
+        guard let url = URL(string: "\(apiURL)/game/edit_guest_name") else { return }
+
+        var request = authorizedRequest(url: url, method: "POST")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONSerialization.data(withJSONObject: [
+            "game_id": gameId,
+            "guest_id": guestId,
+            "guest_name": guestName
+        ])
+
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode) else {
+                print("updateGameGuestName failed: \(String(data: data, encoding: .utf8) ?? "")")
+                return
+            }
+
+            await MainActor.run {
+                guard let index = games.firstIndex(where: { $0.id == gameId }) else { return }
+
+                withAnimation(.easeInOut) {
+                    switch guestId {
+                    case -2: games[index].guest2Name = guestName
+                    case -3: games[index].guest3Name = guestName
+                    case -4: games[index].guest4Name = guestName
+                    default: print("updateGameGuestName: guestId \(guestId) not in -2, -3, -4")
+                    }
+                }
+            }
+        } catch {
+            print("updateGameGuestName error: \(error)")
         }
     }
     
@@ -1159,15 +1197,15 @@ class NetworkService: ObservableObject {
                 //fetch the updated game
                 let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
                 
-                guard let responseGameId = json?["game_id"] as? Int,let target = json?["target"] as? Int
+                guard let sentGameId = json?["game_id"] as? Int,let sentTarget = json?["target"] as? Int
                 else {
                     print("changeTarget answer not in correct format")
                     return
                 }
                 await MainActor.run {
-                    if let index = self.games.firstIndex(where: { $0.id == responseGameId }) {
+                    if let index = self.games.firstIndex(where: { $0.id == sentGameId }) {
                         withAnimation(.easeInOut) {
-                            self.games[index].target = target
+                            self.games[index].target = sentTarget
                         }
                     }
                 }
