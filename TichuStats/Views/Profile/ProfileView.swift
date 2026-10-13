@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import PhotosUI
+
 
 struct ProfileView: View {
     // MARK: Storage
@@ -23,7 +23,8 @@ struct ProfileView: View {
     @Namespace private var profileSpace
     
     // MARK: Photo Picker
-    @State private var pickerItem: PhotosPickerItem?
+    @State private var showImageCropper: Bool = false
+    @State private var croppedImage: UIImage?
     @State private var isUploadingImage: Bool = false
     
     // MARK: Sheet & Alert Presentation
@@ -37,6 +38,22 @@ struct ProfileView: View {
     @State private var showAddPasskeyError: Bool = false
     @State private var addPasskeyErrorMessage: String?
     @State private var chosenName: String = ""
+    
+    
+    private func uploadImage(_ image: UIImage) {
+        guard let data = image.pngData() else {
+            showImageFailAlert = true
+            croppedImage = nil
+            return
+        }
+
+        isUploadingImage = true
+        Task {
+            await network.uploadProfileImage(profileId: userId, imageData: data)
+            isUploadingImage = false
+            croppedImage = nil   
+        }
+    }
 
     // MARK: Body
     var body: some View {
@@ -81,31 +98,25 @@ struct ProfileView: View {
                             ProgressView().scaleEffect(2)
                         }
                     }
-                    
-                    PhotosPicker(selection: $pickerItem, matching: .images) {
+                    Button {
+                        showImageCropper = true
+                    } label: {
                         Image(systemName: "camera.fill")
                             .frame(width: 30, height: 30)
                             .clipShape(Circle())
                             .foregroundColor(.primary)
                             .glassEffect(.regular.interactive())
                             .offset(y: 32)
-                    }.disabled(!network.isOnline).onChange(of: pickerItem) {
-                        isUploadingImage = true
-                        Task {
-                            guard let pickerItem else {
-                                showImageFailAlert = true
-                                isUploadingImage = false
-                                return
-                            }
-                            if let data = try? await pickerItem.loadTransferable(type: Data.self) {
-                                await network.uploadProfileImage(profileId: userId, imageData: data)
-                            } else {
-                                showImageFailAlert = true
-                                isUploadingImage = false
-                            }
-                            isUploadingImage = false
-                        }
-                    }.alert(isPresented:$showImageFailAlert){
+                    }
+                    .disabled(!network.isOnline)
+                    .alert(isPresented: $showImageFailAlert) {
+                        Alert(
+                            title: Text(String(localized: "profile.header.imageUploadFail.title")),
+                            message: Text(String(localized: "profile.header.imageUploadFail.message")),
+                            dismissButton: .default(Text(String(localized: "profile.header.imageUploadFail.dismiss")))
+                        )
+                    }
+                    .alert(isPresented:$showImageFailAlert){
                         Alert(
                             title: Text(String(localized: "profile.header.imageUploadFail.title")),
                             message: Text(String(localized: "profile.header.imageUploadFail.message")),
@@ -125,6 +136,14 @@ struct ProfileView: View {
             Spacer()
         }
         .listRowBackground(Color.clear)
+        .sheet(isPresented: $showImageCropper) {
+            ImageCropView(croppedImage: $croppedImage)
+        }
+        .onChange(of: croppedImage) {
+            if let image = croppedImage{
+                uploadImage(image)
+                }
+        }
     }
 
     // MARK: - Account Section
