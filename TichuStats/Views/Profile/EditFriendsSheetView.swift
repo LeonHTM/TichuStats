@@ -1,6 +1,6 @@
 //
 //  EditFriendsSheetView.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 23.04.2026.
 //

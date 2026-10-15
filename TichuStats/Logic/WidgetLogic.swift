@@ -1,6 +1,6 @@
 //
 //  WidgetLogic.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 05.06.2026.
 //

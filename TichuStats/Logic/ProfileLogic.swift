@@ -1,6 +1,6 @@
 //
 //  ProfileLogic.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 25.04.2026.
 //

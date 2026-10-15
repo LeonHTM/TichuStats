@@ -1,6 +1,6 @@
 //
 //  SocketService.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 15.05.2026.
 //

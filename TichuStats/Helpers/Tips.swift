@@ -1,6 +1,6 @@
 //
 //  Tips.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 13.05.2026.
 //

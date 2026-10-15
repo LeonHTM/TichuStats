@@ -1,6 +1,6 @@
 //
 //  TichuRulesPDFView.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 22.06.2026.
 //
@@ -48,6 +48,20 @@ struct PDFKitView: UIViewRepresentable {
 
             pdfView.maxScaleFactor = scale * 5
         }
+    }
+    
+    
+    static func resolveGeneralURL(urlDomain: String, urlString: String) -> URL?{
+        let languageCode = Locale.current.language.languageCode?.identifier ?? "en"
+        
+        let resultingString = urlDomain+"/"+languageCode+urlString
+        
+        if let url = URL(string: resultingString){
+            return url
+        }else{
+            return nil
+        }
+
     }
 
     private static func resolvedPDFURL() -> URL? {

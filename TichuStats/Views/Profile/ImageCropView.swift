@@ -1,6 +1,6 @@
 //
 //  ImageCropView.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 12.10.2026.
 //
@@ -444,13 +444,13 @@ struct ImageCropView: View {
 
         let result = renderer.image { context in
             // Clip the result to a circle.
-            let circleRect = CGRect(
+            /*let circleRect = CGRect(
                 origin: .zero,
                 size: outputSize
             )
 
-            //context.cgContext.addEllipse(in: circleRect)
-            //context.cgContext.clip()
+            context.cgContext.addEllipse(in: circleRect)
+            context.cgContext.clip()*/
 
             let imageRect = CGRect(
                 x: -origin.x * outputScale,

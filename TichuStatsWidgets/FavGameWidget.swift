@@ -1,6 +1,6 @@
 //
 //  GameWidget.swift
-//  Tichu
+//  TichuStatsWidgets
 //
 //  Created by Leon on 04.06.2026.
 //

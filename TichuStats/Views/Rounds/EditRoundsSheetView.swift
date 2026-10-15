@@ -1,6 +1,6 @@
 //
 //  EditRoundsSheetView.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 27.04.2026.
 //

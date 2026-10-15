@@ -1,6 +1,6 @@
 //
 //  DebugSheetView.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 06.05.2026.
 //

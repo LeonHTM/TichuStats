@@ -1,6 +1,6 @@
 //
 //  StatsView.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 21.04.2026.
 //

@@ -1,6 +1,6 @@
 //
 //  TichuWidgetsControl.swift
-//  TichuWidgets
+//  TichuStatsWidgets
 //
 //  Created by Leon on 03.06.2026.
 //

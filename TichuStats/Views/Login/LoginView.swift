@@ -1,6 +1,6 @@
 //
 //  LoginView.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 29.08.2026
 //

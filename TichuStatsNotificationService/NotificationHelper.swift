@@ -1,6 +1,6 @@
 //
 //  NotificationHelper.swift
-//  Tichu
+// TichuStatsNotificationService
 //
 //  Created by Leon on 18.05.2026.
 //

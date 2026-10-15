@@ -1,6 +1,6 @@
 //
 //  PlayerContainer.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 01.05.2026.
 //

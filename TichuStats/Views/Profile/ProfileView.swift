@@ -1,6 +1,6 @@
 //
 //  ProfileView.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 21.04.2026.
 //
@@ -237,7 +237,7 @@ struct ProfileView: View {
             .foregroundColor(.primary)
             .alert(String(localized: "profile.section.support.privacy.alert.title"), isPresented: $showPrivacyAlert) {
                 Button(role:.confirm){
-                    if let url = URL(string: "https://tichu.dev/privacy") {
+                    if let url = PDFKitView.resolveGeneralURL(urlDomain:"https://tichu.dev",urlString:"/privacy") {
                         UIApplication.shared.open(url)
                     }
                 }label:{

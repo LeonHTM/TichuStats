@@ -1,6 +1,6 @@
 //
 //  HistoryView.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 08.05.2026
 //

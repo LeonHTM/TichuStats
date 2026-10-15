@@ -1,6 +1,6 @@
     //
     //  GraphWidget.swift
-    //  GraphWidget
+    //  TichuStatsWidgets
     //
     //  Created by Leon on 03.06.2026.
     //

@@ -1,6 +1,6 @@
 //
 // PhotoLogic.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 22.04.2026.
 //

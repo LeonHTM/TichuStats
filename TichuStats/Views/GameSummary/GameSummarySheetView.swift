@@ -1,6 +1,6 @@
 //
 //  GameSummarySheetView.swift
-//  Tichu
+//  TichuStats
 //
 //  Created by Leon on 02.05.2026.
 //
