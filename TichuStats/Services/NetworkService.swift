@@ -835,7 +835,7 @@ class NetworkService: ObservableObject {
 
     //MARK: fetchSentRequests used SocketService and EditFriendsSheetView
     func fetchSentRequests(profileId: Int) async {
-        guard let url = URL(string: "\(apiURL)/sent_requests/\(profileId)/") else { return }
+        guard let url = URL(string: "\(apiURL)/sent_requests/\(profileId)") else { return }
 
         do {
             let (data, _) = try await URLSession.shared.data(for: authorizedRequest(url: url))
@@ -885,6 +885,39 @@ class NetworkService: ObservableObject {
             removeFriendRequestNotification(fromSenderId: senderId)
         } catch {
             print("respondToFriendRequest error: \(error)")
+        }
+    }
+    
+    // MARK: cancelFriendRequest used in EditFriendsSheet
+    func cancelFriendRequest(senderId: Int, receiverId: Int) async {
+        guard let url = URL(
+            string: "\(apiURL)/remove_request/\(senderId)/to/\(receiverId)"
+        ) else { return }
+
+        let request = authorizedRequest(url: url, method: "DELETE")
+
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode) else {
+                print(
+                    "cancelFriendRequest failed:",
+                    String(data: data, encoding: .utf8) ?? ""
+                )
+                return
+            }
+
+            await MainActor.run {
+                withAnimation(.easeInOut) {
+                    self.sentRequests.removeAll {
+                        $0.receiverId == receiverId
+                    }
+                }
+            }
+
+        } catch {
+            print("cancelFriendRequest error: \(error)")
         }
     }
 

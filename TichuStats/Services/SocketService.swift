@@ -250,6 +250,7 @@ final class SocketService: ObservableObject {
 
         //MARK: Friend Request Updated
         socket.on("friend_request_updated") { data, ack in
+            print("📡 friend_request_updated received")
             Task {
                 await NetworkService.shared.fetchSentRequests(profileId: self.userId)
                 await NetworkService.shared.fetchFriendRequests(profileId: self.userId)

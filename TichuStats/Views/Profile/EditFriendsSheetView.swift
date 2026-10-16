@@ -388,16 +388,13 @@ struct EditFriendsSheetView: View {
                     }
                 }
                 .swipeActions(edge: .trailing) {
-                    // Cancel sent request — instant
                     Button(role: .destructive) {
                         let receiverId = request.id
                         withAnimation(.easeInOut) {
                             sentRequestsListCopy.removeAll { $0 == receiverId }
                         }
                         Task {
-                            await network.respondToFriendRequest(
-                                receiverId: receiverId, senderId: userId, action: "rejected"
-                            )
+                            await network.cancelFriendRequest(senderId: userId, receiverId: receiverId)
                         }
                     } label: {
                         Image(systemName: "person.badge.minus")
