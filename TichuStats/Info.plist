@@ -6,6 +6,10 @@
 	<string>$(API_URL)</string>
 	<key>APP_TOKEN</key>
 	<string>$(APP_TOKEN)</string>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.Drakynem.Tichu.Export</string>
+	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

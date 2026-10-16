@@ -11,6 +11,10 @@ import SwiftUI
 struct TichuStats: App {
     @UIApplicationDelegateAdaptor private var appDelegate: CustomAppDelegate
     @Environment(\.scenePhase) private var scenePhase
+    
+    init() {
+            ExportCoordinator.shared.register()
+        }
 
     var body: some Scene {
         WindowGroup {

@@ -107,12 +107,6 @@
             "value" : "Dieser Spieler ist schon in einem Tichu-Spiel und kann deshalb nicht hinzugefügt werden."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dä Schpiler isch scho imänö Tichu Schpiu u cha drum nid joinä."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -134,12 +128,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Spieler ist schon in einem Tichu-Spiel"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schpiler scho imänä aktive Schpiu"
           }
         },
         "el" : {
@@ -165,12 +153,6 @@
             "value" : "Alle Spieler"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aui Schpilär"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -192,12 +174,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schon ein Freund"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scho ä Fründ"
           }
         },
         "el" : {
@@ -223,12 +199,6 @@
             "value" : "Konnte “%@\" nicht finden"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ha %@ nid gfungä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -250,12 +220,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Momenten im Vergleich"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Momenten im Verglich"
           }
         },
         "el" : {
@@ -281,12 +245,6 @@
             "value" : "Momenten in einem Spiel"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Momentan imänä Schpiu"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -308,12 +266,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Freunde"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fründä"
           }
         },
         "el" : {
@@ -339,12 +291,6 @@
             "value" : "Gast"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gascht"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -366,12 +312,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bisherige Freunde nicht anzeigen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bishärigi Fründä nid zeigä"
           }
         },
         "el" : {
@@ -397,12 +337,6 @@
             "value" : "Bisherige Vergleiche nicht anzeigen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bishörigi Verglichä nid zeigä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -424,12 +358,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Spieler, welche schon in einem Spiel sind, nicht anzeigen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aktuelli Schpiuteilnähmer nid zeigä"
           }
         },
         "el" : {
@@ -455,12 +383,6 @@
             "value" : "Spieler hinzufügen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schpiler derzuetuä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -482,12 +404,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Freunde bearbeiten"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fründ bearbeitä"
           }
         },
         "el" : {
@@ -513,12 +429,6 @@
             "value" : "Freundesanfrage schicken"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fründ afragä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -540,12 +450,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foto hat ungültige Grösse."
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Foto het ungültigi Grössi."
           }
         },
         "el" : {
@@ -571,12 +475,6 @@
             "value" : "Bewegen und Skalieren"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bewegä und Skaliärä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -598,12 +496,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foto ungültig."
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Foto nid gültig."
           }
         },
         "el" : {
@@ -629,12 +521,6 @@
             "value" : "Foto wählen."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Foto wählä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -656,12 +542,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foto konnte nicht geladen werden. Bitte noch mal versuchen."
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Z foto het nid chönä gladä wärdä. Bitte nomau probiärä."
           }
         },
         "el" : {
@@ -687,12 +567,6 @@
             "value" : "Foto konnte nicht geladen werden."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Z Foto het nid chöne gladä wärdä."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -714,12 +588,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foto konnte nicht geladen werden. Bitte nochmal versuchen."
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Z Foto het nid chöne gladä wärdä. Bitte nomau probiärä."
           }
         },
         "el" : {
@@ -745,12 +613,6 @@
             "value" : "Spiel beenden"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schiu beendä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -772,12 +634,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Willst du wirklich das Tichu-Spiel jetzt beenden? Das Spiel wird in einem Unentschieden enden und ausserdem nicht gewertet."
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wosch ds Tichu Schpiu wük beändä? Ds Schpiu wird drum im unentschidä ändä und nid gwärtet."
           }
         },
         "el" : {
@@ -803,12 +659,6 @@
             "value" : "Tichu-Spiel jetzt beenden?"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tichu Schpiu iz beeändä?"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -832,12 +682,6 @@
             "value" : "Ziel verändern"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ziu verändärä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -857,7 +701,168 @@
       "isCommentAutoGenerated" : true,
       "shouldTranslate" : false
     },
-    "friends.friends" : {
+    "export.description.gamesData" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiele enthalten alle ihre Runden."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Τα Παιχνίδια περιλαμβάνουν όλους τους Γύρους τους."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Games include all of their Rounds."
+          }
+        }
+      }
+    },
+    "export.description.profileData" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TichuStats sichert eine JSON-Datei in der Dateien App. Der Export kann länger dauern, wenn du schlechten Empfang hast."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το TichuStats θα σου επιτρέψει να αποθηκεύσεις ένα αρχείο JSON που περιέχει όλα τα δεδομένα που επέλεξες. Η εξαγωγή μπορεί να διαρκέσει περισσότερο αν έχεις κακή σύνδεση δικτύου."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TichuStats will let you save a JSON file that contains all the data you selected. The export can take longer if you have a bad network connection."
+          }
+        }
+      }
+    },
+    "export.description.statistics" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der gesamte Verlauf deiner Statistiken enthält jede einzelne Änderung deiner Statistiken, also sehr viel Daten. Sonst enthält das exportierte Dokument nur deine neusten Statistiken."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το πλήρες ιστορικό των Στατιστικών περιλαμβάνει κάθε αλλαγή στα Στατιστικά σου, κάτι που είναι πολλά δεδομένα. Διαφορετικά, περιλαμβάνεται μόνο η πιο πρόσφατη τιμή για κάθε στατιστικό."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The full history of Statistics includes every change in your Statistics, which is a lot of data. Otherwise it is just the most recent value for each statistic."
+          }
+        }
+      }
+    },
+    "export.eloRating" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elo-Wertungen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Βαθμολογία Elo"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elo Rating"
+          }
+        }
+      }
+    },
+    "export.export" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgewählte Daten exportieren"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εξαγωγή επιλεγμένων δεδομένων"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Selected Data"
+          }
+        }
+      }
+    },
+    "export.failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export fehlgeschlagen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η εξαγωγή δεν μπόρεσε να ξεκινήσει"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export failed to start"
+          }
+        }
+      }
+    },
+    "export.fileName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TichuStats-Export-%1$@-%2$lld"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TichuStats-Export-%1$@-%2$lld"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TichuStats-Export-%1$@-%2$lld"
+          }
+        }
+      }
+    },
+    "export.friendsData" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -866,10 +871,349 @@
             "value" : "Freunde"
           }
         },
-        "de-CH" : {
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fründä"
+            "value" : "Φίλοι"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Friendships"
+          }
+        }
+      }
+    },
+    "export.fullHistory" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamter Verlauf der Statistiken"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πλήρες ιστορικό στατιστικών"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full History of Statistics"
+          }
+        }
+      }
+    },
+    "export.gamesData" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiele"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παιχνίδια"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Games"
+          }
+        }
+      }
+    },
+    "export.profileData" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzerprofil"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προφίλ"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
+        }
+      }
+    },
+    "export.settingsData" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ρυθμίσεις"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
+    "export.statistics" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistiken"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Στατιστικά"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistics"
+          }
+        }
+      }
+    },
+    "export.task.failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export fehlgeschlagen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η εξαγωγή απέτυχε"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export failed"
+          }
+        }
+      }
+    },
+    "export.task.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "exportieren…"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Γίνεται εξαγωγή"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Working…"
+          }
+        }
+      }
+    },
+    "export.task.subtitle.saved" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ in Dateien gespeichert."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αποθηκεύτηκε το %1$@ στα Αρχεία."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saved %1$@ to Files."
+          }
+        }
+      }
+    },
+    "export.task.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine TichuStats-Daten werden exportiert"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εξαγωγή των δεδομένων σου από το TichuStats"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exporting your TichuStats Data"
+          }
+        }
+      }
+    },
+    "export.task.title.finished" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export beendet"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η εξαγωγή ολοκληρώθηκε"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export finished"
+          }
+        }
+      }
+    },
+    "export.title.data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daten exportieren"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εξαγωγή δεδομένων"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Data"
+          }
+        }
+      }
+    },
+    "export.title.gamesData" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiel-Daten"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δεδομένα παιχνιδιών"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Game Data"
+          }
+        }
+      }
+    },
+    "export.title.profileData" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzerprofil-Daten"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δεδομένα προφίλ"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile Data"
+          }
+        }
+      }
+    },
+    "export.title.statistics" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistik-Daten"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δεδομένα στατιστικών"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistics Data"
+          }
+        }
+      }
+    },
+    "friends.friends" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Freunde"
           }
         },
         "el" : {
@@ -895,12 +1239,6 @@
             "value" : "Freunde verwalten"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fründä verwautä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -922,12 +1260,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Du hast noch keine Freunde. Sende jemanden eine Anfrage!"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du hesch no ke Fründä. Frag öpper a!"
           }
         },
         "el" : {
@@ -953,12 +1285,6 @@
             "value" : "Erhaltene Anfragen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bechnoigi Afragä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -980,12 +1306,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Freund entfernen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fründ wägtuä"
           }
         },
         "el" : {
@@ -1011,12 +1331,6 @@
             "value" : "Anfrage entfernen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Afrag ignorierä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1038,12 +1352,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Freunde anfragen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fründe afragä"
           }
         },
         "el" : {
@@ -1069,12 +1377,6 @@
             "value" : "Angefragt"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Afragänä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1098,12 +1400,6 @@
             "value" : "Anfrage verschickt"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Afrag gschickt"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1125,12 +1421,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Freunde seit %@"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fründä sit äm %@"
           }
         },
         "el" : {
@@ -1161,12 +1451,6 @@
             "value" : "Spiele"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schpiu"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1188,12 +1472,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Standart Zielpunkte"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Default Ziel"
           }
         },
         "el" : {
@@ -1219,12 +1497,6 @@
             "value" : "Zieh-Modus"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ziäh Modus"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1246,12 +1518,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Beim Hinzufügen einer Runde Spieler in einer List herumziehen, statt sie anzutippen."
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wemmä ä Rundi derzuteut, schtatt uf Schpilär z tipä zum dr Reihefoug feschtlegä, tuä sä irä Lischtä umäziäh."
           }
         },
         "el" : {
@@ -1277,12 +1543,6 @@
             "value" : "Betrunkene Pingus anzeigen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bsoffinigi Pingus azeigä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1304,12 +1564,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wie spielt man?"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wi schpiut mä?"
           }
         },
         "el" : {
@@ -1335,12 +1589,6 @@
             "value" : "Offizielle Tichu Regeln"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ofiiziui Tichu Reglä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1362,12 +1610,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tichu Regeln"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tichu Reglä"
           }
         },
         "el" : {
@@ -1393,12 +1635,6 @@
             "value" : "Spieler"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schpilär"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1420,12 +1656,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zeige immer all Spieler, auch wenn sie schon in Spielen, im Vergleich oder ein Freund sind."
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zeig immer aui Schpiler, o wenn si nid verfüägbar si wöu si entweder gad imänä Schpiu si, scho Verglichä wärdä oder scho di Fründ si."
           }
         },
         "el" : {
@@ -1451,12 +1681,6 @@
             "value" : "Alle Spieler anzeigen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aui Schpilär zeigä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1478,12 +1702,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Spieler sortieren nach"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sortier Schpilär nach"
           }
         },
         "el" : {
@@ -1509,12 +1727,6 @@
             "value" : "Statistiken"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Statistikä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1536,12 +1748,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Statistiken sortieren nach"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sortier Statistik-Verglichä nach"
           }
         },
         "el" : {
@@ -1567,12 +1773,6 @@
             "value" : "Spiel-Einstellungen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schpiu Isteuigä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1594,12 +1794,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dieses Spiel wird gelöscht…"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ds schpiu wird glöscht"
           }
         },
         "el" : {
@@ -1625,12 +1819,6 @@
             "value" : "Dieses Spiel löschen?"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schpiu löschä?"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1652,12 +1840,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abbrechen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Abbrächä"
           }
         },
         "el" : {
@@ -1683,12 +1865,6 @@
             "value" : "Löschen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Köschä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1710,12 +1886,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dieses Spiel wird gelöscht…"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ds Schpiu wird glöscht"
           }
         },
         "el" : {
@@ -1741,12 +1911,6 @@
             "value" : "Dieses Spiel löschen?"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ds Schpiu löschä?"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1768,12 +1932,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Spiel löschen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schpiu loschä"
           }
         },
         "el" : {
@@ -1799,12 +1957,6 @@
             "value" : "Ansicht"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aluägä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1826,12 +1978,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gespielt am %@"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gschpiut am %@"
           }
         },
         "el" : {
@@ -1857,12 +2003,6 @@
             "value" : "Tichu-Spiel vom %@"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tichu Schpiu vum %@"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1884,12 +2024,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Check meine Tichu-Spiele aus"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lug mau mis Tichu Schpiu."
           }
         },
         "el" : {
@@ -1915,12 +2049,6 @@
             "value" : "Tichu-Spiel"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tichu Schpiu"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1939,12 +2067,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Graph"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Graph"
@@ -1973,12 +2095,6 @@
             "value" : "Liste"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lischtä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2002,12 +2118,6 @@
             "value" : "%@ hat gewonnen!"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ het gwunnä!"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2026,12 +2136,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Revanche"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Revanche"
@@ -2060,12 +2164,6 @@
             "value" : "Details"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Details"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2087,12 +2185,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Runden:"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rundinä:"
           }
         },
         "el" : {
@@ -2118,12 +2210,6 @@
             "value" : "Zielpunkte: %@"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ziel: %@"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2145,12 +2231,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Resultat des Tichu-Spiels"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Resultat vom Tichu Schpiu"
           }
         },
         "el" : {
@@ -2176,12 +2256,6 @@
             "value" : "Gewinner: %@"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gwinner: %@"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2203,12 +2277,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abbrechen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Abbrächä"
           }
         },
         "el" : {
@@ -2234,12 +2302,6 @@
             "value" : "OK"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ok"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2261,12 +2323,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Noch einmal versuchen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No mau probiärä"
           }
         },
         "el" : {
@@ -2292,12 +2348,6 @@
             "value" : "Sichern"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sichärä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2319,12 +2369,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Konnte nicht mit dem Server verbinden"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ha nid chöne mit äm Server verbindä."
           }
         },
         "el" : {
@@ -2350,12 +2394,6 @@
             "value" : "Entweder ist der Server down oder du bist offline. Bitte versuche es später erneut."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Entweder isch dr Server offline oder du bisch nid mit em Internet verbundä. Bittä probiers später nomau."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2377,12 +2415,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Löschen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Löschä"
           }
         },
         "el" : {
@@ -2408,12 +2440,6 @@
             "value" : "Bearbeiten"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bearbeitä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2435,12 +2461,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Spiel bearbeiten"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Game bearbeitä"
           }
         },
         "el" : {
@@ -2466,12 +2486,6 @@
             "value" : "Abmelden"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Usloggä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2493,12 +2507,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gemacht mit"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gmacht mit"
           }
         },
         "el" : {
@@ -2524,12 +2532,6 @@
             "value" : "tichu.pro@mail.com"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "luis.tichupro@mail.com"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2551,12 +2553,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wertung"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wärtig"
           }
         },
         "el" : {
@@ -2582,12 +2578,6 @@
             "value" : "Teilen…"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Teilä…"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2609,12 +2599,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verlauf"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verlouf"
           }
         },
         "el" : {
@@ -2640,12 +2624,6 @@
             "value" : "Spielen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schpilä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2667,12 +2645,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profil"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Profiu"
           }
         },
         "el" : {
@@ -2698,12 +2670,6 @@
             "value" : "Statistiken"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Statistikä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2722,12 +2688,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Team %@"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Team %@"
@@ -2756,12 +2716,6 @@
             "value" : "Team %@:"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Team %@:"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2780,12 +2734,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Team %1$@: %2$@"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Team %1$@: %2$@"
@@ -2814,12 +2762,6 @@
             "value" : "TichuStats"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "TichuStats"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2841,12 +2783,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unentschieden"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unentschidä"
           }
         },
         "el" : {
@@ -2872,12 +2808,6 @@
             "value" : "Verlauf"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verlouf"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2899,12 +2829,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Spielen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schpilä"
           }
         },
         "el" : {
@@ -2930,12 +2854,6 @@
             "value" : "Profil"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Profiu"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2959,12 +2877,6 @@
             "value" : "Statistiken"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Statistikä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2983,12 +2895,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unbekannt"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unbekannt"
@@ -3017,12 +2923,6 @@
             "value" : "Favorisieren"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Entfavosrisiärä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3044,12 +2944,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Spiel öffnen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schpiu uftuä"
           }
         },
         "el" : {
@@ -3075,12 +2969,6 @@
             "value" : "Entfavorisieren"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Favorisiärä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3102,12 +2990,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verlauf wird geladen…"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verlouf ladä…"
           }
         },
         "el" : {
@@ -3133,12 +3015,6 @@
             "value" : "Check mein Tichu-Spiel aus. Gemacht mit TichuStats."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Check mis Tichu Schpiu ab. Gmacht mit TichuStats."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3160,12 +3036,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alle Runden"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aui Rundinä"
           }
         },
         "el" : {
@@ -3191,12 +3061,6 @@
             "value" : "Datum (Neu-Alt)"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Datum (Nöi-Aut)"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3206,7 +3070,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "By Date(Up-Old)"
+            "value" : "By Date(New-Old)"
           }
         }
       }
@@ -3220,12 +3084,6 @@
             "value" : "Datum (Alt-Neu)"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Datum (Aut-Nöi)"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3235,7 +3093,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "By Date (Old-Up)"
+            "value" : "By Date (Old-New)"
           }
         }
       }
@@ -3247,12 +3105,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Favoriten"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Favoritä"
           }
         },
         "el" : {
@@ -3278,12 +3130,6 @@
             "value" : "Dein Verlauf von Tichu-Spielen wird hier erscheinen, sobald du ein Spiel gespielt hast."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Di Verlouf vo Tichu Schpiu wird hiä uftouchä, sobaut du äs erschts Schpiu gschpiut hesch."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3305,12 +3151,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Noch keine Tichu-Spiele gespielt"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No ke Schpiu gschpiut"
           }
         },
         "el" : {
@@ -3341,12 +3181,6 @@
             "value" : "Anmelden"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Amäudä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3368,12 +3202,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Registieren"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Registiärä"
           }
         },
         "el" : {
@@ -3399,12 +3227,6 @@
             "value" : "Spiele Tichu-Spiele mit deinen Freunden!"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Track Tichu Schpiu mit dinä Fründä!"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3426,12 +3248,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Andere Email"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Angeri Email"
           }
         },
         "el" : {
@@ -3457,12 +3273,6 @@
             "value" : "Registieren"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Registirärä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3484,12 +3294,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eine neue Funktion wurde hinzugefügt, für welche es nötig is, dass du dich erneut anmeldest."
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Äs nöis feature isch drzueta worde, wo nötig macht, dass du di nomau ilogsch."
           }
         },
         "el" : {
@@ -3515,12 +3319,6 @@
             "value" : "Du wurdest abgemeldet."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du bisch abgmäudet wordä."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3542,12 +3340,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bitte gültige Email eingeben"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bitte gültigi Email igä"
           }
         },
         "el" : {
@@ -3573,12 +3365,6 @@
             "value" : "Falsche Email"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fauschi Email"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3597,12 +3383,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "oder"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "oder"
@@ -3631,12 +3411,6 @@
             "value" : "Mit Passkey anmelden"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mit Passkey amäudä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3658,12 +3432,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Email erneut senden"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Email nomau schickä"
           }
         },
         "el" : {
@@ -3689,12 +3457,6 @@
             "value" : "Anmelden"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Amäudä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3716,12 +3478,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mit Passkey anmelden"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mit Passkey amäudä"
           }
         },
         "el" : {
@@ -3747,12 +3503,6 @@
             "value" : "Anmelden"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Amäudä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3774,12 +3524,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Registieren"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Amäudä"
           }
         },
         "el" : {
@@ -3805,12 +3549,6 @@
             "value" : "Mit Passkey registieren"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mit Passkey registrärä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3834,12 +3572,6 @@
             "value" : "Anmelden"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Amäudä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3858,12 +3590,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "TichuStats"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "TichuStats"
@@ -3892,12 +3618,6 @@
             "value" : "Anmelden"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Amäudä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3919,12 +3639,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Willkommen bei"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wiukommä bi"
           }
         },
         "el" : {
@@ -3965,12 +3679,6 @@
             "value" : "Du und %@ sind jetzt Freunde"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du und %@ si iz Fründä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3992,12 +3700,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ hat deine Freundesanfrage akzeptiert"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ het dini Fründsafrag agno"
           }
         },
         "el" : {
@@ -4023,12 +3725,6 @@
             "value" : "Freundesanfrage akzeptiert"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fründesafrag agno"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4052,12 +3748,6 @@
             "value" : "%@ hat dir eine Freundesanfrage geschickt"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ het dir a Fründesafrag gschickt"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4079,12 +3769,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Neue Freundesanfrage"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nöi Fründesafrag"
           }
         },
         "el" : {
@@ -4134,36 +3818,6 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Dein Gerät hat keine Internetverbindung"
-                }
-              }
-            }
-          }
-        },
-        "de-CH" : {
-          "variations" : {
-            "device" : {
-              "applevision" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dini Apple Vision isch nid mit äm Internet verbundä."
-                }
-              },
-              "ipad" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dis iPad isch nid mit äm Internet verbundä."
-                }
-              },
-              "iphone" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dis iPhone isch nid mit äm Internet verbundä."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dis Grät isch nid mit äm Internet verbundä."
                 }
               }
             }
@@ -4240,12 +3894,6 @@
             "value" : "OK"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OK"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4288,36 +3936,6 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Dein Gerät ist nicht mit dem Internet verbunden. Um die Internetverbindung herzustellen, musst du es mit einem WLAN verbinden oder den Flugmodus ausschalten."
-                }
-              }
-            }
-          }
-        },
-        "de-CH" : {
-          "variations" : {
-            "device" : {
-              "applevision" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dini Apple Vision isch nid mit äm Internet verbundä. Tue dr Flugmodus abschaute oder di mit ämä Wlan verbindä."
-                }
-              },
-              "ipad" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dis iPad isch nid mit äm Internet verbundä. Tue dr Flugmodus abschaute oder di mit ämä Wlan verbindä."
-                }
-              },
-              "iphone" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dis iPhone isch nid mit äm Internet verbundä. Tue dr Flugmodus abschaute oder di mit ämä Wlan verbindä."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dis Grät isch nid mit äm Internet verbundä. Tue dr Flugmodus abschaute oder di mit ämä Wlan verbindä."
                 }
               }
             }
@@ -4394,12 +4012,6 @@
             "value" : "Keine Internetverbingun"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ke Internet-Verbindig"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4426,12 +4038,6 @@
             "value" : "Das hat zu lange gedauert. Bitte noch einmal versuchen."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Das het z lang duuret. Bitte nomau probiärä."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4453,12 +4059,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passkey Anmeldung fehlgeschlagen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Passkey amäudig fählgschlagä"
           }
         },
         "el" : {
@@ -4484,12 +4084,6 @@
             "value" : "Etwas ist schief gelaufen. Bitte noch einmal versuchen."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Öppis het nid funktionert. Bitte nomau probiärä."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4511,12 +4105,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passkey konnte nicht hinzugefügt werden. Bitte erneut versuchen."
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Passkey het nid chöne drzuäta wärdä. Bitte nomau probiere."
           }
         },
         "el" : {
@@ -4542,12 +4130,6 @@
             "value" : "Keinen Passkey gefunden. Bitte nochmal versuchen oder mit Mail anmelden"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ke Passkey gfundä. Bitte nomau probiärä oder per Mail amäudä."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4569,12 +4151,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wir konnten diesen Passkey nicht verifizieren. Bitte noch einmal versuchen."
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mir hei dä Passkey nid chöne verfiziärä. Bitte nomau probiärä."
           }
         },
         "el" : {
@@ -4600,12 +4176,6 @@
             "value" : "Spieler hinzufügen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schpiler derzuetue"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4627,12 +4197,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Runde hinzufügen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rundi derzuätuä"
           }
         },
         "el" : {
@@ -4658,12 +4222,6 @@
             "value" : "Name des Gastes eingeben"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Name vom Gascht "
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4685,12 +4243,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Betrunkene Pinugs erlauben"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bsoffnigi Pingu erloubä"
           }
         },
         "el" : {
@@ -4716,12 +4268,6 @@
             "value" : "TichuStats herunterladen um Elo-Wertung zu erhalten"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "TichuStats abäladä zum ä Rang becho."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4743,12 +4289,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gast-Namen bearbeiten"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gascht Namä bearbeitä"
           }
         },
         "el" : {
@@ -4774,12 +4314,6 @@
             "value" : "Runde %@ bearbeiten"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rundi %@ bearbeite"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4801,12 +4335,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gast"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gascht"
           }
         },
         "el" : {
@@ -4832,12 +4360,6 @@
             "value" : "Name des Gastes"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gascht Name"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4859,12 +4381,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Spieler entfernen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Spiler wägtuä"
           }
         },
         "el" : {
@@ -4890,12 +4406,6 @@
             "value" : "Freundesanfrage schicken"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schick a Fründesafrag"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4919,12 +4429,6 @@
             "value" : "Zielpunkte"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ziupünkt"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4943,12 +4447,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "VS"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "VS"
@@ -4982,12 +4480,6 @@
             "value" : "Gemacht mit ❤️ in Bern"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gmacht mit ❤️ z Bärn"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5012,12 +4504,6 @@
             "value" : "Version %@ Build %@"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Version %@ Bou %@"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5036,12 +4522,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OK"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -5070,12 +4550,6 @@
             "value" : "Bitte später noch einmal versuchen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bitte probier später nomau"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5097,12 +4571,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Konnte Profilbild nicht bearbeiten"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Profiubiud het nid chönä ufägladä wärdä"
           }
         },
         "el" : {
@@ -5128,12 +4596,6 @@
             "value" : "Benutzername bearbeiten"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Benutzername bearbeitä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5155,12 +4617,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Allgemein"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Genereu"
           }
         },
         "el" : {
@@ -5186,12 +4642,6 @@
             "value" : "Freunde verwalten"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fründe verwaute"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5213,12 +4663,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abmelden"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Usloggä"
           }
         },
         "el" : {
@@ -5244,12 +4688,6 @@
             "value" : "Löschen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Löschä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5271,12 +4709,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alle deine Daten werde gelöscht und du wirst keinen Zugriff zu deinem Account mehr haben-"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aui dini Datä wärde glöscht und du wirsch ke zuegriff meh uf dis Konto ha."
           }
         },
         "el" : {
@@ -5302,12 +4734,6 @@
             "value" : "Willst du deinen Account wirklich löschen?"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wosch di Account wük löschä?"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5331,12 +4757,6 @@
             "value" : "Benutzer löschen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Account löschä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5355,12 +4775,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kontakt"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kontakt"
@@ -5389,12 +4803,6 @@
             "value" : "Passkey erstellen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Passkey machä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5416,12 +4824,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Datenschutz"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Datäschutz"
           }
         },
         "el" : {
@@ -5447,12 +4849,6 @@
             "value" : "Super!"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kuul!"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5474,12 +4870,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wir speichern nur deine Tichu-Spiele sowie deine Login-Daten"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mir spichärä numä dini Tichu Schpiu und Login datä."
           }
         },
         "el" : {
@@ -5505,12 +4895,6 @@
             "value" : "Datenschutzerklärung lesen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Datäschutzerklärig läsä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5534,12 +4918,6 @@
             "value" : "TichuStats sammelt keine persönlichen Daten."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "TichuStats tuet ke datä über di sammlä oder spichärä."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5558,12 +4936,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quell-Code"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Quell-Code"
@@ -5592,12 +4964,6 @@
             "value" : "TichuStats Support"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "TichuStats Supoort"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5619,12 +4985,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profil"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Profiu"
           }
         },
         "el" : {
@@ -5660,12 +5020,6 @@
             "value" : "%1$@ Runde wird nicht gezählt. Dies, weil das Spiel so bearbeitet wurde, sodass nach %2$@ Runden %3$@ das Ziel %4$@ schon erreicht hat."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ Rundi wird nid zeut. Ds wüu ds Schpiu isch bearbeitet worde, sodass nach %2$@ Rundinä %3$@ ds Ziu %4$@ scho erreicht het."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5687,12 +5041,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Runde %@"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rundi %@"
           }
         },
         "el" : {
@@ -5718,12 +5066,6 @@
             "value" : "Noch keine Runden gespielt"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No ke Rundinä gschpiut"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5745,12 +5087,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$@ Runden werden nicht gezählt. Dies, weil das Spiel so bearbeitet wurde, sodass nach %2$@ Runden %3$@ das Ziel %4$@ schon erreicht hat."
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ Rundinä wärdä nid zeut. Ds wüu ds Schpiu isch bearbeitet worde, sodass nach %2$@ Rundinä %3$@ ds Ziu %4$@ scho erreicht het."
           }
         },
         "el" : {
@@ -5776,12 +5112,6 @@
             "value" : "Runden werden nicht gezählt"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rundinä wärdä nid zeut"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5803,12 +5133,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Platzierung"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Platzierig"
           }
         },
         "el" : {
@@ -5834,12 +5158,6 @@
             "value" : "Punkte %1$@"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pünkt %1$@"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5858,12 +5176,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Performance"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Performance"
@@ -5892,12 +5204,6 @@
             "value" : "Spieler zum Vergleich hinzufügen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Spiler drzutue zum verglichä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5919,12 +5225,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ Entfernen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ wägtuä"
           }
         },
         "el" : {
@@ -5950,12 +5250,6 @@
             "value" : "All Spieler entfernen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aui Spieler wägtuä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5977,12 +5271,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Flex bei deinen Freunden, indem du deine Tichu-Statistiken mit ihnen teilst"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Flex bi dinä Fründ indäm du dini krassä Tichu Stats mit ihnä teilsch…"
           }
         },
         "el" : {
@@ -6008,12 +5296,6 @@
             "value" : "Teilen…"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Teilä…"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6035,12 +5317,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Festgehalten am %@"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Feschtghaute am %@"
           }
         },
         "el" : {
@@ -6066,12 +5342,6 @@
             "value" : "Check meine Tichu-Statistiken aus"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lug mau mini Tichu Stats"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6093,12 +5363,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nach Wert (Hoch-Tief)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nach Wärtä (Höch-Töif)"
           }
         },
         "el" : {
@@ -6124,12 +5388,6 @@
             "value" : "Wert (Tief-Hoch)"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nach Wärt (Töif-Höch)"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6151,12 +5409,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alphabetisch (A-Z)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Auphabetisch (A-Z)"
           }
         },
         "el" : {
@@ -6182,12 +5434,6 @@
             "value" : "Alphabetisch (Z-A)"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nach Wärtä (A-Z)"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6209,12 +5455,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Datum hinzugefügt (Neu-Alt)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Drzuetas Datum (Nöi-Aut)"
           }
         },
         "el" : {
@@ -6240,12 +5480,6 @@
             "value" : "Datum hinzugefügt (Alt-Neu)"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Drzuetas Datum (Aut-Nöi)"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6267,12 +5501,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rang (Hoch-Tief)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rang (Töif-Höch)"
           }
         },
         "el" : {
@@ -6298,12 +5526,6 @@
             "value" : "Rang (Tief-Hoch)"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rang (Höch-Töif)"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6325,12 +5547,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vergleich"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verglich"
           }
         },
         "el" : {
@@ -6356,12 +5572,6 @@
             "value" : "Fertige gespielte Spiele."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fertigi Gschpiuti Schpiu."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6383,12 +5593,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Anzahl fertig gespielter Spiele.\n(Höher ist besser)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anzahl vo fertig gschpiuta Schpiu. \n(Höcher isch besser)"
           }
         },
         "el" : {
@@ -6414,12 +5618,6 @@
             "value" : "Prozent von Spielen mit einer Art von Tichu angesagt."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prozänt vo Spilis mit ärä Sort vo Tichu agseit"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6441,12 +5639,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wie oft du (nicht unbedingt erfolgreich) ein Tichu, Grand Tichu oder besoffenen Pingu ansagst pro Runde.\n(Höher ist besser)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wie hüüfig du (nid unbedingt erfougrich) äs Tichu, Grosses Tichu oder ä bsoffnigä Pingu aseisch.\n(Höcher isch besser)"
           }
         },
         "el" : {
@@ -6472,12 +5664,6 @@
             "value" : "Rate erfolgreicher Grosser Tichus."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ratä vo erfougirhce grosse Tichus."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6499,12 +5685,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wie oft deine Grand Tichus erfolgreich sind, falls du eines angesagt hast.\n(Höher ist besser)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wie hüüfig dini Grossä Tichus erfougrich si, wenn du eis agseit hesch.\n(Höcher isch besser)"
           }
         },
         "el" : {
@@ -6530,12 +5710,6 @@
             "value" : "Bomben-pro-Runde Rate"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ratä vo Bombä pro rundi."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6557,12 +5731,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dein Verhältnis von Bomben pro Runde.\n(Höher hat mehr glück)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dis Verhäutnis vo Bombä pro Rundi.\n(Höcher het meh Glück)"
           }
         },
         "el" : {
@@ -6588,12 +5756,6 @@
             "value" : "Durchschnittliche Platzeriung"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Durchschnittlächi Platzierig"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6615,12 +5777,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Deine Durchschnittliche Platzierung.\n(Höher ist besser)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dini durchschnittlächi Platzierig.\n(Höcher isch besser)"
           }
         },
         "el" : {
@@ -6646,12 +5802,6 @@
             "value" : "Rate erfolgreicher Tichus."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ratä vo erfougriche Tichus."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6673,12 +5823,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wie häufig dein Tichu erfolgreich ist, wenn du eines angesagt hast.\n(Höher ist besser)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wi hüüfig dini Tichus erfougrich si, wenn du eis agseit hesch.\n(Höcher isch besser)"
           }
         },
         "el" : {
@@ -6704,12 +5848,6 @@
             "value" : "Rate erfolgreicher Pingus."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ratä vo erfougriche bsoffnigä Pingus."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6731,12 +5869,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wie oft deine besoffenen Pingus erfolgreich sind, falls du einen angesagt hast.\n(Höher ist besser)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wi hüüfig dini bsoffnigä Pingus erfougrich si, wenn du eine agseit hesc.\n(Höcher isch besser)"
           }
         },
         "el" : {
@@ -6762,12 +5894,6 @@
             "value" : "Gesamt Elo-Wertung."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gsamt Elo-Wärtig."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6789,12 +5915,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Deine Elo-Wertung wird neu berechnet nach jedem gewertetem Spiel. (Spiele mit Gästen sind nicht gewertet). Die Wertung erhöht sich bei einem Sieg und nimmt ab, falls du verlierst.\n(Höher ist besser)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dini Elo-Wärtig wird gupdated nach jedem Schpiu. (Schpiu mit Gäscht wärdä nid gwärtet). Dini Wärtig geit ufä bimänä Sieg und nimmt ab wenn du verlürsch.\n(Höcher isch besser)"
           }
         },
         "el" : {
@@ -6820,12 +5940,6 @@
             "value" : "Rate vorgebeugter Tichus."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ratä vo zerschörtä Tichus."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6847,12 +5961,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Diese Statistik beschreibt, wenn deine Gegner ein Tichu, Grand Tichu oder besoffener Pingu angesagt haben, wie oft du erst wirst und somit ihre Ansage zerstörst.\n(Höher ist besser)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Diä Statistik beschribt, wenn dini Gägner es Tichu, Grosses Tichu oder ä bsoffnigä Pingu agseit hei, wie hüüfig du nächär erscht wirsch und so ihri Asagä zerstört hesch.\n(Höcher isch besser)"
           }
         },
         "el" : {
@@ -6878,12 +5986,6 @@
             "value" : "Doppelsiegrate."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dopusieg ratä."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6905,12 +6007,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wie oft du eine Runde mit einem Doppelsieg beendest in Prozent.\n(Höher ist besser)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wie hüüfig du a rundi mitämä Dopusieg beändisch.\n(Höcher isch besser)"
           }
         },
         "el" : {
@@ -6936,12 +6032,6 @@
             "value" : "Durchschnittliche Ansagerpunkte."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Durchschnittlächi Asagpünkt"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6963,12 +6053,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Deine durchschnittlichen Punkte von Tichus, Grand Tichus und besoffenen Pingus pro Runde.\n(Höher ist besser)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dini durchschnittlächä Asagpünkt vo Tichus, Grossä Tichu und bsoffnigä Pingus pro Rundi.\n(Höcher isch besser)"
           }
         },
         "el" : {
@@ -6994,12 +6078,6 @@
             "value" : "Tichus angesagt wenn als erstes fertig."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tichu agseit wend aus erscht fertig worde bisch."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7021,12 +6099,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wenn du erster wirst, wie oft du ein Tichu, Grand Tichu oder besoffener Pingu angesagt hast.\n(Höher ist besser)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wenn du erscht wirsch wi hüüfig du äs Tichu, Grosses Tichu oder ä bsoffnigä Pingus agseit hesch.\n(Höcher isch besser)"
           }
         },
         "el" : {
@@ -7052,12 +6124,6 @@
             "value" : "Prozentsatz gewonnener Spiele."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prozäntsatz vo gwunnänä Schpiu."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7079,12 +6145,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wie oft du ein Tichu-Spiel gewinnst.\n(Höher ist besser)"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wie hüüfig du äs Tichu Schpiu gwinsch.\n(Höcher isch besser)"
           }
         },
         "el" : {
@@ -7110,12 +6170,6 @@
             "value" : "Erklärung"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erklärig"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7137,12 +6191,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Süchtiger"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Süchtigä"
           }
         },
         "el" : {
@@ -7168,12 +6216,6 @@
             "value" : "Ansager"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Asäger"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7197,12 +6239,6 @@
             "value" : "Grosser Gambler"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Biggie Gambler"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7221,12 +6257,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bomber"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bomber"
@@ -7256,12 +6286,6 @@
             "value" : "Kletterer"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chläterer"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7280,12 +6304,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gambler"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gambler"
@@ -7314,12 +6332,6 @@
             "value" : "Pingu Gambler"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pingu Gambler"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7341,12 +6353,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wertung"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wärtig"
           }
         },
         "el" : {
@@ -7372,12 +6378,6 @@
             "value" : "Saboteur"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sabotör"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7399,12 +6399,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Teamspieler"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Teamschpieler"
           }
         },
         "el" : {
@@ -7430,12 +6424,6 @@
             "value" : "Tichumeister"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tichumeischter"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7457,12 +6445,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hellseher"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Häuseher"
           }
         },
         "el" : {
@@ -7488,12 +6470,6 @@
             "value" : "Sieger"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gwinner"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7512,12 +6488,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Täglich"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Täglich"
@@ -7546,12 +6516,6 @@
             "value" : "Heute"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hüt"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7573,12 +6537,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Monat"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Monät"
           }
         },
         "el" : {
@@ -7604,12 +6562,6 @@
             "value" : "Monatlich"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Monätlich"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7631,12 +6583,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Seit Download"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sit em Download"
           }
         },
         "el" : {
@@ -7662,12 +6608,6 @@
             "value" : "Woche"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wuchä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7686,12 +6626,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wöchentlich"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wöchentlich"
@@ -7720,12 +6654,6 @@
             "value" : "Jährlich"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jährlich"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7749,12 +6677,6 @@
             "value" : "Komplett"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aues"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7773,12 +6695,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jahr"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jahr"
@@ -7805,12 +6721,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vergleich bearbeiten"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verglich bearbeite"
           }
         },
         "el" : {
@@ -7841,12 +6751,6 @@
             "value" : "Grosses Tichu"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Grossäs Tichu"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7865,12 +6769,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gr. Tichu"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gr. Tichu"
@@ -7899,12 +6797,6 @@
             "value" : "Bomben: %@"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bombä: %@"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7928,12 +6820,6 @@
             "value" : "Doppelsieg"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dopu Sieg"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7952,12 +6838,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pingu"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pingu"
@@ -7986,12 +6866,6 @@
             "value" : "Tichu spielen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schpiu äs Tichu"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8010,12 +6884,6 @@
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tichu"
-          }
-        },
-        "de-CH" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tichu"
@@ -8044,12 +6912,6 @@
             "value" : "Tippen um mehr Informationen über das jeweilige Tichu-Spiel zu erfahrne und es zu teilen."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hiä druf tipä für meh Informatione ober ds Tichu Schpiu und zum’s teilä."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8071,12 +6933,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tippe für mehr Informationen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tipä für meh Informationä"
           }
         },
         "el" : {
@@ -8102,12 +6958,6 @@
             "value" : "Nach links wischen um eine Runde zu bearbeiten oder zu löschen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du chasch links uf ärä rundi wüschä zum sä bearbeitä oder löschä."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8129,12 +6979,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nach links wischen um zu bearbeiten"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Links wüschä zum bearbeite"
           }
         },
         "el" : {
@@ -8160,12 +7004,6 @@
             "value" : "Wische nach links um einen Freund zu entfernen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du chasch links uf äm nä fründ wüschä zum nä entfernä."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8187,12 +7025,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nach links wischen um zu entfernen"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Links wüschä zum entfernä"
           }
         },
         "el" : {
@@ -8218,12 +7050,6 @@
             "value" : "Benutzername verfügbar"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Benutzername verfüegbar"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8245,12 +7071,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Du kannst deinen Namen in %@ wieder bearbeiten"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du chasch di Name ersch wird änderä i: %@"
           }
         },
         "el" : {
@@ -8276,12 +7096,6 @@
             "value" : "Account erstellen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Account machä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8303,12 +7117,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Account wird erstellt…"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Account wird gmacht…."
           }
         },
         "el" : {
@@ -8334,12 +7142,6 @@
             "value" : "Wähle einen Benutzernamen aus, damit du von Freunden zu Tichu-Spielen hinzugefügt werden kannst."
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wähl ä eimaligä Benutzernämä us. Dini fründe chöi di när unger däm Benuzernamä zu Tichu Schpiu derzue tue."
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8361,12 +7163,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benutzername bearbeiten"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Benutzername bearbeitä"
           }
         },
         "el" : {
@@ -8392,12 +7188,6 @@
             "value" : "Benutzername eingeben"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Benutzername igä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8419,12 +7209,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dein alter Benutzername"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Di aut Benutzername"
           }
         },
         "el" : {
@@ -8450,12 +7234,6 @@
             "value" : "Vorausetzungen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vorussetzigä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8477,12 +7255,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benutzername verfügber"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Benutzername verfüegbar"
           }
         },
         "el" : {
@@ -8508,12 +7280,6 @@
             "value" : "Zwischen 2 und 20 Zeichen"
           }
         },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zwüschä 2 und 20 Zeichä"
-          }
-        },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8535,12 +7301,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nur Buchstaben, Zahlen und Unterstriche"
-          }
-        },
-        "de-CH" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nur Buächstabe, Zahlä und unterstrich."
           }
         },
         "el" : {

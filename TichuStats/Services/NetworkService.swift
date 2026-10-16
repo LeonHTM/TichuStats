@@ -182,9 +182,14 @@ class NetworkService: ObservableObject {
     // MARK: sendMail used in LoginView to request a login code be sent to the given email
     func sendMail(mail: String) async -> Bool {
         guard let encoded = mail.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
-              let url = URL(string: "\(apiURL)/login/request-code/\(encoded)") else { return false }
-
-        let request = appAuthorizedRequest(url: url, method: "POST")
+              let url = URL(string: "\(apiURL)/login/request-code") else { return false }
+        let languageCode = Locale.current.language.languageCode?.identifier ?? "en"
+        var request = appAuthorizedRequest(url: url, method: "POST")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONSerialization.data(withJSONObject: [
+            "email": encoded,
+            "language_code":languageCode
+        ])
 
         do {
             let (_, response) = try await URLSession.shared.data(for: request)
@@ -1325,7 +1330,6 @@ class NetworkService: ObservableObject {
         }
     }
     
-  
     
     //MARK: editRound used in AddRoundsSheetView, EditRoundsSheetView and PlayView
     func editRound(roundId: Int, updates: [String: Any]) async {
@@ -1512,5 +1516,33 @@ class NetworkService: ObservableObject {
         } catch {
             print("fetchEloHistory error: \(error)")
         }
+    }
+    
+    //MARK:
+    func fetchExportData(profileId: Int,exportProfile: Bool, exportSettings: Bool, exportFriends: Bool, exportGames: Bool, exportEloHistory: Bool, exportStatsHistory: Bool,fullStatsHistory: Bool, progress: Progress? = nil) async throws -> Data {
+        guard let url = URL(string: "\(apiURL)/export") else {
+            throw URLError(.badURL)
+        }
+
+        var request = authorizedRequest(url: url, method: "POST")
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONSerialization.data(withJSONObject: [
+            "profile_id": profileId,
+            "export_profile":exportProfile,
+            "export_settings":exportSettings,
+            "export_friends":exportSettings,
+            "export_games":exportGames,
+            "export_elo_history":exportEloHistory,
+            "export_stats_history":exportStatsHistory,
+            "full_stats_history": fullStatsHistory
+        ])
+
+        let downloader = ExportDownloader(progress: progress)
+        let fileURL = try await downloader.download(request)
+        defer { try? FileManager.default.removeItem(at: fileURL) }
+
+        try Task.checkCancellation()
+        return try Data(contentsOf: fileURL)
     }
 }

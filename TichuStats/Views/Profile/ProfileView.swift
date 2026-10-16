@@ -39,6 +39,14 @@ struct ProfileView: View {
     @State private var addPasskeyErrorMessage: String?
     @State private var chosenName: String = ""
     
+    //MARK: Export Variables
+    @State private var exportProfile: Bool = true
+    @State private var exportSettings: Bool = false
+    @State private var exportFriends: Bool = false
+    @State private var exportGames: Bool = true
+    @State private var exportEloHistory: Bool = true
+    @State private var exportStatsHistory: Bool = false
+    @State private var fullStatsHistory: Bool = false
     
     private func uploadImage(_ image: UIImage) {
         guard let data = image.pngData() else {
@@ -51,9 +59,10 @@ struct ProfileView: View {
         Task {
             await network.uploadProfileImage(profileId: userId, imageData: data)
             isUploadingImage = false
-            croppedImage = nil   
+            croppedImage = nil
         }
     }
+    
 
     // MARK: Body
     var body: some View {
@@ -74,13 +83,15 @@ struct ProfileView: View {
             .padding(.top, -10)
             .navigationTitle(String(localized: "profile.title"))
             .toolbarTitleDisplayMode(.inlineLarge)
-        }.onReceive(NotificationCenter.default.publisher(for: .openFriendsSheet)) { _ in
+            // navigationDestination must live inside the NavigationStack
+            .navigationDestination(isPresented: $showFriendsSheet) {
+                EditFriendsSheetView()
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .openFriendsSheet)) { _ in
             if network.isOnline{
                 showFriendsSheet = true
             }
-        }
-        .navigationDestination(isPresented: $showFriendsSheet) {
-            EditFriendsSheetView()
         }
     }
 
@@ -110,13 +121,6 @@ struct ProfileView: View {
                     }
                     .disabled(!network.isOnline)
                     .alert(isPresented: $showImageFailAlert) {
-                        Alert(
-                            title: Text(String(localized: "profile.header.imageUploadFail.title")),
-                            message: Text(String(localized: "profile.header.imageUploadFail.message")),
-                            dismissButton: .default(Text(String(localized: "profile.header.imageUploadFail.dismiss")))
-                        )
-                    }
-                    .alert(isPresented:$showImageFailAlert){
                         Alert(
                             title: Text(String(localized: "profile.header.imageUploadFail.title")),
                             message: Text(String(localized: "profile.header.imageUploadFail.message")),
@@ -159,10 +163,7 @@ struct ProfileView: View {
             }
             //MARK: Edit Username
             NavigationLink {
-    
-                        EditNameSheetView(editMode: true,showLoginSheet:.constant(false),signIn:.constant(false),chosenName:$chosenName)
-                    
-                
+                EditNameSheetView(editMode: true,showLoginSheet:.constant(false),signIn:.constant(false),chosenName:$chosenName)
             } label: {
                 HStack {
                     Label(String(localized: "profile.section.account.editUsername"), systemImage: "person.fill")
@@ -177,9 +178,6 @@ struct ProfileView: View {
             NavigationLink {
                 EditFriendsSheetView().onDisappear {
                     Task {
-                        Task {
-                            try? await UNUserNotificationCenter.current().setBadgeCount(network.friendRequests.count)
-                        }
                         let delivered = await UNUserNotificationCenter.current().deliveredNotifications()
                         let toRemove = delivered
                             .compactMap { $0.request.content.userInfo["notification_id"] as? String }
@@ -189,8 +187,6 @@ struct ProfileView: View {
                         try? await UNUserNotificationCenter.current().setBadgeCount(network.friendRequests.count)
                     }
                 }
-                        
-                    
             } label: {
                 HStack {
                     Label(String(localized: "profile.section.account.manageFriends"), systemImage: "person.2.fill")
@@ -319,7 +315,7 @@ struct ProfileView: View {
                 HStack {
                     
                     Label(String(localized:"profile.section.support.passKey"), systemImage:"person.badge.key.fill")
-                            .labelStyle(ColorfulIconLabelStyle(color: .black, fontSize: 13))
+                            .labelStyle(ColorfulIconLabelStyle(color: .green, fontSize: 13))
                     Spacer()
                     if isAddingPasskey {
                         ProgressView()
@@ -330,9 +326,19 @@ struct ProfileView: View {
             .disabled(!network.isOnline || isAddingPasskey)
             .foregroundStyle(Color.primary)
             .alert(String(localized:"passKeyError.general"), isPresented: $showAddPasskeyError, presenting: addPasskeyErrorMessage) { _ in
-                Button("OK", role: .cancel) {}
+                Button(String(localized:"general.alert.ok"), role: .cancel) {}
             } message: { message in
                 Text(message)
+            }
+            
+            //MARK: Export Data
+            NavigationLink{
+                ExportDataView(exportProfile:$exportProfile,exportSettings:$exportSettings,exportFriends: $exportFriends,exportGames: $exportGames,exportEloHistory: $exportEloHistory,exportStatsHistory: $exportStatsHistory,fullStatsHistory: $fullStatsHistory)
+                }label: {
+                HStack {
+                    Label(String(localized:"export.title.data"), systemImage: "arrow.down.circle.fill")
+                        .labelStyle(ColorfulIconLabelStyle(color: .gray, fontSize: 13))
+                }
             }
         }
     }
@@ -388,7 +394,7 @@ struct ProfileView: View {
                         .font(.system(size: 13, weight: .semibold))
                             .foregroundStyle(.tertiary)
                             .padding(.trailing,1.2)
-                        .rotationEffect(.degrees(showFriendsSheet ? 90 : 0))
+                        .rotationEffect(.degrees(showDeleteAlert ? 90 : 0))
                 }
             }
             .foregroundStyle(.secondary)
