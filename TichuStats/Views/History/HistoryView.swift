@@ -510,7 +510,9 @@ struct GameRow: View {
 
                 VStack(alignment: .leading) {
                     HStack {
-                        if isWinner(player_id: userId, game: game) {
+                        if game.winner == 3{
+                            Image("trophy.slash.fill").font(.system(size: 15)).foregroundStyle(.secondary).redactedShimmer()
+                        }else if isWinner(player_id: userId, game: game) {
                             Image(systemName: "trophy.fill").font(.system(size: 15)).redactedShimmer()
                         } else {
                             Image("trophy.slash.fill").font(.system(size: 15)).offset(x: -3).redactedShimmer()

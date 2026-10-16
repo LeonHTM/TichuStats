@@ -108,12 +108,13 @@ struct EloHistoryChartView: View {
                         y: .value("Elo", marked.elo)
                     )
                     .foregroundStyle(Color.primary)
-                    .annotation(position: .top) {
+                    //The Chart framework broke annotion
+                    /*.annotation(position: .top) {
                         Text(String(format: "%.0f", marked.elo))
                             .font(.caption)
                             .bold()
                             .foregroundStyle(Color.primary)
-                    }
+                    }*/
                 }
             }
             .chartYScale(domain: yDomain)

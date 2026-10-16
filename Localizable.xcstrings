@@ -6903,6 +6903,52 @@
         }
       }
     },
+    "tips.favoriteGameTip.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorisiere ein Spiel um es im LieblingsSpiel-Widgets wählen zu können."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πρόσθεσε ένα παιχνίδι στα αγαπημένα για να μπορείς να το επιλέξεις στο widget «Αγαπημένο παιχνίδι»."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorite a game to be able to select it in the Favorite Game widget."
+          }
+        }
+      }
+    },
+    "tips.favoriteGameTip.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lieblingsspiel im Widget"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εμφάνιση αγαπημένου παιχνιδιού στο widget"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Present Favorite Game In Widget"
+          }
+        }
+      }
+    },
     "tips.historyTap.message" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -6955,7 +7001,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nach links wischen um eine Runde zu bearbeiten oder zu löschen"
+            "value" : "Nach Links wischen um eine Runde zu bearbeiten oder löschen."
           }
         },
         "el" : {
@@ -6967,7 +7013,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Swipe left on a Round to edit and/or delete it."
+            "value" : "Swipe left on a round to edit or delete it."
           }
         }
       }
@@ -6978,7 +7024,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nach links wischen um zu bearbeiten"
+            "value" : "Nach Links wischen"
           }
         },
         "el" : {
@@ -6990,7 +7036,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Swipe Left to Edit"
+            "value" : "Swipe Left To Edit"
           }
         }
       }
@@ -7001,7 +7047,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wische nach links um einen Freund zu entfernen"
+            "value" : "Wische nach links um einen Freund zu entfernen."
           }
         },
         "el" : {
@@ -7013,7 +7059,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Swipe left on a a Friend to remove."
+            "value" : "Swipe left on a Friend to remove."
           }
         }
       }
@@ -7024,7 +7070,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nach links wischen um zu entfernen"
+            "value" : "Nach Links wischen"
           }
         },
         "el" : {
@@ -7036,7 +7082,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Swipe Left to Remove"
+            "value" : "Swipe Left To Remove"
           }
         }
       }

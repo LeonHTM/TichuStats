@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import TipKit
 
 struct GameSummarySheetView: View {
     
@@ -78,6 +79,13 @@ struct GameSummarySheetView: View {
                              String(winnerName):
             String(format: String(localized: "gamesummary.title.won"), String(winnerName)))
             .navigationBarTitleDisplayMode(.inline)
+            .task {
+                do {
+                    try Tips.configure()
+                } catch {
+                    print("Error initializing TipKit \(error.localizedDescription)")
+                }
+            }
         }
     }
 
@@ -237,7 +245,9 @@ struct GameSummaryBottomToolbar: ToolbarContent {
                     }
                 }label:{
                     Image(systemName: currentGame?.favorite ?? false ? "star.slash.fill" :"star.fill")
-                }.sensoryFeedback(.success,trigger:currentGame?.favorite ?? false)
+                }
+                .sensoryFeedback(.success,trigger:currentGame?.favorite ?? false)
+                .popoverTip(FavoriteGameTip() , arrowEdge: .bottom)
             }
         }
     }
