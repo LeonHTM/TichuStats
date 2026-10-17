@@ -10,7 +10,8 @@ import Combine
 import SwiftUI
 import WidgetKit
 import Network
-//MARK: - NetworkService handles everything that has to do with ServerPaths gets accesed by Socket and various Views
+
+//MARK: - NetworkService handles everything that has to do with Server Endpooints gets accesed by Socket and various Views
 class NetworkService: ObservableObject {
     //MARK: Vars
     static let shared = NetworkService()
@@ -35,7 +36,7 @@ class NetworkService: ObservableObject {
     @AppStorage("sortByStats") var sortByStats: sortBy = .valueDown
     
     //MARK: Published Variables
-    //FinishGameEditing lock the editing in GameSummarySheetOverView as soon as someone in the round closes the sheet
+    //FinishGameEditing locks the editing in GameSummarySheetOverView as soon as someone in the round closes the sheet
     @Published var currentGameId: Int? = nil
     @Published var games: [Game] = []
     @Published var roundsByGame: [Int: [Round]] = [:]
@@ -46,7 +47,7 @@ class NetworkService: ObservableObject {
     private let pathMonitor = NWPathMonitor()
     
     
-    //friendRequests are recieved requests
+    //FriendRequests are recieved requests
     @Published var eloHistory: [EloHistoryEntry] = []
     @Published var profiles: [Profile] = []
     @Published var profileImages: [Int: Data] = [:]
@@ -202,7 +203,6 @@ class NetworkService: ObservableObject {
     }
 
     // MARK: verifyLoginCode used in LoginView after the user enters the code they received by email
-    // MARK: verifyLoginCode used in LoginView after the user enters the code they received by email
     func verifyLoginCode(mail: String, code: String, name: String) async -> Bool {
         guard
             let encodedMail = mail.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
@@ -261,7 +261,6 @@ class NetworkService: ObservableObject {
         }
     }
 
-    
     //MARK: logout used in NavigationProfileImage, SocketService and ProfileView
     func logout(profileId: Int, local: Bool = false) async {
         if !local {
@@ -504,6 +503,19 @@ class NetworkService: ObservableObject {
             }
         }
     }
+    
+    //MARK: fechtProfileImage not in use
+    func fetchProfileImage(profileId: Int, filename: String) async -> Data? {
+        guard let url = URL(string: "\(apiURL)/uploads/profile_images/\(filename)") else { return nil }
+
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            return data
+        } catch {
+            print("fetchProfileImage error: \(error)")
+            return nil
+        }
+    }
 
     //MARK: fetchProfileStats used in AddPlayerSheetView and fetchSelectedProfilesStats()
     func fetchProfilesStats(profileId: Int) async {
@@ -718,7 +730,7 @@ class NetworkService: ObservableObject {
         }
     }
     
-    //fetchSelectedProfilesStats used in SocketService and Statsview fetches the Stats for selectedProfiles in StatsList which is configured in StatsView
+    //MARK: fetchSelectedProfilesStats used in SocketService and Statsview fetches the Stats for selectedProfiles in StatsList which is configured in StatsView
     func fetchSelectedProfilesStats() async{
         await withTaskGroup(of: Void.self) { group in
             var statsCopy = statsList
@@ -921,19 +933,8 @@ class NetworkService: ObservableObject {
         }
     }
 
-    func fetchProfileImage(profileId: Int, filename: String) async -> Data? {
-        guard let url = URL(string: "\(apiURL)/uploads/profile_images/\(filename)") else { return nil }
-
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            return data
-        } catch {
-            print("fetchProfileImage error: \(error)")
-            return nil
-        }
-    }
-
-    //MARK: fetchFriendRequests used in EditFriendsSheetview and SocketService
+    
+    //MARK: fetchFriendRequests (fetches recieved requests) used in EditFriendsSheetview and SocketService
     func fetchFriendRequests(profileId: Int) async {
         guard let url = URL(string: "\(apiURL)/requests/\(profileId)/") else { return }
 
@@ -1393,7 +1394,7 @@ class NetworkService: ObservableObject {
         }
     }
     
-    //updateGameFavorite used in GameSummarySheetView (and if not bugged in HistoryView but that doesn't work reliable)
+    //MARK: UpdateGameFavorite (Local change only there is no server here) used in GameSummarySheetView and HistroyView
     func updateGameFavorite(gameId: Int, favorite: Bool) async {
         await MainActor.run {
             favDic[gameId] = favorite ? 1 : 0
@@ -1551,7 +1552,9 @@ class NetworkService: ObservableObject {
         }
     }
     
-    //MARK:
+//MARK: - Export Section
+    
+    //MARK: fetchExportData used in BackgroundTaskService
     func fetchExportData(profileId: Int,exportProfile: Bool, exportSettings: Bool, exportFriends: Bool, exportGames: Bool, exportEloHistory: Bool, exportStatsHistory: Bool,fullStatsHistory: Bool, progress: Progress? = nil) async throws -> Data {
         guard let url = URL(string: "\(apiURL)/export") else {
             throw URLError(.badURL)

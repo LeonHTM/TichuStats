@@ -102,10 +102,20 @@ struct MainView: View {
                     }
                 }
             }
+        }.onChange(of:userId){
+            if userId == -69420{
+                selectedGameId = nil
+                scrolledGameId = nil
+            }
         }
         //Reconnect if not connected when switching tab for better conenctivity
         .onChange(of:selectedTab){
-            socket.reconnectIfNeeded()
+            Task {
+                let wasDisconnected = SocketService.shared.reconnectIfNeeded()
+                   if wasDisconnected {
+                       await NetworkService.shared.fetch(load: false)
+                   }
+            }
         }
         /*.onAppear{
             if isFirstLogin{
