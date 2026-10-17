@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct EloPoint: Identifiable {
-    let id = UUID()
+    var id: Date { date }
     let date: Date
     let elo: Double
 }

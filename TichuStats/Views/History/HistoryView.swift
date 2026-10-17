@@ -346,9 +346,9 @@ struct HistoryView: View {
             let restore = switchedGameIdFav.flatMap { id in
                 gameHistory.contains { $0.id == id } ? id : nil
             }
-            let target = restore ?? gameHistory.first?.id
-            selectedGameId = target
-            scrolledGameId = target
+            //let target = restore ?? gameHistory.first?.id
+            selectedGameId = gameHistory.first?.id
+            scrolledGameId = gameHistory.first?.id
         }
     }
 
@@ -364,9 +364,9 @@ struct HistoryView: View {
             let restore = switchedGameId.flatMap { id in
                 gameHistory.contains { $0.id == id } ? id : nil
             }
-            let target = restore ?? gameHistory.first?.id
-            selectedGameId = target
-            scrolledGameId = target
+            //let target = restore ?? gameHistory.first?.id
+            selectedGameId = gameHistory.first?.id
+            scrolledGameId = gameHistory.first?.id
         }
     }
 
