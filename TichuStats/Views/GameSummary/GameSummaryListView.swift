@@ -112,8 +112,6 @@ struct GameSummaryListView: View {
     }
 
     // MARK: - Row Label
-
-    /// T / t / P markers next to a team's points column.
     private func tichuIndicators(for players: [Profile], in round: Round, alignment: HorizontalAlignment) -> some View {
         VStack(alignment: alignment, spacing: 2) {
             ForEach(players, id: \.id) { player in
@@ -132,7 +130,6 @@ struct GameSummaryListView: View {
         .frame(width: 20)
     }
 
-    /// Round delta on top, cumulative score below.
     private func pointsColumn(delta: Int, cumulative: Int, isDoubleWin: Bool) -> some View {
         VStack(alignment: .center, spacing: 0) {
             Text(delta >= 0 ? "+\(delta) " : "\(delta)")
@@ -176,178 +173,193 @@ struct GameSummaryListView: View {
 
     var body: some View {
         NavigationStack {
-            if !showList {
-                List {
-                    let cumulative = allRounds.enumerated().map { (index, round) -> (index: Int, round: Round, cum1: Int, cum2: Int) in
-                        let sum1 = allRounds.prefix(index + 1).reduce(0) { $0 + $1.tichuPointsTeam1 + $1.roundPointsTeam1 }
-                        let sum2 = allRounds.prefix(index + 1).reduce(0) { $0 + $1.tichuPointsTeam2 + $1.roundPointsTeam2 }
-                        return (index, round, sum1, sum2)
+            if allRounds.isEmpty{
+                VStack{
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        ProgressView{}
+                        Spacer()
                     }
-                    if allowEditing {
-                        TipView(ListSwipeTip()).tipBackground(Color.clear)
-                    }
-                    
-                    ForEach(cumulative, id: \.round.id) { item in
-                        Section {
-                            let index = item.index
-                            let currentRound = item.round
-                            let hasExpanded = expandedRows.contains(index)
-                            let isWinningRound = currentRound.boolWinRound
-                            // Rounds that don't end the game are locked when editing is off or the game is over.
-                            let isLocked = (!allowEditing || gameOverSheet) && !isWinningRound
-                            let sortedTeam1 = sortedTeamProfiles(team1Profiles, in: currentRound)
-                            let sortedTeam2 = sortedTeamProfiles(team2Profiles, in: currentRound)
-                            
-                            DisclosureGroup(isExpanded: bindingForExpanded(row: index, disabled: isLocked)) {
-                                HStack(alignment: .top) {
-                                    VStack(alignment: .leading) {
-                                        HStack {
-                                            Text(String(format: String(localized: "general.team"), String(1)))
-                                                .fontWeight(.bold)
-                                                .foregroundStyle(Color.accentColor)
-                                            Spacer()
+                    Spacer()
+                }.transition(.opacity)
+            }else{
+                if !showList {
+                    List {
+                        let cumulative = allRounds.enumerated().map { (index, round) -> (index: Int, round: Round, cum1: Int, cum2: Int) in
+                            let sum1 = allRounds.prefix(index + 1).reduce(0) { $0 + $1.tichuPointsTeam1 + $1.roundPointsTeam1 }
+                            let sum2 = allRounds.prefix(index + 1).reduce(0) { $0 + $1.tichuPointsTeam2 + $1.roundPointsTeam2 }
+                            return (index, round, sum1, sum2)
+                        }
+                        if allowEditing {
+                            TipView(ListSwipeTip()).tipBackground(Color.clear)
+                        }
+                        
+                        ForEach(cumulative, id: \.round.id) { item in
+                            Section {
+                                let index = item.index
+                                let currentRound = item.round
+                                let hasExpanded = expandedRows.contains(index)
+                                let isWinningRound = currentRound.boolWinRound
+                                // Rounds that don't end the game are locked when editing is off or the game is over.
+                                let isLocked = (!allowEditing || gameOverSheet) && !isWinningRound
+                                let sortedTeam1 = sortedTeamProfiles(team1Profiles, in: currentRound)
+                                let sortedTeam2 = sortedTeamProfiles(team2Profiles, in: currentRound)
+                                
+                                DisclosureGroup(isExpanded: bindingForExpanded(row: index, disabled: isLocked)) {
+                                    HStack(alignment: .top) {
+                                        VStack(alignment: .leading) {
+                                            HStack {
+                                                Text(String(format: String(localized: "general.team"), String(1)))
+                                                    .fontWeight(.bold)
+                                                    .foregroundStyle(Color.accentColor)
+                                                Spacer()
+                                            }
+                                            .padding(.top)
+                                            .padding(.horizontal)
+                                            
+                                            playerRows(players: sortedTeam1,
+                                                       round: currentRound,
+                                                       teamProfileIds: (currentGame?.team1Player1Id ?? placeholderProfile.id,
+                                                                        currentGame?.team1Player2Id ?? placeholderProfile.id))
+                                            
+                                            HStack {
+                                                Text(String(format: String(localized: "general.team"), String(2)))
+                                                    .fontWeight(.bold)
+                                                Spacer()
+                                            }
+                                            .padding(.top)
+                                            .padding(.horizontal)
+                                            
+                                            playerRows(players: sortedTeam2,
+                                                       round: currentRound,
+                                                       teamProfileIds: (currentGame?.team2Player1Id ?? placeholderProfile.id,
+                                                                        currentGame?.team2Player2Id ?? placeholderProfile.id))
                                         }
-                                        .padding(.top)
-                                        .padding(.horizontal)
-                                        
-                                        playerRows(players: sortedTeam1,
-                                                   round: currentRound,
-                                                   teamProfileIds: (currentGame?.team1Player1Id ?? placeholderProfile.id,
-                                                                    currentGame?.team1Player2Id ?? placeholderProfile.id))
-                                        
-                                        HStack {
-                                            Text(String(format: String(localized: "general.team"), String(2)))
-                                                .fontWeight(.bold)
-                                            Spacer()
-                                        }
-                                        .padding(.top)
-                                        .padding(.horizontal)
-                                        
-                                        playerRows(players: sortedTeam2,
-                                                   round: currentRound,
-                                                   teamProfileIds: (currentGame?.team2Player1Id ?? placeholderProfile.id,
-                                                                    currentGame?.team2Player2Id ?? placeholderProfile.id))
+                                        Spacer()
                                     }
+                                    .padding(.leading, -20)
+                                    .padding(.trailing, 5)
+                                    
+                                } label: {
+                                    let label = roundLabel(index: index,
+                                                           round: currentRound,
+                                                           cum1: item.cum1,
+                                                           cum2: item.cum2,
+                                                           expanded: hasExpanded,
+                                                           team1: sortedTeam1,
+                                                           team2: sortedTeam2)
+                                    if isLocked {
+                                        Button {
+                                            showNotCountetAlert = true
+                                        } label: {
+                                            label
+                                        }.foregroundStyle(Color.primary)
+                                    } else {
+                                        label
+                                    }
+                                }
+                                .opacity(isLocked ? 0.5 : 1.0)
+                                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                    if allowEditing {
+                                        Button(role: .destructive) {
+                                            Task {
+                                                guard let gameId = currentGame?.id else {
+                                                    print("no game id")
+                                                    return
+                                                }
+                                                await network.deleteRound(gameId: gameId, roundId: currentRound.id)
+                                                await network.reCalculate(gameId: gameId)
+                                            }
+                                        } label: {
+                                            Label(String(localized: "general.delete"), systemImage: "trash")
+                                        }
+                                        
+                                        if !isLocked {
+                                            Button {
+                                                editingRoundIndex = index
+                                                showAddRoundSheet = true
+                                            } label: {
+                                                Label(String(localized: "general.edit"), systemImage: "pencil")
+                                            }
+                                            .tint(.accentColor)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        if !allowEditing {
+                            Section {
+                                HStack {
+                                    Spacer()
+                                    Text(String(format: String(localized: "gameSummary.playedOn"),
+                                                "\(currentGame?.date.formatted(date: .complete, time: .omitted) ?? String(localized: "general.unknown"))"))
                                     Spacer()
                                 }
-                                .padding(.leading, -20)
-                                .padding(.trailing, 5)
-                                
-                            } label: {
-                                let label = roundLabel(index: index,
-                                                       round: currentRound,
-                                                       cum1: item.cum1,
-                                                       cum2: item.cum2,
-                                                       expanded: hasExpanded,
-                                                       team1: sortedTeam1,
-                                                       team2: sortedTeam2)
-                                if isLocked {
-                                    Button {
-                                        showNotCountetAlert = true
-                                    } label: {
-                                        label
-                                    }.foregroundStyle(Color.primary)
-                                } else {
-                                    label
-                                }
+                                .foregroundStyle(Color.secondary)
                             }
-                            .opacity(isLocked ? 0.5 : 1.0)
-                            .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                                if allowEditing {
-                                    Button(role: .destructive) {
-                                        Task {
-                                            guard let gameId = currentGame?.id else {
-                                                print("no game id")
-                                                return
-                                            }
-                                            await network.deleteRound(gameId: gameId, roundId: currentRound.id)
-                                            await network.reCalculate(gameId: gameId)
-                                        }
-                                    } label: {
-                                        Label(String(localized: "general.delete"), systemImage: "trash")
-                                    }
-                                    
-                                    if !isLocked {
-                                        Button {
-                                            editingRoundIndex = index
-                                            showAddRoundSheet = true
-                                        } label: {
-                                            Label(String(localized: "general.edit"), systemImage: "pencil")
-                                        }
-                                        .tint(.accentColor)
-                                    }
-                                }
-                            }
+                            .listRowBackground(Color.clear)
                         }
-                    }
-
-                    if !allowEditing {
-                        Section {
-                            HStack {
-                                Spacer()
-                                Text(String(format: String(localized: "gameSummary.playedOn"),
-                                            "\(currentGame?.date.formatted(date: .complete, time: .omitted) ?? String(localized: "general.unknown"))"))
-                                Spacer()
-                            }
-                            .foregroundStyle(Color.secondary)
+                    }.transition(.opacity)
+                    .alert(String(localized: "rounds.notCounted.title"), isPresented: $showNotCountetAlert) {
+                        Button(String(localized: "general.alert.ok"), role: .cancel) {
+                            showNotCountetAlert = false
                         }
-                        .listRowBackground(Color.clear)
-                    }
-                }
-                .alert(String(localized: "rounds.notCounted.title"), isPresented: $showNotCountetAlert) {
-                    Button(String(localized: "general.alert.ok"), role: .cancel) {
-                        showNotCountetAlert = false
-                    }
-                   
-                } message: {
-                    let uncounted = allRounds.count - winRounds.count
-
-                    if uncounted != 0 && (!allowEditing || gameOverSheet) {
-                        Section {
-                            Text(
-                                String(
-                                    format: String(localized: uncounted > 1 ? "rounds.notCounted" : "round.notCounted"),
-                                    "\(uncounted)",
-                                    "\(winRounds.count)",
-                                    winnerName,
-                                    String(currentGame?.target ?? 0)
+                        
+                    } message: {
+                        let uncounted = allRounds.count - winRounds.count
+                        
+                        if uncounted != 0 && (!allowEditing || gameOverSheet) {
+                            Section {
+                                Text(
+                                    String(
+                                        format: String(localized: uncounted > 1 ? "rounds.notCounted" : "round.notCounted"),
+                                        "\(uncounted)",
+                                        "\(winRounds.count)",
+                                        winnerName,
+                                        String(currentGame?.target ?? 0)
+                                    )
                                 )
-                            )
+                            }
+                            .listRowBackground(Color.clear)
+                            .foregroundStyle(.secondary)
                         }
-                        .listRowBackground(Color.clear)
-                        .foregroundStyle(.secondary)
                     }
-                }
-               
-                .task {
-                    do { try Tips.configure() } catch {
-                        print("Error initializing TipKit \(error.localizedDescription)")
+                    
+                    .task {
+                        do { try Tips.configure() } catch {
+                            print("Error initializing TipKit \(error.localizedDescription)")
+                        }
                     }
-                }
-                .sheet(isPresented: $showAddRoundSheet, onDismiss: {
-                    Task {
-                        await network.fetchGameRounds(gameId: currentGame?.id ?? 0)
-                        await network.reCalculate(gameId: currentGame?.id ?? 0)
+                    .sheet(isPresented: $showAddRoundSheet, onDismiss: {
+                        Task {
+                            await network.fetchGameRounds(gameId: currentGame?.id ?? 0)
+                            await network.reCalculate(gameId: currentGame?.id ?? 0)
+                        }
+                    }) {
+                        AddRoundSheetView(
+                            showAddRoundsSheet: $showAddRoundSheet,
+                            currentGameId: currentGame?.id ?? 0,
+                            profiles: profiles,
+                            network: network,
+                            editMode: true,
+                            roundIndex: editingRoundIndex + 1,
+                            editingRound: allRounds[safe: editingRoundIndex]
+                        )
                     }
-                }) {
-                    AddRoundSheetView(
-                        showAddRoundsSheet: $showAddRoundSheet,
-                        currentGameId: currentGame?.id ?? 0,
-                        profiles: profiles,
-                        network: network,
-                        editMode: true,
-                        roundIndex: editingRoundIndex + 1,
-                        editingRound: allRounds[safe: editingRoundIndex]
-                    )
+                    .id(editingRoundIndex)
+                    .listSectionSpacing(5)
+                    .animation(.spring(duration: 0.25), value: expandedRows)
+                    .animation(.easeInOut(duration: 0.25), value: showList)
+                    
+                } else {
+                    Text(" ")
                 }
-                .id(editingRoundIndex)
-                .listSectionSpacing(5)
-                .animation(.spring(duration: 0.25), value: expandedRows)
-                .animation(.easeInOut(duration: 0.25), value: showList)
-
-            } else {
-                Text(" ")
+                
+                
             }
+            
         }
         .onChange(of: allowEditing) {
             if allowEditing == false {

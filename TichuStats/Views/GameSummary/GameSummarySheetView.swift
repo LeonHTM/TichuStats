@@ -17,7 +17,9 @@ struct GameSummarySheetView: View {
     @Binding var showGameOverViewSheetView: Bool
     var currentGameId: Int?
     @Binding var revanche: Bool
+    @Binding var isLoading: Bool
     var tie:Bool
+    
 
     // MARK: - Dependencies
     let profiles: [Profile]
@@ -94,22 +96,30 @@ struct GameSummarySheetView: View {
         Group {
             switch selectedTab {
             case 0:
-                VStack {
-                    GameSummaryChartView(currentGameId: currentGameId)
-                        .frame(width: 350)
-                    Spacer()
-                }
+                Group{
+                    VStack {
+                      
+                            GameSummaryChartView(currentGameId: currentGameId)
+                                .frame(width: 350)
+                            Spacer()
+                        
+                    }
+                }.animation(.easeInOut,value:isLoading)
             case 1:
-                GameSummaryListView(
-                    showGameSummarySheetView: $showGameOverViewSheetView,
-                    currentGameId: currentGameId,
-                    profiles: profiles,
-                    network: network,
-                    allowEditing: $allowEditing,
-                    gameOverSheet: true,
-                    winnerName: winnerName
-                )
-                .padding(.bottom, -50)
+                Group{
+                 
+                        GameSummaryListView(
+                            showGameSummarySheetView: $showGameOverViewSheetView,
+                            currentGameId: currentGameId,
+                            profiles: profiles,
+                            network: network,
+                            allowEditing: $allowEditing,
+                            gameOverSheet: true,
+                            winnerName: winnerName
+                        )
+                        .padding(.bottom, -50)
+                    
+                }.animation(.easeInOut,value:isLoading)
             default:
                 EmptyView()
             }

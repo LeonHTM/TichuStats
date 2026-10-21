@@ -9,38 +9,30 @@ import SwiftUI
 import Charts
 
 struct ScorePoint: Identifiable {
-    let id = UUID()
     let round: Int
     let value: Int
     let team: String
-}
 
+    var id: String { "\(team)-\(round)" }
+}
 
 struct GameSummaryChartView: View {
     var currentGameId: Int?
 
+    @ObservedObject private var network = NetworkService.shared
+
     // Only rounds that count toward the win (boolWinRound == true), ordered
-   
-    
-    private var currentGame: Game? {
-        NetworkService.shared.games.first(where:{$0.id == currentGameId})
-        }
-    
-    private var rounds: [Round]? {
-        NetworkService.shared.roundsByGame[currentGameId ?? 0]
-    }
-    
     private var winRounds: [Round] {
-        rounds ?? []
+        (network.roundsByGame[currentGameId ?? 0] ?? [])
             .filter { $0.gameId == currentGameId && $0.boolWinRound }
             .sorted { $0.roundOrder < $1.roundOrder }
     }
-    
+
     // MARK: - Build cumulative score
-    private func cumulativePoints(forTeam teamNumber: Int) -> [Int] {
+    private func cumulativePoints(forTeam teamNumber: Int, rounds: [Round]) -> [Int] {
         var list: [Int] = [0]
         var counter = 0
-        for round in winRounds {
+        for round in rounds {
             if teamNumber == 1 {
                 counter += round.tichuPointsTeam1 + round.roundPointsTeam1
             } else {
@@ -53,8 +45,9 @@ struct GameSummaryChartView: View {
 
     // MARK: - Chart Data
     private var chartData: [ScorePoint] {
-        let team1Points = cumulativePoints(forTeam: 1)
-        let team2Points = cumulativePoints(forTeam: 2)
+        let rounds = winRounds
+        let team1Points = cumulativePoints(forTeam: 1, rounds: rounds)
+        let team2Points = cumulativePoints(forTeam: 2, rounds: rounds)
 
         let team1Data = team1Points.enumerated().map {
             ScorePoint(round: $0.offset, value: $0.element, team: "Team 1")
@@ -68,17 +61,19 @@ struct GameSummaryChartView: View {
     }
 
     // MARK: - Y-Axis Domain
-    private var yDomain: ClosedRange<Int> {
-        let values = chartData.map { $0.value }
+    private func yDomain(for data: [ScorePoint]) -> ClosedRange<Int> {
+        let values = data.map { $0.value }
         guard let minVal = values.min(), let maxVal = values.max() else {
             return 0...100
         }
-        return minVal...maxVal
+        // Avoid a zero-height domain (e.g. all scores still 0)
+        return minVal == maxVal ? minVal...(maxVal + 100) : minVal...maxVal
     }
 
     var body: some View {
-        Chart(chartData) { point in
+        let data = chartData
 
+        Chart(data) { point in
             LineMark(
                 x: .value("Round", point.round),
                 y: .value("Score", point.value)
@@ -94,7 +89,7 @@ struct GameSummaryChartView: View {
             .symbolSize(40)
             .foregroundStyle(by: .value("Team", point.team))
         }
-        .chartYScale(domain: yDomain)
+        .chartYScale(domain: yDomain(for: data))
         .chartForegroundStyleScale([
             "Team 1": .accent,
             "Team 2": .primary
@@ -112,9 +107,8 @@ struct GameSummaryChartView: View {
                 AxisGridLine()
             }
         }
+        .animation(.easeInOut, value: data.count)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal)
     }
 }
-
-

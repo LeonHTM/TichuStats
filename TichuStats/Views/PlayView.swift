@@ -291,6 +291,7 @@ struct PlayView: View {
                         showGameOverViewSheetView: $showGameOverSheet,
                         currentGameId: network.currentGameId,
                         revanche: $revanche,
+                        isLoading:.constant(false),
                         tie: tie,
                         profiles: network.profiles,
                         network: network,
