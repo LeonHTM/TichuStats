@@ -6979,7 +6979,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nach Links wischen um eine Runde zu bearbeiten oder löschen."
+            "value" : "Wische eine Runde nach Links um sie zu bearbeiten oder löschen."
           }
         },
         "el" : {
@@ -7025,7 +7025,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wische nach links um einen Freund zu entfernen."
+            "value" : "Wische Freunde nach links um sie zu entfernen."
           }
         },
         "el" : {

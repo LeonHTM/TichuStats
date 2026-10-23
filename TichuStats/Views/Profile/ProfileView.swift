@@ -233,7 +233,7 @@ struct ProfileView: View {
             .foregroundColor(.primary)
             .alert(String(localized: "profile.section.support.privacy.alert.title"), isPresented: $showPrivacyAlert) {
                 Button(role:.confirm){
-                    if let url = PDFKitView.resolveGeneralURL(urlDomain:"https://tichu.dev",urlString:"/privacy") {
+                    if let url = PDFKitView.resolveGeneralURL(urlDomain:getURL(front:true),urlString:"/privacy") {
                         UIApplication.shared.open(url)
                     }
                 }label:{

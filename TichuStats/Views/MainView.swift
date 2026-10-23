@@ -107,6 +107,11 @@ struct MainView: View {
                 selectedGameId = nil
                 scrolledGameId = nil
             }
+        }.onChange(of:isReachable){
+            if isReachable == true{
+                selectedGameId = nil
+                scrolledGameId = nil
+            }
         }
         //Reconnect if not connected when switching tab for better conenctivity
         .onChange(of:selectedTab){
